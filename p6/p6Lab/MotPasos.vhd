@@ -7,8 +7,8 @@ entity MotPasos is
  UD : in STD_LOGIC; 
  rst : in STD_LOGIC; 
  FH : in STD_LOGIC_VECTOR(1 downto 0);
- MOT : out STD_LOGIC_VECTOR(3 downto 0) );
-end MotPasos;
+ MOT : out STD_LOGIC_VECTOR(3 downto 0) ); 
+end MotPasos; 
 architecture behavioral of MotPasos is
 
 	--Asignacion de Pines

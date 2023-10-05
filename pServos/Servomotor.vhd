@@ -1,191 +1,190 @@
-Library IEEE;
-Use IEEE.Std_logic_1164.all;
-Use IEEE.Std_logic_arith.all;
-Use IEEE.Std_logic_unsigned.all;
+LIBRARY IEEE;
+USE IEEE.Std_logic_1164.ALL;
+USE IEEE.Std_logic_arith.ALL;
+USE IEEE.Std_logic_unsigned.ALL;
 
-Entity Servomotor  is
-      Port (reloj_sv : in std_logic;
-			Pini, Pfin, Inc, Dec : in std_logic;
-			D1,D2: out std_logic_vector(6 downto 0);				   
-			control : out std_logic);
-End entity;
+ENTITY Servomotor IS
+	PORT (
+		reloj_sv : IN STD_LOGIC;
+		Pini, Pfin, Inc, Dec : IN STD_LOGIC;
+		D1, D2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		control : OUT STD_LOGIC);
+END ENTITY;
 
-Architecture Behavioral of Servomotor is
+ARCHITECTURE Behavioral OF Servomotor IS
+	--Asignacion de Pines
+	ATTRIBUTE chip_pin : STRING;
+	ATTRIBUTE chip_pin OF reloj_sv 	: SIGNAL IS "P11";
+	ATTRIBUTE chip_pin OF Pini 		: SIGNAL IS "C12";
+	ATTRIBUTE chip_pin OF Pfin 		: SIGNAL IS "C10";
+	ATTRIBUTE chip_pin OF Inc 		: SIGNAL IS "D12";
+	ATTRIBUTE chip_pin OF Dec 		: SIGNAL IS "C11";
+	ATTRIBUTE chip_pin OF control 	: SIGNAL IS "V5";
+	ATTRIBUTE chip_pin OF D1 		: SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
+	ATTRIBUTE chip_pin OF D2 		: SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
 
+	COMPONENT divisor IS
+		PORT (
+			reloj : IN STD_LOGIC;
+			div_reloj : OUT STD_LOGIC
+		);
 
---Asignacion de Pines
-	attribute chip_pin : string;
-	attribute chip_pin of reloj_sv	       : signal is "P11";	
- 	attribute chip_pin of Pini	   : signal is "C12";
-	attribute chip_pin of Pfin	   : signal is "C10"; 
-	attribute chip_pin of Inc	   : signal is "D12"; 
-	attribute chip_pin of Dec	   : signal is "C11"; 
-	attribute chip_pin of control	   : signal is "V5"; 
-	attribute chip_pin of D1	  	 : signal is "C17,D17,E16,C16,C15,E15,C14";
-	attribute chip_pin of D2	   	 : signal is "B17,A18,A17,B16,E18,D18,C18"; 
+	END COMPONENT;
 
-Component divisor is
-     Port (reloj : in std_logic;
-     div_reloj: out std_logic);
+	COMPONENT pwm IS
+		PORT (
+			reloj_pwm : IN STD_LOGIC;
+			D : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			S : OUT STD_LOGIC
+		);
 
-End Component;
+	END COMPONENT;
 
-Component pwm is
-Port (reloj_pwm : in std_logic;
-               D: in std_logic_vector(7 downto 0);
-               S: out std_logic);
+	SIGNAL reloj_serv : STD_LOGIC;
+	SIGNAL pulso : STD_LOGIC_VECTOR(7 DOWNTO 0) := X"00";
+BEGIN
+	U1 : divisor PORT MAP(reloj_sv, reloj_serv);
+	U2 : pwm PORT MAP(reloj_serv, pulso, control);
 
-End Component;
+	PROCESS (reloj_serv, Pini, Pfin, Inc, Dec)
+		VARIABLE valor : STD_LOGIC_VECTOR(7 DOWNTO 0) := X"00";
+		VARIABLE cuenta : INTEGER RANGE 0 TO 1023 := 0;
 
-Signal reloj_serv: std_logic;
-Signal pulso : std_logic_vector(7 downto 0) := X"00";
+	BEGIN
+		IF reloj_serv = '1' AND reloj_serv'event THEN
+			IF (cuenta > 0) THEN
+				cuenta := cuenta - 1;
+			ELSE
+				IF Pini = '1' THEN
+					valor := X"00";
 
+				ELSIF Pfin = '1' THEN
+					valor := X"23";
 
-Begin
-      U1: divisor Port map(reloj_sv, reloj_serv);
-      U2: pwm Port map(reloj_serv, pulso, control);
+				ELSIF Inc = '1' AND valor < X"23" THEN
+					valor := valor + 1;
 
-		
+				ELSIF Dec = '1' AND valor > X"00" THEN
+					valor := valor - 1;
 
-		Process(reloj_serv, Pini, Pfin, Inc, Dec)
-      Variable valor : std_logic_vector(7 downto 0) := X"00";
-      Variable cuenta : integer range 0 to 1023 := 0;
+				END IF;
+				cuenta := 1023;
+			END IF;
+		END IF;
+		pulso <= valor;
 
-      Begin 
-           If reloj_serv= '1' and reloj_serv'event then
-              If (cuenta > 0) then
-                  cuenta := cuenta - 1;
-              Else
-                  If Pini = '1' then
-                     valor := X"00";
+	END PROCESS;
 
-                     Elsif Pfin = '1' then
-                           valor := X"23";
-
-                     Elsif Inc = '1' and valor < X"23" then
-                           valor := valor + 1;
-
-                     Elsif Dec = '1' and valor > X"00" then
-                           valor := valor - 1;
-
-                  End if;
-						cuenta := 1023;
-              End if;
-           End if;
-       pulso <= valor;
-
-      End process;
-
-	process(pulso)
-	begin
-	if (pulso = X"00") then
-		D1<="1000000";
-		D2<="1000000";	
-	elsif (pulso = X"01") then
-		D1<="1111001"; 
-		D2<="1000000";
-	elsif (pulso = X"02") then
-		D1<="0100100";
-		D2<="1000000";
-	elsif (pulso = X"03") then
-		D1<="0110000";
-		D2<="1000000";
-	elsif (pulso = X"04") then
-		D1<="0011001";
-		D2<="1000000";
-	elsif (pulso = X"05") then
-		D1<="0010010";
-		D2<="1000000";
-	elsif (pulso = X"06") then
-		D1<="0000010";
-		D2<="1000000";
-	elsif (pulso = X"07") then
-		D1<="0111000";
-		D2<="1000000";
-	elsif (pulso = X"08") then
-		D1<="0000000";
-		D2<="1000000";
-	elsif (pulso = X"09") then --9
-		D1<="0010000";
-		D2<="1000000";
-	elsif (pulso = X"0A") then
-		D1<="1000000";
-		D2<="1111001";
-	elsif (pulso = X"0B") then
-		D1<="1111001";
-		D2<="1111001";
-	elsif (pulso = X"0C") then
-		D1<="0100100";
-		D2<="1111001";
-	elsif (pulso = X"0D") then
-		D1<="0110000";
-		D2<="1111001";
-	elsif (pulso = X"0E") then
-		D1<="0011001";
-		D2<="1111001";
-	elsif (pulso = X"0F") then
-			D1<="0010010";
-		D2<="1111001";
-	elsif (pulso = X"10") then
-		D1<="0000010";
-		D2<="1111001";
-	elsif (pulso = X"11") then
-		D1<="0111000";
-		D2<="1111001";
-	elsif (pulso = X"12") then
-		D1<="0000000";
-		D2<="1111001";
-	elsif (pulso = X"13") then
-		D1<="0010000"; --19
-		D2<="1111001";
-	elsif (pulso = X"14") then
-		D1<="1000000";
-		D2<="0100100";
-	elsif (pulso = X"15") then
-		D1<="1111001";
-		D2<="0100100";
-	elsif (pulso = X"16") then
-		D1<="0100100";
-		D2<="0100100";
-	elsif (pulso = X"17") then
-		D1<="0110000";
-		D2<="0100100";
-	elsif (pulso = X"18") then
-		D1<="0011001";
-		D2<="0100100";
-	elsif (pulso = X"19") then
-		D1<="0010010";
-		D2<="0100100";
-	elsif (pulso = X"1A") then
-		D1<="0000010";
-		D2<="0100100";
-	elsif (pulso = X"1B") then
-		D1<="0111000";
-		D2<="0100100";
-	elsif (pulso = X"1C") then
-		D1<="0000000";
-		D2<="0100100";
-	elsif (pulso = X"1D") then
-		D1<="0010000"; --29
-		D2<="0100100";
-	elsif (pulso = X"1E") then
-		D1<="1000000";
-		D2<="0110000";
-	elsif (pulso = X"1F") then
-		D1<="1111001";
-		D2<="0110000";
-	elsif (pulso = X"20") then
-		D1<="0100100";
-		D2<="0110000";
-	elsif (pulso = X"21") then
-		D1<="0110000";
-		D2<="0110000";
-	elsif (pulso = X"22") then
-		D1<="0011001";
-		D2<="0110000";
-	elsif (pulso = X"23") then
-		D1<="0010010";
-		D2<="0110000";
-	end if;
-	end process;
-End behavioral;
+	PROCESS (pulso)
+	BEGIN
+		IF (pulso = X"00") THEN
+			D1 <= "1000000";
+			D2 <= "1000000";
+		ELSIF (pulso = X"01") THEN
+			D1 <= "1111001";
+			D2 <= "1000000";
+		ELSIF (pulso = X"02") THEN
+			D1 <= "0100100";
+			D2 <= "1000000";
+		ELSIF (pulso = X"03") THEN
+			D1 <= "0110000";
+			D2 <= "1000000";
+		ELSIF (pulso = X"04") THEN
+			D1 <= "0011001";
+			D2 <= "1000000";
+		ELSIF (pulso = X"05") THEN
+			D1 <= "0010010";
+			D2 <= "1000000";
+		ELSIF (pulso = X"06") THEN
+			D1 <= "0000010";
+			D2 <= "1000000";
+		ELSIF (pulso = X"07") THEN
+			D1 <= "0111000";
+			D2 <= "1000000";
+		ELSIF (pulso = X"08") THEN
+			D1 <= "0000000";
+			D2 <= "1000000";
+		ELSIF (pulso = X"09") THEN --9
+			D1 <= "0010000";
+			D2 <= "1000000";
+		ELSIF (pulso = X"0A") THEN
+			D1 <= "1000000";
+			D2 <= "1111001";
+		ELSIF (pulso = X"0B") THEN
+			D1 <= "1111001";
+			D2 <= "1111001";
+		ELSIF (pulso = X"0C") THEN
+			D1 <= "0100100";
+			D2 <= "1111001";
+		ELSIF (pulso = X"0D") THEN
+			D1 <= "0110000";
+			D2 <= "1111001";
+		ELSIF (pulso = X"0E") THEN
+			D1 <= "0011001";
+			D2 <= "1111001";
+		ELSIF (pulso = X"0F") THEN
+			D1 <= "0010010";
+			D2 <= "1111001";
+		ELSIF (pulso = X"10") THEN
+			D1 <= "0000010";
+			D2 <= "1111001";
+		ELSIF (pulso = X"11") THEN
+			D1 <= "0111000";
+			D2 <= "1111001";
+		ELSIF (pulso = X"12") THEN
+			D1 <= "0000000";
+			D2 <= "1111001";
+		ELSIF (pulso = X"13") THEN
+			D1 <= "0010000"; --19
+			D2 <= "1111001";
+		ELSIF (pulso = X"14") THEN
+			D1 <= "1000000";
+			D2 <= "0100100";
+		ELSIF (pulso = X"15") THEN
+			D1 <= "1111001";
+			D2 <= "0100100";
+		ELSIF (pulso = X"16") THEN
+			D1 <= "0100100";
+			D2 <= "0100100";
+		ELSIF (pulso = X"17") THEN
+			D1 <= "0110000";
+			D2 <= "0100100";
+		ELSIF (pulso = X"18") THEN
+			D1 <= "0011001";
+			D2 <= "0100100";
+		ELSIF (pulso = X"19") THEN
+			D1 <= "0010010";
+			D2 <= "0100100";
+		ELSIF (pulso = X"1A") THEN
+			D1 <= "0000010";
+			D2 <= "0100100";
+		ELSIF (pulso = X"1B") THEN
+			D1 <= "0111000";
+			D2 <= "0100100";
+		ELSIF (pulso = X"1C") THEN
+			D1 <= "0000000";
+			D2 <= "0100100";
+		ELSIF (pulso = X"1D") THEN
+			D1 <= "0010000"; --29
+			D2 <= "0100100";
+		ELSIF (pulso = X"1E") THEN
+			D1 <= "1000000";
+			D2 <= "0110000";
+		ELSIF (pulso = X"1F") THEN
+			D1 <= "1111001";
+			D2 <= "0110000";
+		ELSIF (pulso = X"20") THEN
+			D1 <= "0100100";
+			D2 <= "0110000";
+		ELSIF (pulso = X"21") THEN
+			D1 <= "0110000";
+			D2 <= "0110000";
+		ELSIF (pulso = X"22") THEN
+			D1 <= "0011001";
+			D2 <= "0110000";
+		ELSIF (pulso = X"23") THEN
+			D1 <= "0010010";
+			D2 <= "0110000";
+		END IF;
+	END PROCESS;
+END behavioral;
