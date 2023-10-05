@@ -1,0 +1,90 @@
+|Servomotor
+reloj_sv => divisor:U1.reloj
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Inc => process_0.IN1
+Dec => process_0.IN1
+D1[0] <= D1[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[1] <= D1[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[2] <= D1[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[3] <= D1[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[4] <= D1[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[5] <= D1[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D1[6] <= D1[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[0] <= D2[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[1] <= <GND>
+D2[2] <= D2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[3] <= D2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[4] <= D2[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[5] <= D2[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+D2[6] <= D2[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+control <= pwm:U2.S
+
+
+|Servomotor|divisor:U1
+reloj => cuenta[0].CLK
+reloj => cuenta[1].CLK
+reloj => cuenta[2].CLK
+reloj => cuenta[3].CLK
+reloj => cuenta[4].CLK
+reloj => cuenta[5].CLK
+reloj => cuenta[6].CLK
+reloj => cuenta[7].CLK
+reloj => cuenta[8].CLK
+reloj => cuenta[9].CLK
+reloj => cuenta[10].CLK
+reloj => cuenta[11].CLK
+reloj => cuenta[12].CLK
+reloj => cuenta[13].CLK
+reloj => cuenta[14].CLK
+reloj => cuenta[15].CLK
+reloj => cuenta[16].CLK
+reloj => cuenta[17].CLK
+reloj => cuenta[18].CLK
+reloj => cuenta[19].CLK
+reloj => cuenta[20].CLK
+reloj => cuenta[21].CLK
+reloj => cuenta[22].CLK
+reloj => cuenta[23].CLK
+reloj => cuenta[24].CLK
+reloj => cuenta[25].CLK
+reloj => cuenta[26].CLK
+reloj => cuenta[27].CLK
+div_reloj <= cuenta[11].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Servomotor|PWM:U2
+reloj_pwm => S~reg0.CLK
+reloj_pwm => cuenta[0].CLK
+reloj_pwm => cuenta[1].CLK
+reloj_pwm => cuenta[2].CLK
+reloj_pwm => cuenta[3].CLK
+reloj_pwm => cuenta[4].CLK
+reloj_pwm => cuenta[5].CLK
+reloj_pwm => cuenta[6].CLK
+reloj_pwm => cuenta[7].CLK
+D[0] => LessThan0.IN16
+D[1] => LessThan0.IN15
+D[2] => LessThan0.IN14
+D[3] => LessThan0.IN13
+D[4] => LessThan0.IN12
+D[5] => LessThan0.IN11
+D[6] => LessThan0.IN10
+D[7] => LessThan0.IN9
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

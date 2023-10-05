@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sun Sep 03 22:33:17 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : practica1
+Top-level Entity Name : practica1
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 93 / 49,760 ( < 1 % )
+    Total combinational functions : 93 / 49,760 ( < 1 % )
+    Dedicated logic registers : 48 / 49,760 ( < 1 % )
+Total registers : 48
+Total pins : 29 / 360 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

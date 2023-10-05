@@ -1,0 +1,20 @@
+
+State Machine - |leds|pre_state
+Name pre_state.violeta pre_state.indigo pre_state.azul pre_state.verde pre_state.amarillo pre_state.naranja pre_state.rojo 
+pre_state.rojo 0 0 0 0 0 0 0 
+pre_state.naranja 0 0 0 0 0 1 1 
+pre_state.amarillo 0 0 0 0 1 0 1 
+pre_state.verde 0 0 0 1 0 0 1 
+pre_state.azul 0 0 1 0 0 0 1 
+pre_state.indigo 0 1 0 0 0 0 1 
+pre_state.violeta 1 0 0 0 0 0 1 
+
+State Machine - |leds|next_state
+Name next_state.violeta next_state.indigo next_state.azul next_state.verde next_state.amarillo next_state.naranja next_state.rojo 
+next_state.rojo 0 0 0 0 0 0 0 
+next_state.naranja 0 0 0 0 0 1 1 
+next_state.amarillo 0 0 0 0 1 0 1 
+next_state.verde 0 0 0 1 0 0 1 
+next_state.azul 0 0 1 0 0 0 1 
+next_state.indigo 0 1 0 0 0 0 1 
+next_state.violeta 1 0 0 0 0 0 1 

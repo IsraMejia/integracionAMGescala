@@ -1,0 +1,85 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "disp1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "disp1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "disp2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "control",
+					"strict" : false
+				},
+				{
+					"name" : "Inc",
+					"strict" : false
+				},
+				{
+					"name" : "Pini",
+					"strict" : false
+				},
+				{
+					"name" : "Pfin",
+					"strict" : false
+				},
+				{
+					"name" : "Dec",
+					"strict" : false
+				},
+				{
+					"name" : "reloj_sv",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

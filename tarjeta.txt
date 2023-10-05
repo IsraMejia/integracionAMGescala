@@ -1,0 +1,83 @@
+10M50DAF484C7G
+10M50DAF484C7G
+
+desactivar instalacion de controladores no Certificados windows 
+bcdedit /set testsigning on
+activarlo 
+bcdedit /set testsigning off
+
+
+
+Cambios de variables
+Antes  = Ahora
+
+entity div_gen    = divisor_frec
+        div       = divisor
+        clk_in    = reloj_entrada
+        reset     = encendido
+        clk_out   = reloj_salida
+architecture div_gen_arch = divisor_frec_arch 
+
+
+
+entity sync_generator = controlador_vga
+        Ha          = psh --Ancho del pulso de sincronización horizontal en píxeles
+        Hb          = ihv --Inicio Horizontal visible
+        Hc          = fhv --Fin Horizontal visible
+        Hd          = TotalHorizontal   
+
+        Va          = psv
+        Vb          = ivv --Inicio Vertical visible
+        Vc          = fvv --Fin Vertical visible
+        Vd          = TotalVertical
+        dena        = habilitador
+
+        reset       = encendido 
+architecture sync_generator_arch = divisor_frec_bhv
+        Hcount = ContadorHorizontal
+        Vcount = ContadorVertical
+
+
+
+
+entity score_display = marcador_dss
+        score1 = marcador_j1
+        score2 = marcador_j2
+
+        seg1 = seg_marcador_j1
+        bar1 = separador1_marcador
+        bar2 = separador2_marcador
+        seg2 = seg_marcador_j2
+
+architecture marcador_dss_arch = marcador_dss_bhv
+
+
+
+
+entity image_generator = imprime_pantalla
+    PVsize      =   MedidaVerticalRaqueta
+    PHsize      =   MedidaHorizontalRaqueta
+    BallSize    =   MedidaPelota
+
+    pixel_clk   = reloj_pixeles
+    paddle_clk  = reloj_raquetas
+    ball_clk    = reloj_pelota
+
+        direction_switch = palancasJugadores
+
+    row_counter = contador_renglones
+    col_counter = contador_columnas
+
+    paddle1_pos_x = coord_x_raqueta1
+    paddle2_pos_x = coord_x_raqueta2
+    paddle1_pos_y = coord_y_raqueta1
+    paddle2_pos_y = coord_y_raqueta2
+
+    Ball_pos_x = coord_x_pelota
+    Ball_pos_y = coord_y_pelota
+    Ball_direction = direccion_pelota
+
+        state_type = tipo_estados
+        state = estado
+        move = movimiento_juego
+    -----------------------AUN FALTA TERMINAR ESTO

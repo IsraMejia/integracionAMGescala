@@ -1,0 +1,8 @@
+
+State Machine - |p04|estado_actual
+Name estado_actual.e5 estado_actual.e4 estado_actual.e3 estado_actual.e2 estado_actual.e1 
+estado_actual.e1 0 0 0 0 0 
+estado_actual.e2 0 0 0 1 1 
+estado_actual.e3 0 0 1 0 1 
+estado_actual.e4 0 1 0 0 1 
+estado_actual.e5 1 0 0 0 1 

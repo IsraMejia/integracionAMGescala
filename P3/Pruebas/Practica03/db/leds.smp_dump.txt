@@ -1,0 +1,20 @@
+
+State Machine - |leds|epre
+Name epre.e7 epre.e6 epre.e5 epre.e4 epre.e3 epre.e2 epre.e1 
+epre.e1 0 0 0 0 0 0 0 
+epre.e2 0 0 0 0 0 1 1 
+epre.e3 0 0 0 0 1 0 1 
+epre.e4 0 0 0 1 0 0 1 
+epre.e5 0 0 1 0 0 0 1 
+epre.e6 0 1 0 0 0 0 1 
+epre.e7 1 0 0 0 0 0 1 
+
+State Machine - |leds|esig
+Name esig.e7 esig.e6 esig.e5 esig.e4 esig.e3 esig.e2 esig.e1 
+esig.e1 0 0 0 0 0 0 0 
+esig.e2 0 0 0 0 0 1 1 
+esig.e3 0 0 0 0 1 0 1 
+esig.e4 0 0 0 1 0 0 1 
+esig.e5 0 0 1 0 0 0 1 
+esig.e6 0 1 0 0 0 0 1 
+esig.e7 1 0 0 0 0 0 1 

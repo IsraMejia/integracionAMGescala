@@ -1,0 +1,90 @@
+|servomotor_disp
+reloj_sv => divisor:U1.reloj
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pini => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Pfin => valor.OUTPUTSELECT
+Inc => process_0.IN1
+Dec => process_0.IN1
+disp1[0] <= disp1[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[1] <= disp1[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[2] <= disp1[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[3] <= disp1[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[4] <= disp1[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[5] <= disp1[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp1[6] <= disp1[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[0] <= disp2[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[1] <= <GND>
+disp2[2] <= disp2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[3] <= disp2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[4] <= disp2[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[5] <= disp2[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+disp2[6] <= disp2[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+control <= pwm:U2.S
+
+
+|servomotor_disp|divisor:U1
+reloj => cuenta[0].CLK
+reloj => cuenta[1].CLK
+reloj => cuenta[2].CLK
+reloj => cuenta[3].CLK
+reloj => cuenta[4].CLK
+reloj => cuenta[5].CLK
+reloj => cuenta[6].CLK
+reloj => cuenta[7].CLK
+reloj => cuenta[8].CLK
+reloj => cuenta[9].CLK
+reloj => cuenta[10].CLK
+reloj => cuenta[11].CLK
+reloj => cuenta[12].CLK
+reloj => cuenta[13].CLK
+reloj => cuenta[14].CLK
+reloj => cuenta[15].CLK
+reloj => cuenta[16].CLK
+reloj => cuenta[17].CLK
+reloj => cuenta[18].CLK
+reloj => cuenta[19].CLK
+reloj => cuenta[20].CLK
+reloj => cuenta[21].CLK
+reloj => cuenta[22].CLK
+reloj => cuenta[23].CLK
+reloj => cuenta[24].CLK
+reloj => cuenta[25].CLK
+reloj => cuenta[26].CLK
+reloj => cuenta[27].CLK
+div_reloj <= cuenta[11].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|servomotor_disp|PWM:U2
+reloj_pwm => S~reg0.CLK
+reloj_pwm => cuenta[0].CLK
+reloj_pwm => cuenta[1].CLK
+reloj_pwm => cuenta[2].CLK
+reloj_pwm => cuenta[3].CLK
+reloj_pwm => cuenta[4].CLK
+reloj_pwm => cuenta[5].CLK
+reloj_pwm => cuenta[6].CLK
+reloj_pwm => cuenta[7].CLK
+D[0] => LessThan0.IN16
+D[1] => LessThan0.IN15
+D[2] => LessThan0.IN14
+D[3] => LessThan0.IN13
+D[4] => LessThan0.IN12
+D[5] => LessThan0.IN11
+D[6] => LessThan0.IN10
+D[7] => LessThan0.IN9
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
