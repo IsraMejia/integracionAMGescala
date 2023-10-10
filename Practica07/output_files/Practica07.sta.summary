@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.506
+TNS   : -216.463
+
+Type  : Slow 1200mV 85C Model Setup '\DiviServo:cuenta_divi[11]'
+Slack : -2.180
+TNS   : -28.435
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.323
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold '\DiviServo:cuenta_divi[11]'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -140.494
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width '\DiviServo:cuenta_divi[11]'
+Slack : -1.403
+TNS   : -29.463
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.187
+TNS   : -192.126
+
+Type  : Slow 1200mV 0C Model Setup '\DiviServo:cuenta_divi[11]'
+Slack : -1.897
+TNS   : -24.341
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.289
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold '\DiviServo:cuenta_divi[11]'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -140.494
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width '\DiviServo:cuenta_divi[11]'
+Slack : -1.403
+TNS   : -29.463
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.916
+TNS   : -38.889
+
+Type  : Fast 1200mV 0C Model Setup '\DiviServo:cuenta_divi[11]'
+Slack : -0.285
+TNS   : -1.095
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.141
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold '\DiviServo:cuenta_divi[11]'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -103.944
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width '\DiviServo:cuenta_divi[11]'
+Slack : -1.000
+TNS   : -21.000
+
+------------------------------------------------------------
