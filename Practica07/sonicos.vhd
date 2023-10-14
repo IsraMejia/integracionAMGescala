@@ -18,14 +18,17 @@ ARCHITECTURE Behavioral OF sonicos IS
 
 	--Asignacion de Pines
 	ATTRIBUTE chip_pin : STRING;
-	ATTRIBUTE chip_pin OF reloj : SIGNAL IS "P11";
-	ATTRIBUTE chip_pin OF UD : SIGNAL IS "C12";
-	ATTRIBUTE chip_pin OF rst : SIGNAL IS "D12";
-	ATTRIBUTE chip_pin OF FH : SIGNAL IS "C11,C10";
-	ATTRIBUTE chip_pin OF MOT : SIGNAL IS "W7,W8,W9,W10";
+	ATTRIBUTE chip_pin OF clk : SIGNAL IS "P11";
+	ATTRIBUTE chip_pin OF led : SIGNAL IS "A8";
+	ATTRIBUTE chip_pin OF sensor_disp : SIGNAL IS "AB2";
+	ATTRIBUTE chip_pin OF sensor_eco : SIGNAL IS "AA2"; 
+	ATTRIBUTE chip_pin OF control : SIGNAL IS "V10";
+	ATTRIBUTE chip_pin OF Ucm : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
+	ATTRIBUTE chip_pin OF Dcm : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
+	
 
 	SIGNAL cuenta : STD_LOGIC_VECTOR(16 DOWNTO 0) := (OTHERS => '0');
-	SIGNAL contador_s : INTEGER RANGE 0 TO 150000000 := 0;
+	SIGNAL contador_s : INTEGER RANGE 0 TO 125000000 := 0;
 	SIGNAL centimetros : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL centimetros_unid : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL centimetros_dece : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
@@ -139,10 +142,10 @@ BEGIN
 		END IF;
 	END PROCESS;
 
-	ContadorS : PROCESS (sal_unid, sal_dece, clk)
-	BEGIN
+	activarS : PROCESS (sal_unid, sal_dece, clk)
+	BEGIN 
 		IF rising_edge(clk) THEN
-			IF (sal_unid = X"5" AND sal_dece = X"1") THEN
+			IF (sal_unid = X"0" AND (sal_dece >= X"2" AND sal_dece <= X"5")) THEN
 				led <= '1';
 				mover <= '1';
 			ELSE
@@ -174,7 +177,8 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
-	PROCESS (E_presente, clk)
+	
+	ESTADOS: PROCESS (E_presente, clk)
 	BEGIN
 		IF rising_edge(clk) THEN
 			CASE E_presente IS
@@ -189,14 +193,14 @@ BEGIN
 						END IF;
 						contador_s <= contador_s - 1;
 					ELSE
-						contador_s <= 150000000;
+						contador_s <= 125000000;
 					END IF;
 			END CASE;
 			E_presente <= E_siguiente;
 		END IF;
 	END PROCESS;
 
-	PROCESS (E_presente) IS
+	CAMBIO: PROCESS (E_presente) IS
 	BEGIN
 		CASE E_presente IS
 			WHEN Abierto => value1 <= X"09";
@@ -205,7 +209,7 @@ BEGIN
 		END CASE;
 	END PROCESS;
 
-	PROCESS (reloj_divi, mover)
+	mueveS: PROCESS (reloj_divi, mover)
 		VARIABLE count : INTEGER RANGE 0 TO 1023 := 0;
 	BEGIN
 		IF reloj_divi = '1' AND reloj_divi 'event THEN

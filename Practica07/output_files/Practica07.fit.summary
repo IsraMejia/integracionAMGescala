@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Oct 09 21:54:19 2023
-Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Fitter Status : Successful - Fri Oct 13 14:08:04 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Practica07
 Top-level Entity Name : sonicos
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
 Total logic elements : 173 / 49,760 ( < 1 % )
-    Total combinational functions : 164 / 49,760 ( < 1 % )
-    Dedicated logic registers : 119 / 49,760 ( < 1 % )
-Total registers : 119
+    Total combinational functions : 161 / 49,760 ( < 1 % )
+    Dedicated logic registers : 118 / 49,760 ( < 1 % )
+Total registers : 118
 Total pins : 19 / 360 ( 5 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
