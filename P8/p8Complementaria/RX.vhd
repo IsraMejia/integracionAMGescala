@@ -82,27 +82,29 @@ architecture behaivoral OF RX IS
 		end if;
 	end process;
  
-	 RX_dato : process(reloj)
+	 RX_dato : process(reloj) --Recibe datos en serie y los decodifica 
 	 begin
 		if (reloj'EVENT and reloj = '1') then
 			if (Flag = '0' and RX_WIRE = '0') then
+        -- inició Comunicacion 
 				Flag<= '1';
 				INDICE <= 0;
 				PRE <= 0;
 			end if;
 			if (Flag = '1') then
-				BUFF(INDICE)<=RX_WIRE;
+				BUFF(INDICE)<=RX_WIRE; --Guarda los bits recibidos en Buff
 				if(PRE < PRE_val) then
 					PRE <= PRE + 1;
 				else
 					PRE <= 0;
 				end if;
-			if(PRE = PRE_val/2) then
+			if(PRE = PRE_val/2) then --Se recibieron suficientes bits 
 				if(INDICE < 9) then
 					INDICE <= INDICE + 1;
 				else
 					if(BUFF(0) = '0' and BUFF(9)= '1') then
-						registros <= BUFF(8 DOWNTO 1);
+						--Manda informacion del buffer a los registros y a los leds 
+						registros <= BUFF(8 DOWNTO 1); 
 						LEDS <= BUFF(8 DOWNTO 1);
 					else
 						registros <= "00000000";
