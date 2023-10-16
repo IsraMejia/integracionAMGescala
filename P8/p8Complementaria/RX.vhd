@@ -117,7 +117,10 @@ architecture behaivoral OF RX IS
 		end if;
 	 end process RX_dato;
 	 
-	 baud<="011";
+
+		-- selecciona la velocidad de baudios en base al PRE_val
+		-- velocidad de transferencia de datos (bits por segundo) 
+	 baud<="011"; 
 	 with (baud) select
 	 PRE_val <= 41600	when "000", -- 1200 bauds
 					20800	when "001", -- 2400 bauds
@@ -127,11 +130,15 @@ architecture behaivoral OF RX IS
 					1300 	when "101", -- 38400 bauds
 					866 	when "110", -- 57600 bauds
 					432 	when others; --115200 bauds
-					
+	
+
+  --en base a los bits recibidos, realiza las tareas deseadas de la actividad complementaria	
 	Comportamiento: Process (e_presente, reloj)
 		begin
 			if rising_edge(reloj) then
-				case e_presente is
+
+			 case e_presente is
+					
 					when Otros =>
 						if registros = "00110001" then --se manda 1
 							e_siguiente <= ServoA;
@@ -144,6 +151,8 @@ architecture behaivoral OF RX IS
 						else
 							e_siguiente <= Otros;
 						end if;
+
+
 					when ServoA =>
 						if registros = "00110001" then
 							e_siguiente <= ServoA;
@@ -156,6 +165,8 @@ architecture behaivoral OF RX IS
 						else
 							e_siguiente <= Otros;
 						end if;
+
+
 					when ServoC =>
 						if registros = "00110001" then
 							e_siguiente <= ServoA;
@@ -168,6 +179,8 @@ architecture behaivoral OF RX IS
 						else
 							e_siguiente <= Otros;
 						end if;
+
+
 					when Mensaje =>
 							if registros = "00110001" then
 								e_siguiente <= ServoA;
@@ -180,6 +193,8 @@ architecture behaivoral OF RX IS
 							else
 								e_siguiente <= Otros;
 							end if;
+
+
 					when Contador =>
 						if registros = "00110001" then
 							e_siguiente <= ServoA;
@@ -192,15 +207,21 @@ architecture behaivoral OF RX IS
 						else
 							e_siguiente <= Otros;
 						end if;
+
+
 					when others =>
 						e_siguiente <= Otros;
 				end case;
-				e_presente <= e_siguiente;
+
+
+				e_presente <= e_siguiente; -- pasamos al siguiente estado 
 			end if;
 	end process;
 	
+	
 	Asignacion: Process (e_presente)
 	begin
+	 -- en base a e_presente asignamos las acciones a realizar con las banderas 
 		case e_presente is
 			when ServoA 	=> banderas <= "0001";
 			when ServoC 	=> banderas <= "0010";
@@ -210,9 +231,12 @@ architecture behaivoral OF RX IS
 		end case;
 	end process;
 	
-	
+	-- Asigna valores para realixar un cambio de comportamiento 
+	-- actividades complementarias 
 	cambioComportamiento: Process (banderas,segundo)
 	begin
+
+		-- Datos para las Tareas para ServoA
 		if banderas = "0001" then
 			value1 <= X"18";
 			D1 <= "1111111";
@@ -222,6 +246,8 @@ architecture behaivoral OF RX IS
 			D6 <= "1111111";
 			D3 <= "1111111";
 			Q 	<= "0000";
+
+		-- Datos para las Tareas para ServoC
 		elsif banderas = "0010" then
 			value1 <= X"0D";
 			D1 <= "1111111";
@@ -231,6 +257,8 @@ architecture behaivoral OF RX IS
 			D6 <= "1111111";
 			D3 <= "1111111";
 			Q 	<= "0000";
+
+		-- Datos para las Tareas para Mostrar mensaje
 		elsif banderas = "0100" then
 		
 			case Q is
@@ -253,7 +281,9 @@ architecture behaivoral OF RX IS
 				D6 <= D5;
 			end if;
 			
-				 
+		
+
+		-- Datos para las Tareas para Contador		 
 		elsif banderas = "1000" then			
 			Case Qum is
 				when "0000" => D1 <= "1000000";  --0
@@ -290,6 +320,8 @@ architecture behaivoral OF RX IS
 			D3 <= "1111111";
 			Q 	<= "0000";
 			
+		
+		--Cualquier otro caso no hace nada 
 		else
 			D1 <= "1111111";
 			D2 <= "1111111";
@@ -314,6 +346,8 @@ architecture behaivoral OF RX IS
 		end if;
 	end process;
 	
+
+	-- Extraen las unidades de la señal de segundo para mostrar en displays 
 	unidades: process (segundo)
 		variable cuenta: std_logic_vector(3 downto 0) := "0000";
 	begin
@@ -333,6 +367,8 @@ architecture behaivoral OF RX IS
 			Qum <= cuenta;
 	end process;
 
+
+		-- Extraen las decenas de la señal de segundo para mostrar en displays 
 	decenas: process (segundo)
 		variable cuenta: std_logic_vector(3 downto 0) := "0000";
 	begin
