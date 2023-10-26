@@ -1,0 +1,16 @@
+
+State Machine - |RX|e_presente
+Name e_presente.Otros e_presente.Contador e_presente.Mensaje e_presente.ServoC e_presente.ServoA 
+e_presente.ServoA 0 0 0 0 0 
+e_presente.ServoC 0 0 0 1 1 
+e_presente.Mensaje 0 0 1 0 1 
+e_presente.Contador 0 1 0 0 1 
+e_presente.Otros 1 0 0 0 1 
+
+State Machine - |RX|e_siguiente
+Name e_siguiente.Otros e_siguiente.Contador e_siguiente.Mensaje e_siguiente.ServoC e_siguiente.ServoA 
+e_siguiente.ServoA 0 0 0 0 0 
+e_siguiente.ServoC 0 0 0 1 1 
+e_siguiente.Mensaje 0 0 1 0 1 
+e_siguiente.Contador 0 1 0 0 1 
+e_siguiente.Otros 1 0 0 0 1 
