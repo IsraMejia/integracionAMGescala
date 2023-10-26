@@ -42,6 +42,7 @@ ARCHITECTURE Behavioral OF sonicos IS
 	SIGNAL mover : STD_LOGIC := '0';
 	TYPE estados IS (Abierto, Cerrado);
 	SIGNAL E_presente, E_siguiente : estados := Cerrado;
+	--si 
 
 BEGIN
 
