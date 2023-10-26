@@ -1,6 +1,6 @@
 Flow report for Practica07
-Mon Oct 09 21:54:29 2023
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Fri Oct 13 14:08:17 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,24 +33,25 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Oct 09 21:54:24 2023       ;
-; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Flow Status                        ; Successful - Fri Oct 13 14:08:11 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica07                                  ;
 ; Top-level Entity Name              ; sonicos                                     ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
 ; Total logic elements               ; 173 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 164 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 119 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 119                                         ;
+;     Total combinational functions  ; 161 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 118 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 118                                         ;
 ; Total pins                         ; 19 / 360 ( 5 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/09/2023 21:53:54 ;
+; Start date & time ; 10/13/2023 14:07:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Practica07          ;
 +-------------------+---------------------+
@@ -77,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 81774449288669.169691003325948         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 176527405316125.169722764503136        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; sonicos     ; Top        ;
@@ -93,11 +94,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4785 MB             ; 00:00:27                           ;
-; Fitter               ; 00:00:12     ; 1.0                     ; 5629 MB             ; 00:00:17                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4680 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 4816 MB             ; 00:00:03                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:50                           ;
+; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 4782 MB             ; 00:00:37                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 5383 MB             ; 00:00:23                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4686 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4796 MB             ; 00:00:04                           ;
+; Total                ; 00:00:48     ; --                      ; --                  ; 00:01:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -106,10 +107,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
