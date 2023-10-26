@@ -13,6 +13,7 @@ entity RX is
 end entity;
 
 architecture behaivoral OF RX IS
+--/*Variables de control y seguimiento como BUFF, Flag, PRE, PRE_VAL, baud 
  signal BUFF: STD_LOGIC_VECTOR(9 downto 0);
  signal Flag: STD_LOGIC := '0';
  signal PRE: INTEGER RANGE 0 TO 5208 := 0;
@@ -131,8 +132,8 @@ architecture behaivoral OF RX IS
 					866 	when "110", -- 57600 bauds
 					432 	when others; --115200 bauds
 	
-
-  --en base a los bits recibidos, realiza las tareas deseadas de la actividad complementaria	
+	--Maquina de estados
+  	--en base a los bits recibidos, realiza las tareas deseadas de la actividad complementaria	
 	Comportamiento: Process (e_presente, reloj)
 		begin
 			if rising_edge(reloj) then
@@ -141,13 +142,13 @@ architecture behaivoral OF RX IS
 					
 					when Otros =>
 						if registros = "00110001" then --se manda 1
-							e_siguiente <= ServoA;
+							e_siguiente <= ServoA; --abrir
 						elsif registros = "00110010" then --se manda 2
-							e_siguiente <= ServoC;
+							e_siguiente <= ServoC;--cerrar
 						elsif registros = "00110011" then --se manda 3
 							e_siguiente <= Mensaje;
 						elsif registros = "00110100" then --se manda 4
-							e_siguiente <= Contador;
+							e_siguiente <= Contador; --0 al 76
 						else
 							e_siguiente <= Otros;
 						end if;
@@ -238,18 +239,18 @@ architecture behaivoral OF RX IS
 
 		-- Datos para las Tareas para ServoA
 		if banderas = "0001" then
-			value1 <= X"18";
+			value1 <= X"18"; --abrir servo
 			D1 <= "1111111";
 			D2 <= "1111111";
 			D4 <= "1111111";
 			D5 <= "1111111";
 			D6 <= "1111111";
 			D3 <= "1111111";
-			Q 	<= "0000";
+			Q 	<= "0000"; 
 
 		-- Datos para las Tareas para ServoC
 		elsif banderas = "0010" then
-			value1 <= X"0D";
+			value1 <= X"0D"; --cerrar servo
 			D1 <= "1111111";
 			D2 <= "1111111";
 			D4 <= "1111111";
@@ -259,8 +260,7 @@ architecture behaivoral OF RX IS
 			Q 	<= "0000";
 
 		-- Datos para las Tareas para Mostrar mensaje
-		elsif banderas = "0100" then
-		
+		elsif banderas = "0100" then		
 			case Q is
 				 when "0000" => D1 <= "0000110"; -- E
 				 when "0001" => D1 <= "0101011"; -- n
@@ -283,7 +283,7 @@ architecture behaivoral OF RX IS
 			
 		
 
-		-- Datos para las Tareas para Contador		 
+		-- Datos para las Tareas para Contador	de unidades	 
 		elsif banderas = "1000" then			
 			Case Qum is
 				when "0000" => D1 <= "1000000";  --0
@@ -300,7 +300,7 @@ architecture behaivoral OF RX IS
 			end case;
 		
 
-			Case Qdm is
+			Case Qdm is --contador decenas
 				when "0000" => D2 <= "1000000";  --0
 				when "0001" => D2 <= "1111001"; --1
 				when "0010" => D2 <= "0100100"; --2
@@ -314,7 +314,7 @@ architecture behaivoral OF RX IS
 				when others => D2 <= "1000000"; --F
 			end case;
 						
-			D4 <= "1111111";
+			D4 <= "1111111"; --apaga displays no usados
 			D5 <= "1111111";
 			D6 <= "1111111";
 			D3 <= "1111111";
@@ -325,15 +325,16 @@ architecture behaivoral OF RX IS
 		else
 			D1 <= "1111111";
 			D2 <= "1111111";
-			D3 <= "0001000";
-			D4 <= "0101011";
+			D3 <= "0001000";--A
+			D4 <= "0101011";--N N/A  no asignada actividad
 			D6 <= "1111111";
 			D5 <= "1111111";
 			Q 	<= "0000";
 		end if;
 	end process;
 		
-	Process(reloj_divi)
+	Process(reloj_divi) --Process para activar el servo
+	--Mismo de la practica pasada para controlar el servo
 		variable count: INTEGER RANGE 0 TO 1023 :=0;
 	begin
 		if reloj_divi = '1' and reloj_divi 'event then
@@ -356,6 +357,9 @@ architecture behaivoral OF RX IS
 			cuenta:="0000";
 			n <= '1';
 			reset <= '0';
+		--Si se llega al 76 se recetea todo , 
+		--O las banderas no pertenecen a esta tarea , se mantiene en 0, 
+		--caso contrario cuenta
 		elsif (Qum = "0110" and Qdm = "0111") or banderas /= "1000" then
 			cuenta:= "0000";
 			reset <= '1';
