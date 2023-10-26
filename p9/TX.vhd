@@ -140,13 +140,17 @@ BEGIN
 	BEGIN
 		IF rising_edge(reloj) THEN
 			CASE e_presente IS
-				WHEN J =>
-					e_siguiente <= U;
-				WHEN U =>
+				WHEN I =>
+					e_siguiente <= S;
+				WHEN S =>
+					e_siguiente <= R;
+				WHEN R =>
 					e_siguiente <= A;
-				WHEN A =>
-					e_siguiente <= N;
-				WHEN N =>
+				WHEN E =>
+					e_siguiente <= L;
+				WHEN L =>
+					e_siguiente <= M;
+				WHEN M =>
 					e_siguiente <= vacio;
 
 				WHEN OTHERS =>
@@ -228,7 +232,7 @@ BEGIN
 						hex_val6 <= X"4D";--M
 
 		END CASE;
-	END PROCESS;
+	END PROCESS; 
 
 	WITH (baud) SELECT
 	PRE_val <= 41600 WHEN "000", -- 1200 bauds
