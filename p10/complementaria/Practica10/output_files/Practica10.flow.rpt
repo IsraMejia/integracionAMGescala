@@ -1,6 +1,6 @@
 Flow report for Practica10
-Fri Nov 03 12:19:10 2023
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Sat Nov 04 19:39:43 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,15 +33,16 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Nov 03 12:19:10 2023       ;
-; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Flow Status                        ; Successful - Sat Nov 04 19:39:43 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica10                                  ;
 ; Top-level Entity Name              ; vga                                         ;
 ; Family                             ; MAX 10                                      ;
@@ -66,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/03/2023 12:18:26 ;
+; Start date & time ; 11/04/2023 19:38:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Practica10          ;
 +-------------------+---------------------+
@@ -77,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 81774449288669.169903550617052         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 176527405316125.169914831804136        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -96,12 +97,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4805 MB             ; 00:00:33                           ;
-; Fitter               ; 00:00:15     ; 1.2                     ; 5648 MB             ; 00:00:25                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4682 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.6                     ; 4825 MB             ; 00:00:06                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4655 MB             ; 00:00:01                           ;
-; Total                ; 00:00:39     ; --                      ; --                  ; 00:01:08                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4778 MB             ; 00:00:34                           ;
+; Fitter               ; 00:00:26     ; 1.1                     ; 5389 MB             ; 00:00:29                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4690 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 1.2                     ; 4806 MB             ; 00:00:08                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4644 MB             ; 00:00:01                           ;
+; Total                ; 00:00:59     ; --                      ; --                  ; 00:01:16                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -110,11 +111,11 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; DESKTOP-93R0A2J  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

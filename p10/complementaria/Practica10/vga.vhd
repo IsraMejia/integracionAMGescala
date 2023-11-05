@@ -1,421 +1,420 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity vga is
-	generic( --Constantes para monitor VGA en 640x480
-				constant h_pulse : integer := 96;
-				constant h_bp : integer := 48;
-				constant h_pixels : integer := 640;
-				constant h_fp : integer := 16;
-				constant v_pulse : integer := 2;
-				constant v_bp : integer := 33;
-				constant v_pixels : integer := 480;
-				constant v_fp : integer := 10
+ENTITY vga IS
+	GENERIC (--Constantes para monitor VGA en 640x480
+		CONSTANT h_pulse : INTEGER := 96;
+		CONSTANT h_bp : INTEGER := 48;
+		CONSTANT h_pixels : INTEGER := 640;
+		CONSTANT h_fp : INTEGER := 16;
+		CONSTANT v_pulse : INTEGER := 2;
+		CONSTANT v_bp : INTEGER := 33;
+		CONSTANT v_pixels : INTEGER := 480;
+		CONSTANT v_fp : INTEGER := 10
 	);
-	port ( clk50MHz: in std_logic;
-			sw1, sw2, sw3, sw4: in std_logic;
-			red: out std_logic_vector (3 downto 0);
-			green: out std_logic_vector (3 downto 0);
-			blue: out std_logic_vector (3 downto 0);
-			h_sync: out std_logic;
-			v_sync: out std_logic );
-end entity vga;
+	PORT (
+		clk50MHz : IN STD_LOGIC;
+		sw1, sw2, sw3, sw4 : IN STD_LOGIC;
+		red : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		green : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		blue : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		h_sync : OUT STD_LOGIC;
+		v_sync : OUT STD_LOGIC);
+END ENTITY vga;
 
-architecture behaivoral OF vga IS
+ARCHITECTURE behaivoral OF vga IS
 
---Contadores
-	constant h_period : integer := h_pulse + h_bp + h_pixels + h_fp;
-	constant v_period : integer := v_pulse + v_bp + v_pixels + v_fp;
-	signal h_count : integer range 0 to h_period - 1 := 0;
-	signal v_count : integer range 0 to v_period - 1 := 0;
-	signal reloj_pixel: std_logic;
-	signal column, row: integer;
-	signal display_ena: std_logic;
-	signal y: integer range 0 to 480:= 400;
-	signal x: integer range 0 to 640:= 0;
+	--Contadores
+	CONSTANT h_period : INTEGER := h_pulse + h_bp + h_pixels + h_fp;
+	CONSTANT v_period : INTEGER := v_pulse + v_bp + v_pixels + v_fp;
+	SIGNAL h_count : INTEGER RANGE 0 TO h_period - 1 := 0;
+	SIGNAL v_count : INTEGER RANGE 0 TO v_period - 1 := 0;
+	SIGNAL reloj_pixel : STD_LOGIC;
+	SIGNAL column, row : INTEGER;
+	SIGNAL display_ena : STD_LOGIC;
+	SIGNAL y : INTEGER RANGE 0 TO 480 := 400;
+	SIGNAL x : INTEGER RANGE 0 TO 640 := 0;
 
---Asignacion de Pines
-	attribute chip_pin : string;
-	attribute chip_pin of clk50MHz	    : signal is "P11";	
-	attribute chip_pin of red		 		 : signal is "Y1,Y2,v1,AA1";	
- 	attribute chip_pin of green		 	 : signal is "R1,R2,T2,W1";
-	attribute chip_pin of blue		 		 : signal is "N2,P4,T1,P1";
-	attribute chip_pin of h_sync		 	 : signal is "N3";
-	attribute chip_pin of v_sync		 	 : signal is "N1";
-	attribute chip_pin of sw1		 		 : signal is "C10";
-	attribute chip_pin of sw2		 		 : signal is "C11";
-	attribute chip_pin of sw3		 		 : signal is "D12";
-	attribute chip_pin of sw4		 		 : signal is "C12";
-	
-begin
+	--Asignacion de Pines
+	ATTRIBUTE chip_pin : STRING;
+	ATTRIBUTE chip_pin OF clk50MHz 	: SIGNAL IS "P11";
+	ATTRIBUTE chip_pin OF red 		: SIGNAL IS "Y1,Y2,v1,AA1";
+	ATTRIBUTE chip_pin OF green 	: SIGNAL IS "R1,R2,T2,W1";
+	ATTRIBUTE chip_pin OF blue 		: SIGNAL IS "N2,P4,T1,P1";
+	ATTRIBUTE chip_pin OF h_sync 	: SIGNAL IS "N3";
+	ATTRIBUTE chip_pin OF v_sync	: SIGNAL IS "N1";
+	ATTRIBUTE chip_pin OF sw1 		: SIGNAL IS "C10";
+	ATTRIBUTE chip_pin OF sw2 		: SIGNAL IS "C11";
+	ATTRIBUTE chip_pin OF sw3 		: SIGNAL IS "D12";
+	ATTRIBUTE chip_pin OF sw4 		: SIGNAL IS "C12";
 
-	relojpixel: process (clk50MHz) is
-	begin
-		if rising_edge(clk50MHz) then
-			reloj_pixel <= not reloj_pixel;
-		end if;
-		end process relojpixel; -- 25mhz
+BEGIN
 
-	contadores : process (reloj_pixel) -- H_periodo=800, V_periodo=525
-	begin
-		if rising_edge(reloj_pixel) then
-			if h_count<(h_period-1) then
-				h_count<=h_count+1;
-			else
-				h_count<=0;
-				if v_count<(v_period-1) then
-					v_count<=v_count+1;
-				else
-					v_count<=0;
-				end if;
-			end if;
-		end if;
-	end process contadores;
+	relojpixel : PROCESS (clk50MHz) IS
+	BEGIN
+		IF rising_edge(clk50MHz) THEN
+			reloj_pixel <= NOT reloj_pixel;
+		END IF;
+	END PROCESS relojpixel; -- 25mhz
 
-	senial_hsync : process (reloj_pixel) --h_pixel+h_fp+h_pulse= 784
-	begin
-		if rising_edge(reloj_pixel) then
-			if h_count>(h_pixels + h_fp) or
-				h_count>(h_pixels + h_fp + h_pulse) then
-				h_sync<='0';
-			else
-				h_sync<='1';
-			end if;
-		end if;
-	end process senial_hsync;
+	contadores : PROCESS (reloj_pixel) -- H_periodo=800, V_periodo=525
+	BEGIN
+		IF rising_edge(reloj_pixel) THEN
+			IF h_count < (h_period - 1) THEN
+				h_count <= h_count + 1;
+			ELSE
+				h_count <= 0;
+				IF v_count < (v_period - 1) THEN
+					v_count <= v_count + 1;
+				ELSE
+					v_count <= 0;
+				END IF;
+			END IF;
+		END IF;
+	END PROCESS contadores;
 
-	senial_vsync : process (reloj_pixel) --vpixels+v_fp+v_pulse=525
-	begin --checar si se en parte visible es 1 o 0
-		if rising_edge(reloj_pixel) then
-			if v_count>(v_pixels + v_fp) or
-				v_count>(v_pixels + v_fp + v_pulse) then
-				v_sync<='0';
-			else
-				v_sync<='1';
-			end if;
-		end if;
-	end process senial_vsync;
+	senial_hsync : PROCESS (reloj_pixel) --h_pixel+h_fp+h_pulse= 784
+	BEGIN
+		IF rising_edge(reloj_pixel) THEN
+			IF h_count > (h_pixels + h_fp) OR
+				h_count > (h_pixels + h_fp + h_pulse) THEN
+				h_sync <= '0';
+			ELSE
+				h_sync <= '1';
+			END IF;
+		END IF;
+	END PROCESS senial_hsync;
 
-	coords_pixel: process(reloj_pixel)
-	begin --asignar una coordenada en parte visible
-		if rising_edge(reloj_pixel) then
-			if (h_count < h_pixels) then
+	senial_vsync : PROCESS (reloj_pixel) --vpixels+v_fp+v_pulse=525
+	BEGIN --checar si se en parte visible es 1 o 0
+		IF rising_edge(reloj_pixel) THEN
+			IF v_count > (v_pixels + v_fp) OR
+				v_count > (v_pixels + v_fp + v_pulse) THEN
+				v_sync <= '0';
+			ELSE
+				v_sync <= '1';
+			END IF;
+		END IF;
+	END PROCESS senial_vsync;
+
+	coords_pixel : PROCESS (reloj_pixel)
+	BEGIN --asignar una coordenada en parte visible
+		IF rising_edge(reloj_pixel) THEN
+			IF (h_count < h_pixels) THEN
 				column <= h_count;
-			end if;
-			if (v_count < v_pixels) then
+			END IF;
+			IF (v_count < v_pixels) THEN
 				row <= v_count;
-			end if;
-		end if;
-	end process coords_pixel;
+			END IF;
+		END IF;
+	END PROCESS coords_pixel;
 
-	generador_imagen: process(display_ena, row, column)
-	begin
-		if(display_ena = '1') then
-			if ((row > (y+44) and row <(y+51)) and (column>(x+22) and column<(x+31))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '0'); --parte del sol
-			elsif ((row > (y+43) and row <(y+45)) and (column>(x+23) and column<(x+30))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '0'); -- resto del sol
-			elsif ((row > (y+39) and row <(y+47)) and (column>(x+2) and column<(x+12))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1');-- Parte nube 1
-			elsif ((row > (y+40) and row <(y+46)) and (column>(x+1) and column<(x+13))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1'); --completo nube 1
-			elsif ((row > (y+35) and row <(y+41)) and (column>(x+18) and column<(x+26))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1');-- Parte nube 2
-			elsif ((row > (y+36) and row <(y+40)) and (column>(x+17) and column<(x+27))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1'); --completo nube 2
-			elsif ((row > (y+38) and row <(y+36)) and (column>(x+37) and column<(x+47))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1'); --Parte Nube 3
-			elsif ((row > (y+39) and row <(y+35)) and (column>(x+36) and column<(x+48))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '1');-- completo nube 3
-			elsif ((row > (y) and row <(y+15)) and (column>(x) and column<(x+23))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--Parte del pasto
-			elsif ((row > (y) and row <(y+15)) and (column>(x+29) and column<(x+51))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--Parte del pasto
-			elsif ((row > (y) and row <(y+6)) and (column>(x+22) and column<(x+30))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--Parte del pasto
-			elsif ((row > (y+11) and row <(y+14)) and (column>(x+28) and column<(x+30))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+5) and row <(y+9)) and (column>(x+24) and column<(x+31))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--Parte del pasto
-			elsif ((row > (y+11) and row <(y+15)) and (column>(x+22) and column<(x+26))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+12) and row <(y+14)) and (column>(x+25) and column<(x+27))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+9) and row <(y+12)) and (column>(x+22) and column<(x+25))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+8) and row <(y+10)) and (column>(x+22) and column<(x+24))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+6) and row <(y+8)) and (column>(x+23) and column<(x+25))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--parte del pasto
-			elsif ((row > (y+8) and row <(y+10)) and (column>(x+28) and column<(x+30))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--Parte final del pasto
-			elsif ((row > (y+18) and row <(y+21)) and (column>(x+18) and column<(x+21))) then
-				red <= (others => '1');
-				green<=(others => '1');
-				blue<=(others => '0');--centro flor
-			elsif ((row > (y+17) and row <(y+19)) and (column>(x+18) and column<(x+21))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '0');--petalo flor
-			elsif ((row > (y+20) and row <(y+22)) and (column>(x+18) and column<(x+21))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '0');--petalo flor
-			elsif ((row > (y+18) and row <(y+21)) and (column>(x+17) and column<(x+19))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '0');--petalo flor
-			elsif ((row > (y+18) and row <(y+21)) and (column>(x+20) and column<(x+22))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '0');--petalo flor, final
-			elsif ((row > (y+17) and row <(y+20)) and (column>(x+4) and column<(x+10))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '1');--capullo flor
-			elsif ((row > (y+19) and row <(y+21)) and (column>(x+5) and column<(x+9))) then
-				red <= (others => '1');
-				green<=(others => '0');
-				blue<=(others => '1');--capullo flor, final
-			elsif ((row > (y+15) and row <(y+18)) and (column>(x+6) and column<(x+8))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--rama flor 1
-			elsif ((row > (y+15) and row <(y+18)) and (column>(x+18) and column<(x+20))) then
-				red <= (others => '0');
-				green<=(others => '1');
-				blue<=(others => '0');--rama flor 2
-			elsif ((row > (y+14) and row <(y+40)) and (column>(x) and column<(x+5))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+14) and row <(y+39)) and (column>(x+29) and column<(x+51))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--Parte cielo
-			elsif ((row > (y+21) and row <(y+36)) and (column>(x+4) and column<(x+30))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--Parte del cielo
-			elsif ((row > (y+35) and row <(y+40)) and (column>(x+4) and column<(x+18))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');-- Parte del cielo
-			elsif ((row > (y+35) and row <(y+44)) and (column>(x+26) and column<(x+38))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+44) and row <(y+51)) and (column>(x+30) and column<(x+40))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--Parte del cielo
-			elsif ((row > (y+45) and row <(y+51)) and (column>(x+11) and column<(x+23))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--Parte del cielo
-			elsif ((row > (y+38) and row <(y+51)) and (column>(x+46) and column<(x+51))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+45) and row <(y+51)) and (column>(x+39) and column<(x+47))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+40) and row <(y+44)) and (column>(x+12) and column<(x+27))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+46) and row <(y+51)) and (column>(x) and column<(x+12))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+43) and row <(y+46)) and (column>(x+12) and column<(x+23))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+14) and row <(y+18)) and (column>(x+7) and column<(x+19))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+14) and row <(y+18)) and (column>(x+19) and column<(x+26))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+17) and row <(y+22)) and (column>(x+21) and column<(x+30))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+17) and row <(y+22)) and (column>(x+9) and column<(x+18))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--Parte del cielo
-			elsif ((row > (y+14) and row <(y+18)) and (column>(x+4) and column<(x+7))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+20) and row <(y+22)) and (column>(x+4) and column<(x+10))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+43) and row <(y+45)) and (column>(x+29) and column<(x+38))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+39) and row <(y+41)) and (column>(x+11) and column<(x+19))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte dl cielo
-			elsif ((row > (y+39) and row <(y+51)) and (column>(x) and column<(x+2))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+16) and row <(y+18)) and (column>(x+26) and column<(x+29))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+43) and row <(y+44)) and (column>(x+22) and column<(x+24))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+45) and row <(y+47)) and (column>(x+1) and column<(x+3))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+39) and row <(y+41)) and (column>(x+1) and column<(x+3))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+35) and row <(y+37)) and (column>(x+17) and column<(x+19))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+35) and row <(y+37)) and (column>(x+25) and column<(x+27))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+39) and row <(y+41)) and (column>(x+25) and column<(x+27))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+38) and row <(y+40)) and (column>(x+37) and column<(x+40))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+38) and row <(y+40)) and (column>(x+44) and column<(x+47))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+44) and row <(y+46)) and (column>(x+44) and column<(x+47))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+19) and row <(y+21)) and (column>(x+4) and column<(x+6))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+19) and row <(y+21)) and (column>(x+8) and column<(x+10))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+20) and row <(y+22)) and (column>(x+17) and column<(x+19))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+20) and row <(y+22)) and (column>(x+20) and column<(x+22))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+17) and row <(y+19)) and (column>(x+17) and column<(x+19))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo
-			elsif ((row > (y+17) and row <(y+19)) and (column>(x+20) and column<(x+22))) then
-				red <= (others => '0');
-				green<=(others => '0');
-				blue<=(others => '1');--parte del cielo, final
-			else
-				red <= (others => '0');
-				green <= (others => '0');
-				blue <= (others => '0');
-			end if;
-		else
-			red<= (others => '0');
-			green <= (others => '0');
-			blue<= (others => '0');
-		end if;
-	end process generador_imagen;
+	generador_imagen : PROCESS (display_ena, row, column)
+	BEGIN
+		IF (display_ena = '1') THEN
+			IF ((row > (y + 44) AND row < (y + 51)) AND (column > (x + 22) AND column < (x + 31))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0'); --parte del sol
+			ELSIF ((row > (y + 43) AND row < (y + 45)) AND (column > (x + 23) AND column < (x + 30))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0'); -- resto del sol
+			ELSIF ((row > (y + 39) AND row < (y + 47)) AND (column > (x + 2) AND column < (x + 12))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1');-- Parte nube 1
+			ELSIF ((row > (y + 40) AND row < (y + 46)) AND (column > (x + 1) AND column < (x + 13))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1'); --completo nube 1
+			ELSIF ((row > (y + 35) AND row < (y + 41)) AND (column > (x + 18) AND column < (x + 26))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1');-- Parte nube 2
+			ELSIF ((row > (y + 36) AND row < (y + 40)) AND (column > (x + 17) AND column < (x + 27))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1'); --completo nube 2
+			ELSIF ((row > (y + 38) AND row < (y + 36)) AND (column > (x + 37) AND column < (x + 47))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1'); --Parte Nube 3
+			ELSIF ((row > (y + 39) AND row < (y + 35)) AND (column > (x + 36) AND column < (x + 48))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '1');-- completo nube 3
+			ELSIF ((row > (y) AND row < (y + 15)) AND (column > (x) AND column < (x + 23))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--Parte del pasto
+			ELSIF ((row > (y) AND row < (y + 15)) AND (column > (x + 29) AND column < (x + 51))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--Parte del pasto
+			ELSIF ((row > (y) AND row < (y + 6)) AND (column > (x + 22) AND column < (x + 30))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--Parte del pasto
+			ELSIF ((row > (y + 11) AND row < (y + 14)) AND (column > (x + 28) AND column < (x + 30))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 5) AND row < (y + 9)) AND (column > (x + 24) AND column < (x + 31))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--Parte del pasto
+			ELSIF ((row > (y + 11) AND row < (y + 15)) AND (column > (x + 22) AND column < (x + 26))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 12) AND row < (y + 14)) AND (column > (x + 25) AND column < (x + 27))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 9) AND row < (y + 12)) AND (column > (x + 22) AND column < (x + 25))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 8) AND row < (y + 10)) AND (column > (x + 22) AND column < (x + 24))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 6) AND row < (y + 8)) AND (column > (x + 23) AND column < (x + 25))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--parte del pasto
+			ELSIF ((row > (y + 8) AND row < (y + 10)) AND (column > (x + 28) AND column < (x + 30))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--Parte final del pasto
+			ELSIF ((row > (y + 18) AND row < (y + 21)) AND (column > (x + 18) AND column < (x + 21))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--centro flor
+			ELSIF ((row > (y + 17) AND row < (y + 19)) AND (column > (x + 18) AND column < (x + 21))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '0');--petalo flor
+			ELSIF ((row > (y + 20) AND row < (y + 22)) AND (column > (x + 18) AND column < (x + 21))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '0');--petalo flor
+			ELSIF ((row > (y + 18) AND row < (y + 21)) AND (column > (x + 17) AND column < (x + 19))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '0');--petalo flor
+			ELSIF ((row > (y + 18) AND row < (y + 21)) AND (column > (x + 20) AND column < (x + 22))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '0');--petalo flor, final
+			ELSIF ((row > (y + 17) AND row < (y + 20)) AND (column > (x + 4) AND column < (x + 10))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--capullo flor
+			ELSIF ((row > (y + 19) AND row < (y + 21)) AND (column > (x + 5) AND column < (x + 9))) THEN
+				red <= (OTHERS => '1');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--capullo flor, final
+			ELSIF ((row > (y + 15) AND row < (y + 18)) AND (column > (x + 6) AND column < (x + 8))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--rama flor 1
+			ELSIF ((row > (y + 15) AND row < (y + 18)) AND (column > (x + 18) AND column < (x + 20))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '1');
+				blue <= (OTHERS => '0');--rama flor 2
+			ELSIF ((row > (y + 14) AND row < (y + 40)) AND (column > (x) AND column < (x + 5))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 14) AND row < (y + 39)) AND (column > (x + 29) AND column < (x + 51))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--Parte cielo
+			ELSIF ((row > (y + 21) AND row < (y + 36)) AND (column > (x + 4) AND column < (x + 30))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--Parte del cielo
+			ELSIF ((row > (y + 35) AND row < (y + 40)) AND (column > (x + 4) AND column < (x + 18))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');-- Parte del cielo
+			ELSIF ((row > (y + 35) AND row < (y + 44)) AND (column > (x + 26) AND column < (x + 38))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 44) AND row < (y + 51)) AND (column > (x + 30) AND column < (x + 40))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--Parte del cielo
+			ELSIF ((row > (y + 45) AND row < (y + 51)) AND (column > (x + 11) AND column < (x + 23))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--Parte del cielo
+			ELSIF ((row > (y + 38) AND row < (y + 51)) AND (column > (x + 46) AND column < (x + 51))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 45) AND row < (y + 51)) AND (column > (x + 39) AND column < (x + 47))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 40) AND row < (y + 44)) AND (column > (x + 12) AND column < (x + 27))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 46) AND row < (y + 51)) AND (column > (x) AND column < (x + 12))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 43) AND row < (y + 46)) AND (column > (x + 12) AND column < (x + 23))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 14) AND row < (y + 18)) AND (column > (x + 7) AND column < (x + 19))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 14) AND row < (y + 18)) AND (column > (x + 19) AND column < (x + 26))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 17) AND row < (y + 22)) AND (column > (x + 21) AND column < (x + 30))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 17) AND row < (y + 22)) AND (column > (x + 9) AND column < (x + 18))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--Parte del cielo
+			ELSIF ((row > (y + 14) AND row < (y + 18)) AND (column > (x + 4) AND column < (x + 7))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 20) AND row < (y + 22)) AND (column > (x + 4) AND column < (x + 10))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 43) AND row < (y + 45)) AND (column > (x + 29) AND column < (x + 38))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 39) AND row < (y + 41)) AND (column > (x + 11) AND column < (x + 19))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte dl cielo
+			ELSIF ((row > (y + 39) AND row < (y + 51)) AND (column > (x) AND column < (x + 2))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 16) AND row < (y + 18)) AND (column > (x + 26) AND column < (x + 29))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 43) AND row < (y + 44)) AND (column > (x + 22) AND column < (x + 24))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 45) AND row < (y + 47)) AND (column > (x + 1) AND column < (x + 3))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 39) AND row < (y + 41)) AND (column > (x + 1) AND column < (x + 3))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 35) AND row < (y + 37)) AND (column > (x + 17) AND column < (x + 19))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 35) AND row < (y + 37)) AND (column > (x + 25) AND column < (x + 27))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 39) AND row < (y + 41)) AND (column > (x + 25) AND column < (x + 27))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 38) AND row < (y + 40)) AND (column > (x + 37) AND column < (x + 40))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 38) AND row < (y + 40)) AND (column > (x + 44) AND column < (x + 47))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 44) AND row < (y + 46)) AND (column > (x + 44) AND column < (x + 47))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 19) AND row < (y + 21)) AND (column > (x + 4) AND column < (x + 6))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 19) AND row < (y + 21)) AND (column > (x + 8) AND column < (x + 10))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 20) AND row < (y + 22)) AND (column > (x + 17) AND column < (x + 19))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 20) AND row < (y + 22)) AND (column > (x + 20) AND column < (x + 22))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 17) AND row < (y + 19)) AND (column > (x + 17) AND column < (x + 19))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo
+			ELSIF ((row > (y + 17) AND row < (y + 19)) AND (column > (x + 20) AND column < (x + 22))) THEN
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '1');--parte del cielo, final
+			ELSE
+				red <= (OTHERS => '0');
+				green <= (OTHERS => '0');
+				blue <= (OTHERS => '0');
+			END IF;
+		ELSE
+			red <= (OTHERS => '0');
+			green <= (OTHERS => '0');
+			blue <= (OTHERS => '0');
+		END IF;
+	END PROCESS generador_imagen;
 
-	display_enable: process(reloj_pixel) --- h_pixels=640; y_pixeles=480
-	begin
-		if rising_edge(reloj_pixel) then
-			if (h_count < h_pixels AND v_count < v_pixels) THEN
+	display_enable : PROCESS (reloj_pixel) --- h_pixels=640; y_pixeles=480
+	BEGIN
+		IF rising_edge(reloj_pixel) THEN
+			IF (h_count < h_pixels AND v_count < v_pixels) THEN
 				display_ena <= '1';
-			else
+			ELSE
 				display_ena <= '0';
-			end if;
-		end if;
-	end process display_enable;
-	
-	CambiarDePosicion: process(clk50MHz)
-	begin
-		if rising_edge(clk50MHz) then
-			if sw4='1' then
+			END IF;
+		END IF;
+	END PROCESS display_enable;
+
+	CambiarDePosicion : PROCESS (clk50MHz)
+	BEGIN
+		IF rising_edge(clk50MHz) THEN
+			IF sw4 = '1' THEN
 				x <= 50;
 				y <= 50;
-			elsif sw3='1' then
+			ELSIF sw3 = '1' THEN
 				x <= 589;
 				y <= 50;
-			elsif sw2='1' then
+			ELSIF sw2 = '1' THEN
 				x <= 589;
 				y <= 429;
-			elsif sw1='1' then
+			ELSIF sw1 = '1' THEN
 				x <= 0;
 				y <= 429;
-			else
+			ELSE
 				x <= 319;
 				y <= 239;
-			end if;
-		end if;
-	end process;
-			
-
-end behaivoral;
+			END IF;
+		END IF;
+	END PROCESS;
+END behaivoral;
