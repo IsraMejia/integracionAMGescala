@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica10
-Sun Nov 05 01:05:29 2023
+Sun Nov 05 17:34:55 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,15 +13,16 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for Top-level Entity: |vga
- 13. Parameter Settings for User Entity Instance: Top-level Entity: |vga
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for Top-level Entity: |vga
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |vga
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -48,15 +49,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 05 01:05:29 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 05 17:34:55 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica10                                  ;
 ; Top-level Entity Name              ; vga                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 372                                         ;
-;     Total combinational functions  ; 351                                         ;
-;     Dedicated logic registers      ; 55                                          ;
-; Total registers                    ; 55                                          ;
+; Total logic elements               ; 846                                         ;
+;     Total combinational functions  ; 826                                         ;
+;     Dedicated logic registers      ; 52                                          ;
+; Total registers                    ; 52                                          ;
 ; Total pins                         ; 19                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -179,36 +180,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 372         ;
-;                                             ;             ;
-; Total combinational functions               ; 351         ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 44          ;
-;     -- 3 input functions                    ; 170         ;
-;     -- <=2 input functions                  ; 137         ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 109         ;
-;     -- arithmetic mode                      ; 242         ;
-;                                             ;             ;
-; Total registers                             ; 55          ;
-;     -- Dedicated logic registers            ; 55          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 19          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; reloj_pixel ;
-; Maximum fan-out                             ; 45          ;
-; Total fan-out                               ; 1126        ;
-; Average fan-out                             ; 2.54        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 846   ;
+;                                             ;       ;
+; Total combinational functions               ; 826   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 282   ;
+;     -- 3 input functions                    ; 305   ;
+;     -- <=2 input functions                  ; 239   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 459   ;
+;     -- arithmetic mode                      ; 367   ;
+;                                             ;       ;
+; Total registers                             ; 52    ;
+;     -- Dedicated logic registers            ; 52    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 19    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; x[4]  ;
+; Maximum fan-out                             ; 77    ;
+; Total fan-out                               ; 2644  ;
+; Average fan-out                             ; 2.89  ;
++---------------------------------------------+-------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -216,9 +217,27 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |vga                       ; 351 (351)           ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |vga                ; vga         ; work         ;
+; |vga                       ; 826 (826)           ; 52 (52)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |vga                ; vga         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; green[0]$latch                                     ; green[3]            ; yes                    ;
+; green[1]$latch                                     ; green[3]            ; yes                    ;
+; green[2]$latch                                     ; green[3]            ; yes                    ;
+; green[3]$latch                                     ; green[3]            ; yes                    ;
+; blue[0]$latch                                      ; green[3]            ; yes                    ;
+; blue[1]$latch                                      ; green[3]            ; yes                    ;
+; blue[2]$latch                                      ; green[3]            ; yes                    ;
+; blue[3]$latch                                      ; green[3]            ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +---------------------------------------------------------------------------------+
@@ -226,16 +245,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; x[7]                                   ; Stuck at GND due to stuck port data_in ;
-; row[10..30]                            ; Stuck at GND due to stuck port data_in ;
+; row[9,10]                              ; Stuck at GND due to stuck port data_in ;
+; y[0,3,5,6]                             ; Stuck at GND due to stuck port data_in ;
+; x[0,2,9]                               ; Stuck at GND due to stuck port data_in ;
+; row[11..30]                            ; Stuck at GND due to stuck port data_in ;
 ; column[10..30]                         ; Stuck at GND due to stuck port data_in ;
-; x[4,5]                                 ; Merged with x[1]                       ;
-; x[2,3]                                 ; Merged with x[0]                       ;
-; x[9]                                   ; Merged with x[6]                       ;
-; y[6]                                   ; Merged with x[8]                       ;
-; y[2,3]                                 ; Merged with y[0]                       ;
-; row[9]                                 ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 52 ;                                        ;
+; x[3]                                   ; Merged with x[1]                       ;
+; y[1]                                   ; Merged with x[4]                       ;
+; x[6,7]                                 ; Merged with x[5]                       ;
+; Total Number of Removed Registers = 54 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -244,12 +262,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 55    ;
-; Number of registers using Synchronous Clear  ; 20    ;
+; Total registers                              ; 52    ;
+; Number of registers using Synchronous Clear  ; 19    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 31    ;
+; Number of registers using Clock Enable       ; 30    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -259,13 +277,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; y[4]                                   ; 9       ;
-; row[0]                                 ; 10      ;
-; y[7]                                   ; 9       ;
-; y[8]                                   ; 9       ;
-; column[0]                              ; 10      ;
-; row[31]                                ; 4       ;
-; column[31]                             ; 4       ;
+; row[31]                                ; 37      ;
+; column[31]                             ; 44      ;
+; y[8]                                   ; 29      ;
+; y[7]                                   ; 32      ;
+; y[4]                                   ; 47      ;
+; column[0]                              ; 7       ;
+; row[0]                                 ; 7       ;
 ; Total number of inverted registers = 7 ;         ;
 +----------------------------------------+---------+
 
@@ -275,7 +293,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |vga|x[6]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |vga|x[1]                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -317,7 +335,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; h_fp           ; 16    ; Signed Integer                             ;
 ; v_pulse        ; 2     ; Signed Integer                             ;
 ; v_bp           ; 33    ; Signed Integer                             ;
-; v_pixels       ; 480   ; Signed Integer                             ;
+; v_pixels       ; 400   ; Signed Integer                             ;
 ; v_fp           ; 10    ; Signed Integer                             ;
 +----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -329,24 +347,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 55                          ;
+; cycloneiii_ff         ; 52                          ;
 ;     ENA               ; 21                          ;
-;     ENA SCLR          ; 10                          ;
+;     ENA SCLR          ; 9                           ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 14                          ;
-; cycloneiii_lcell_comb ; 352                         ;
-;     arith             ; 242                         ;
-;         2 data inputs ; 90                          ;
-;         3 data inputs ; 152                         ;
-;     normal            ; 110                         ;
-;         0 data inputs ; 9                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 31                          ;
-;         3 data inputs ; 18                          ;
-;         4 data inputs ; 44                          ;
+;     plain             ; 12                          ;
+; cycloneiii_lcell_comb ; 826                         ;
+;     arith             ; 367                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 116                         ;
+;         3 data inputs ; 237                         ;
+;     normal            ; 459                         ;
+;         0 data inputs ; 20                          ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 82                          ;
+;         3 data inputs ; 68                          ;
+;         4 data inputs ; 282                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 6.20                        ;
+; Max LUT depth         ; 12.00                       ;
+; Average LUT depth     ; 8.42                        ;
 +-----------------------+-----------------------------+
 
 
@@ -365,7 +384,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Nov 05 01:05:04 2023
+    Info: Processing started: Sun Nov 05 17:34:34 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica10 -c Practica10
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -373,31 +392,129 @@ Info (12021): Found 2 design units, including 1 entities, in source file vga.vhd
     Info (12022): Found design unit 1: vga-behaivoral File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 26
     Info (12023): Found entity 1: vga File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 5
 Info (12127): Elaborating entity "vga" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at vga.vhd(116): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 116
-Warning (10492): VHDL Process Statement warning at vga.vhd(116): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 116
+Warning (10492): VHDL Process Statement warning at vga.vhd(117): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 117
+Warning (10492): VHDL Process Statement warning at vga.vhd(117): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 117
 Warning (10492): VHDL Process Statement warning at vga.vhd(121): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 121
 Warning (10492): VHDL Process Statement warning at vga.vhd(121): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 121
 Warning (10492): VHDL Process Statement warning at vga.vhd(125): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 125
 Warning (10492): VHDL Process Statement warning at vga.vhd(125): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 125
 Warning (10492): VHDL Process Statement warning at vga.vhd(129): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 129
 Warning (10492): VHDL Process Statement warning at vga.vhd(129): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 129
-Warning (10492): VHDL Process Statement warning at vga.vhd(133): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 133
-Warning (10492): VHDL Process Statement warning at vga.vhd(133): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 133
+Warning (10492): VHDL Process Statement warning at vga.vhd(136): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at vga.vhd(136): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 136
 Warning (10492): VHDL Process Statement warning at vga.vhd(140): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 140
 Warning (10492): VHDL Process Statement warning at vga.vhd(140): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 140
-Warning (10492): VHDL Process Statement warning at vga.vhd(144): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 144
-Warning (10492): VHDL Process Statement warning at vga.vhd(144): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 144
+Warning (10492): VHDL Process Statement warning at vga.vhd(145): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 145
+Warning (10492): VHDL Process Statement warning at vga.vhd(145): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 145
+Warning (10492): VHDL Process Statement warning at vga.vhd(149): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at vga.vhd(149): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at vga.vhd(154): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at vga.vhd(154): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at vga.vhd(158): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 158
+Warning (10492): VHDL Process Statement warning at vga.vhd(158): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 158
+Warning (10492): VHDL Process Statement warning at vga.vhd(162): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at vga.vhd(162): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at vga.vhd(166): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at vga.vhd(166): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(171): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at vga.vhd(175): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at vga.vhd(175): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at vga.vhd(179): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 179
+Warning (10492): VHDL Process Statement warning at vga.vhd(179): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 179
+Warning (10492): VHDL Process Statement warning at vga.vhd(184): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at vga.vhd(184): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at vga.vhd(188): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 188
+Warning (10492): VHDL Process Statement warning at vga.vhd(188): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 188
+Warning (10492): VHDL Process Statement warning at vga.vhd(192): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at vga.vhd(192): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 192
+Warning (10492): VHDL Process Statement warning at vga.vhd(196): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 196
+Warning (10492): VHDL Process Statement warning at vga.vhd(196): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 196
+Warning (10492): VHDL Process Statement warning at vga.vhd(200): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 200
+Warning (10492): VHDL Process Statement warning at vga.vhd(200): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 200
+Warning (10492): VHDL Process Statement warning at vga.vhd(204): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 204
+Warning (10492): VHDL Process Statement warning at vga.vhd(204): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 204
+Warning (10492): VHDL Process Statement warning at vga.vhd(209): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 209
+Warning (10492): VHDL Process Statement warning at vga.vhd(209): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 209
+Warning (10492): VHDL Process Statement warning at vga.vhd(213): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 213
+Warning (10492): VHDL Process Statement warning at vga.vhd(213): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 213
+Warning (10492): VHDL Process Statement warning at vga.vhd(217): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 217
+Warning (10492): VHDL Process Statement warning at vga.vhd(217): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 217
+Warning (10492): VHDL Process Statement warning at vga.vhd(219): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 219
+Warning (10492): VHDL Process Statement warning at vga.vhd(219): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 219
+Warning (10492): VHDL Process Statement warning at vga.vhd(221): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 221
+Warning (10492): VHDL Process Statement warning at vga.vhd(221): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 221
+Warning (10492): VHDL Process Statement warning at vga.vhd(223): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 223
+Warning (10492): VHDL Process Statement warning at vga.vhd(223): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 223
+Warning (10492): VHDL Process Statement warning at vga.vhd(225): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 225
+Warning (10492): VHDL Process Statement warning at vga.vhd(225): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 225
+Warning (10492): VHDL Process Statement warning at vga.vhd(227): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 227
+Warning (10492): VHDL Process Statement warning at vga.vhd(227): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 227
+Warning (10492): VHDL Process Statement warning at vga.vhd(229): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at vga.vhd(229): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at vga.vhd(231): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at vga.vhd(231): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at vga.vhd(233): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 233
+Warning (10492): VHDL Process Statement warning at vga.vhd(233): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 233
+Warning (10492): VHDL Process Statement warning at vga.vhd(235): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at vga.vhd(235): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at vga.vhd(237): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at vga.vhd(237): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at vga.vhd(239): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 239
+Warning (10492): VHDL Process Statement warning at vga.vhd(239): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 239
+Warning (10492): VHDL Process Statement warning at vga.vhd(242): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 242
+Warning (10492): VHDL Process Statement warning at vga.vhd(242): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 242
+Warning (10492): VHDL Process Statement warning at vga.vhd(244): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 244
+Warning (10492): VHDL Process Statement warning at vga.vhd(244): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 244
+Warning (10492): VHDL Process Statement warning at vga.vhd(246): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at vga.vhd(246): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at vga.vhd(248): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 248
+Warning (10492): VHDL Process Statement warning at vga.vhd(248): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 248
+Warning (10492): VHDL Process Statement warning at vga.vhd(250): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 250
+Warning (10492): VHDL Process Statement warning at vga.vhd(250): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 250
+Warning (10492): VHDL Process Statement warning at vga.vhd(252): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 252
+Warning (10492): VHDL Process Statement warning at vga.vhd(252): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 252
+Warning (10492): VHDL Process Statement warning at vga.vhd(254): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at vga.vhd(254): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at vga.vhd(256): signal "x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 256
+Warning (10492): VHDL Process Statement warning at vga.vhd(256): signal "y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 256
+Warning (10631): VHDL Process Statement warning at vga.vhd(113): inferring latch(es) for signal or variable "green", which holds its previous value in one or more paths through the process File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at vga.vhd(113): inferring latch(es) for signal or variable "blue", which holds its previous value in one or more paths through the process File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "blue[0]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "blue[1]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "blue[2]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "blue[3]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "green[0]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "green[1]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "green[2]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Info (10041): Inferred latch for "green[3]" at vga.vhd(113) File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+Warning (13012): Latch green[0]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch green[1]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch green[2]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch green[3]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch blue[0]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch blue[1]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch blue[2]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
+Warning (13012): Latch blue[3]$latch has unsafe behavior File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 113
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal row[31] File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/p10/compproo/vga.vhd Line: 103
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 393 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 867 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 374 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Sun Nov 05 01:05:29 2023
-    Info: Elapsed time: 00:00:25
+    Info (21061): Implemented 848 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 105 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Sun Nov 05 17:34:55 2023
+    Info: Elapsed time: 00:00:21
     Info: Total CPU time (on all processors): 00:00:37
 
 

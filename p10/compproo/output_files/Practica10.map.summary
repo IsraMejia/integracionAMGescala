@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun Nov 05 01:05:29 2023
+Analysis & Synthesis Status : Successful - Sun Nov 05 17:34:55 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : Practica10
 Top-level Entity Name : vga
 Family : MAX 10
-Total logic elements : 372
-    Total combinational functions : 351
-    Dedicated logic registers : 55
-Total registers : 55
+Total logic elements : 846
+    Total combinational functions : 826
+    Dedicated logic registers : 52
+Total registers : 52
 Total pins : 19
 Total virtual pins : 0
 Total memory bits : 0

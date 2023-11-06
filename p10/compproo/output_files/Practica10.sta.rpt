@@ -1,5 +1,5 @@
 Timing Analyzer report for Practica10
-Sun Nov 05 01:06:00 2023
+Sun Nov 05 17:35:50 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,15 +38,17 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  30. Signal Integrity Metrics (Fast 1200mv 0c Model)
  31. Setup Transfers
  32. Hold Transfers
- 33. Report TCCS
- 34. Report RSKM
- 35. Unconstrained Paths Summary
- 36. Clock Status Summary
- 37. Unconstrained Input Ports
- 38. Unconstrained Output Ports
+ 33. Recovery Transfers
+ 34. Removal Transfers
+ 35. Report TCCS
+ 36. Report RSKM
+ 37. Unconstrained Paths Summary
+ 38. Clock Status Summary
  39. Unconstrained Input Ports
  40. Unconstrained Output Ports
- 41. Timing Analyzer Messages
+ 41. Unconstrained Input Ports
+ 42. Unconstrained Output Ports
+ 43. Timing Analyzer Messages
 
 
 
@@ -92,12 +94,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.09        ;
+; Average used               ; 1.24        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   9.2%      ;
+;     Processor 2            ;  23.8%      ;
 +----------------------------+-------------+
 
 
@@ -107,6 +109,7 @@ https://fpgasoftware.intel.com/eula.
 ; Clock Name  ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets         ;
 +-------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------+
 ; clk50MHz    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk50MHz }    ;
+; column[0]   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { column[0] }   ;
 ; reloj_pixel ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reloj_pixel } ;
 +-------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------+
 
@@ -116,7 +119,7 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name  ; Note ;
 +------------+-----------------+-------------+------+
-; 333.67 MHz ; 333.67 MHz      ; reloj_pixel ;      ;
+; 170.07 MHz ; 170.07 MHz      ; reloj_pixel ;      ;
 +------------+-----------------+-------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -126,31 +129,37 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; reloj_pixel ; -1.997 ; -73.748       ;
-; clk50MHz    ; -1.526 ; -1.526        ;
+; reloj_pixel ; -4.880 ; -142.990      ;
+; clk50MHz    ; 0.575  ; 0.000         ;
 +-------------+--------+---------------+
 
 
-+-------------------------------------+
-; Slow 1200mV 85C Model Hold Summary  ;
-+-------------+-------+---------------+
-; Clock       ; Slack ; End Point TNS ;
-+-------------+-------+---------------+
-; reloj_pixel ; 0.441 ; 0.000         ;
-; clk50MHz    ; 1.364 ; 0.000         ;
-+-------------+-------+---------------+
++--------------------------------------+
+; Slow 1200mV 85C Model Hold Summary   ;
++-------------+--------+---------------+
+; Clock       ; Slack  ; End Point TNS ;
++-------------+--------+---------------+
+; clk50MHz    ; -0.655 ; -0.655        ;
+; reloj_pixel ; 0.606  ; 0.000         ;
++-------------+--------+---------------+
 
 
-------------------------------------------
++----------------------------------------+
 ; Slow 1200mV 85C Model Recovery Summary ;
-------------------------------------------
-No paths to report.
++-----------+---------+------------------+
+; Clock     ; Slack   ; End Point TNS    ;
++-----------+---------+------------------+
+; column[0] ; -11.260 ; -89.095          ;
++-----------+---------+------------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Slow 1200mV 85C Model Removal Summary ;
------------------------------------------
-No paths to report.
++-----------+--------+------------------+
+; Clock     ; Slack  ; End Point TNS    ;
++-----------+--------+------------------+
+; column[0] ; -6.258 ; -42.135          ;
++-----------+--------+------------------+
 
 
 +---------------------------------------------------+
@@ -158,8 +167,9 @@ No paths to report.
 +-------------+--------+----------------------------+
 ; Clock       ; Slack  ; End Point TNS              ;
 +-------------+--------+----------------------------+
-; clk50MHz    ; -3.000 ; -18.433                    ;
-; reloj_pixel ; -1.403 ; -61.732                    ;
+; column[0]   ; -3.689 ; -291.991                   ;
+; clk50MHz    ; -3.000 ; -15.627                    ;
+; reloj_pixel ; -1.403 ; -60.329                    ;
 +-------------+--------+----------------------------+
 
 
@@ -174,7 +184,7 @@ No synchronizer chains to report.
 +------------+-----------------+-------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name  ; Note ;
 +------------+-----------------+-------------+------+
-; 361.79 MHz ; 361.79 MHz      ; reloj_pixel ;      ;
+; 184.64 MHz ; 184.64 MHz      ; reloj_pixel ;      ;
 +------------+-----------------+-------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -184,31 +194,37 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; reloj_pixel ; -1.764 ; -64.253       ;
-; clk50MHz    ; -1.348 ; -1.348        ;
+; reloj_pixel ; -4.416 ; -128.082      ;
+; clk50MHz    ; 0.668  ; 0.000         ;
 +-------------+--------+---------------+
 
 
-+-------------------------------------+
-; Slow 1200mV 0C Model Hold Summary   ;
-+-------------+-------+---------------+
-; Clock       ; Slack ; End Point TNS ;
-+-------------+-------+---------------+
-; reloj_pixel ; 0.406 ; 0.000         ;
-; clk50MHz    ; 1.254 ; 0.000         ;
-+-------------+-------+---------------+
++--------------------------------------+
+; Slow 1200mV 0C Model Hold Summary    ;
++-------------+--------+---------------+
+; Clock       ; Slack  ; End Point TNS ;
++-------------+--------+---------------+
+; clk50MHz    ; -0.721 ; -0.721        ;
+; reloj_pixel ; 0.566  ; 0.000         ;
++-------------+--------+---------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Slow 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++-----------+---------+-----------------+
+; Clock     ; Slack   ; End Point TNS   ;
++-----------+---------+-----------------+
+; column[0] ; -10.682 ; -84.755         ;
++-----------+---------+-----------------+
 
 
-----------------------------------------
++--------------------------------------+
 ; Slow 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-----------+--------+-----------------+
+; Clock     ; Slack  ; End Point TNS   ;
++-----------+--------+-----------------+
+; column[0] ; -5.777 ; -39.063         ;
++-----------+--------+-----------------+
 
 
 +--------------------------------------------------+
@@ -216,8 +232,9 @@ No paths to report.
 +-------------+--------+---------------------------+
 ; Clock       ; Slack  ; End Point TNS             ;
 +-------------+--------+---------------------------+
-; clk50MHz    ; -3.000 ; -18.433                   ;
-; reloj_pixel ; -1.403 ; -61.732                   ;
+; column[0]   ; -3.365 ; -261.113                  ;
+; clk50MHz    ; -3.000 ; -15.627                   ;
+; reloj_pixel ; -1.403 ; -60.329                   ;
 +-------------+--------+---------------------------+
 
 
@@ -232,31 +249,37 @@ No synchronizer chains to report.
 +-------------+--------+---------------+
 ; Clock       ; Slack  ; End Point TNS ;
 +-------------+--------+---------------+
-; clk50MHz    ; -0.325 ; -0.325        ;
-; reloj_pixel ; -0.261 ; -6.249        ;
+; reloj_pixel ; -1.716 ; -40.185       ;
+; clk50MHz    ; 0.441  ; 0.000         ;
 +-------------+--------+---------------+
 
 
-+-------------------------------------+
-; Fast 1200mV 0C Model Hold Summary   ;
-+-------------+-------+---------------+
-; Clock       ; Slack ; End Point TNS ;
-+-------------+-------+---------------+
-; reloj_pixel ; 0.180 ; 0.000         ;
-; clk50MHz    ; 0.512 ; 0.000         ;
-+-------------+-------+---------------+
++--------------------------------------+
+; Fast 1200mV 0C Model Hold Summary    ;
++-------------+--------+---------------+
+; Clock       ; Slack  ; End Point TNS ;
++-------------+--------+---------------+
+; clk50MHz    ; -0.172 ; -0.172        ;
+; reloj_pixel ; 0.241  ; 0.000         ;
++-------------+--------+---------------+
 
 
------------------------------------------
++---------------------------------------+
 ; Fast 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++-----------+--------+------------------+
+; Clock     ; Slack  ; End Point TNS    ;
++-----------+--------+------------------+
+; column[0] ; -4.903 ; -38.798          ;
++-----------+--------+------------------+
 
 
-----------------------------------------
++--------------------------------------+
 ; Fast 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-----------+--------+-----------------+
+; Clock     ; Slack  ; End Point TNS   ;
++-----------+--------+-----------------+
+; column[0] ; -2.722 ; -18.047         ;
++-----------+--------+-----------------+
 
 
 +--------------------------------------------------+
@@ -264,8 +287,9 @@ No paths to report.
 +-------------+--------+---------------------------+
 ; Clock       ; Slack  ; End Point TNS             ;
 +-------------+--------+---------------------------+
-; clk50MHz    ; -3.000 ; -14.327                   ;
-; reloj_pixel ; -1.000 ; -44.000                   ;
+; clk50MHz    ; -3.000 ; -12.984                   ;
+; column[0]   ; -1.459 ; -92.524                   ;
+; reloj_pixel ; -1.000 ; -43.000                   ;
 +-------------+--------+---------------------------+
 
 
@@ -275,18 +299,20 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                           ;
-+------------------+---------+-------+----------+---------+---------------------+
-; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -1.997  ; 0.180 ; N/A      ; N/A     ; -3.000              ;
-;  clk50MHz        ; -1.526  ; 0.512 ; N/A      ; N/A     ; -3.000              ;
-;  reloj_pixel     ; -1.997  ; 0.180 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS  ; -75.274 ; 0.0   ; 0.0      ; 0.0     ; -80.165             ;
-;  clk50MHz        ; -1.526  ; 0.000 ; N/A      ; N/A     ; -18.433             ;
-;  reloj_pixel     ; -73.748 ; 0.000 ; N/A      ; N/A     ; -61.732             ;
-+------------------+---------+-------+----------+---------+---------------------+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+----------+--------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+--------+----------+---------+---------------------+
+; Worst-case Slack ; -4.880   ; -0.721 ; -11.260  ; -6.258  ; -3.689              ;
+;  clk50MHz        ; 0.441    ; -0.721 ; N/A      ; N/A     ; -3.000              ;
+;  column[0]       ; N/A      ; N/A    ; -11.260  ; -6.258  ; -3.689              ;
+;  reloj_pixel     ; -4.880   ; 0.241  ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS  ; -142.99  ; -0.721 ; -89.095  ; -42.135 ; -367.947            ;
+;  clk50MHz        ; 0.000    ; -0.721 ; N/A      ; N/A     ; -15.627             ;
+;  column[0]       ; N/A      ; N/A    ; -89.095  ; -42.135 ; -291.991            ;
+;  reloj_pixel     ; -142.990 ; 0.000  ; N/A      ; N/A     ; -60.329             ;
++------------------+----------+--------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -318,10 +344,10 @@ No synchronizer chains to report.
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
 ; sw3                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; sw2                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; sw4                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; clk50MHz            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; sw1                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; sw2                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -407,7 +433,7 @@ No synchronizer chains to report.
 ; From Clock  ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------+-------------+----------+----------+----------+----------+
 ; reloj_pixel ; clk50MHz    ; 1        ; 1        ; 0        ; 0        ;
-; reloj_pixel ; reloj_pixel ; 520      ; 0        ; 0        ; 0        ;
+; reloj_pixel ; reloj_pixel ; 482      ; 0        ; 0        ; 0        ;
 +-------------+-------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -418,8 +444,32 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock  ; To Clock    ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------+-------------+----------+----------+----------+----------+
 ; reloj_pixel ; clk50MHz    ; 1        ; 1        ; 0        ; 0        ;
-; reloj_pixel ; reloj_pixel ; 520      ; 0        ; 0        ; 0        ;
+; reloj_pixel ; reloj_pixel ; 482      ; 0        ; 0        ; 0        ;
 +-------------+-------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------+
+; Recovery Transfers                                                  ;
++-------------+-----------+----------+----------+----------+----------+
+; From Clock  ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------+-----------+----------+----------+----------+----------+
+; clk50MHz    ; column[0] ; 48560    ; 0        ; 48560    ; 0        ;
+; column[0]   ; column[0] ; 640      ; 640      ; 640      ; 640      ;
+; reloj_pixel ; column[0] ; 42080    ; 0        ; 42080    ; 0        ;
++-------------+-----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------+
+; Removal Transfers                                                   ;
++-------------+-----------+----------+----------+----------+----------+
+; From Clock  ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------+-----------+----------+----------+----------+----------+
+; clk50MHz    ; column[0] ; 48560    ; 0        ; 48560    ; 0        ;
+; column[0]   ; column[0] ; 640      ; 640      ; 640      ; 640      ;
+; reloj_pixel ; column[0] ; 42080    ; 0        ; 42080    ; 0        ;
++-------------+-----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -443,9 +493,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 29    ; 29   ;
+; Unconstrained Input Port Paths  ; 28    ; 28   ;
 ; Unconstrained Output Ports      ; 14    ; 14   ;
-; Unconstrained Output Port Paths ; 386   ; 386  ;
+; Unconstrained Output Port Paths ; 130   ; 130  ;
 +---------------------------------+-------+------+
 
 
@@ -455,6 +505,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Target      ; Clock       ; Type ; Status      ;
 +-------------+-------------+------+-------------+
 ; clk50MHz    ; clk50MHz    ; Base ; Constrained ;
+; column[0]   ; column[0]   ; Base ; Constrained ;
 ; reloj_pixel ; reloj_pixel ; Base ; Constrained ;
 +-------------+-------------+------+-------------+
 
@@ -533,89 +584,112 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Nov 05 01:05:55 2023
+    Info: Processing started: Sun Nov 05 17:35:44 2023
 Info: Command: quartus_sta Practica10 -c Practica10
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): The Timing Analyzer is analyzing 8 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Practica10.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name clk50MHz clk50MHz
     Info (332105): create_clock -period 1.000 -name reloj_pixel reloj_pixel
+    Info (332105): create_clock -period 1.000 -name column[0] column[0]
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.997
+Info (332146): Worst-case setup slack is -4.880
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.997             -73.748 reloj_pixel 
-    Info (332119):    -1.526              -1.526 clk50MHz 
-Info (332146): Worst-case hold slack is 0.441
+    Info (332119):    -4.880            -142.990 reloj_pixel 
+    Info (332119):     0.575               0.000 clk50MHz 
+Info (332146): Worst-case hold slack is -0.655
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.441               0.000 reloj_pixel 
-    Info (332119):     1.364               0.000 clk50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):    -0.655              -0.655 clk50MHz 
+    Info (332119):     0.606               0.000 reloj_pixel 
+Info (332146): Worst-case recovery slack is -11.260
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -18.433 clk50MHz 
-    Info (332119):    -1.403             -61.732 reloj_pixel 
+    Info (332119):   -11.260             -89.095 column[0] 
+Info (332146): Worst-case removal slack is -6.258
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -6.258             -42.135 column[0] 
+Info (332146): Worst-case minimum pulse width slack is -3.689
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.689            -291.991 column[0] 
+    Info (332119):    -3.000             -15.627 clk50MHz 
+    Info (332119):    -1.403             -60.329 reloj_pixel 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.764
+Info (332146): Worst-case setup slack is -4.416
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.764             -64.253 reloj_pixel 
-    Info (332119):    -1.348              -1.348 clk50MHz 
-Info (332146): Worst-case hold slack is 0.406
+    Info (332119):    -4.416            -128.082 reloj_pixel 
+    Info (332119):     0.668               0.000 clk50MHz 
+Info (332146): Worst-case hold slack is -0.721
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.406               0.000 reloj_pixel 
-    Info (332119):     1.254               0.000 clk50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):    -0.721              -0.721 clk50MHz 
+    Info (332119):     0.566               0.000 reloj_pixel 
+Info (332146): Worst-case recovery slack is -10.682
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -18.433 clk50MHz 
-    Info (332119):    -1.403             -61.732 reloj_pixel 
+    Info (332119):   -10.682             -84.755 column[0] 
+Info (332146): Worst-case removal slack is -5.777
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.777             -39.063 column[0] 
+Info (332146): Worst-case minimum pulse width slack is -3.365
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.365            -261.113 column[0] 
+    Info (332119):    -3.000             -15.627 clk50MHz 
+    Info (332119):    -1.403             -60.329 reloj_pixel 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.325
+Info (332146): Worst-case setup slack is -1.716
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.325              -0.325 clk50MHz 
-    Info (332119):    -0.261              -6.249 reloj_pixel 
-Info (332146): Worst-case hold slack is 0.180
+    Info (332119):    -1.716             -40.185 reloj_pixel 
+    Info (332119):     0.441               0.000 clk50MHz 
+Info (332146): Worst-case hold slack is -0.172
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.180               0.000 reloj_pixel 
-    Info (332119):     0.512               0.000 clk50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):    -0.172              -0.172 clk50MHz 
+    Info (332119):     0.241               0.000 reloj_pixel 
+Info (332146): Worst-case recovery slack is -4.903
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.903             -38.798 column[0] 
+Info (332146): Worst-case removal slack is -2.722
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.722             -18.047 column[0] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -14.327 clk50MHz 
-    Info (332119):    -1.000             -44.000 reloj_pixel 
+    Info (332119):    -3.000             -12.984 clk50MHz 
+    Info (332119):    -1.459             -92.524 column[0] 
+    Info (332119):    -1.000             -43.000 reloj_pixel 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4799 megabytes
-    Info: Processing ended: Sun Nov 05 01:06:00 2023
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4808 megabytes
+    Info: Processing ended: Sun Nov 05 17:35:49 2023
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:06
 
 

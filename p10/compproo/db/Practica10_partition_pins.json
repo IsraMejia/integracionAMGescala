@@ -64,6 +64,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "sw2",
+					"strict" : false
+				},
+				{
 					"name" : "sw4",
 					"strict" : false
 				},
@@ -73,10 +77,6 @@
 				},
 				{
 					"name" : "sw1",
-					"strict" : false
-				},
-				{
-					"name" : "sw2",
 					"strict" : false
 				}
 			]
