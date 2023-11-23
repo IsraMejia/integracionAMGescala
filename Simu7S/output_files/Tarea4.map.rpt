@@ -1,0 +1,634 @@
+Analysis & Synthesis report for Tarea4
+Fri Nov 17 17:52:32 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Source assignments for Top-level Entity: |principal
+ 14. Parameter Settings for User Entity Instance: vga:N3
+ 15. Port Connectivity Checks: "generador:N4"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Nov 17 17:52:32 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; Tarea4                                      ;
+; Top-level Entity Name              ; principal                                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 180                                         ;
+;     Total combinational functions  ; 161                                         ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
+; Total pins                         ; 15                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; principal          ; Tarea4             ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; reloj.vhd                        ; yes             ; User VHDL File  ; C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/reloj.vhd      ;         ;
+; relojLento.vhd                   ; yes             ; User VHDL File  ; C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/relojLento.vhd ;         ;
+; vga.vhd                          ; yes             ; User VHDL File  ; C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/vga.vhd        ;         ;
+; generador.vhd                    ; yes             ; User VHDL File  ; C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd  ;         ;
+; principal.vhd                    ; yes             ; User VHDL File  ; C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd  ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 180                  ;
+;                                             ;                      ;
+; Total combinational functions               ; 161                  ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 68                   ;
+;     -- 3 input functions                    ; 23                   ;
+;     -- <=2 input functions                  ; 70                   ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 116                  ;
+;     -- arithmetic mode                      ; 45                   ;
+;                                             ;                      ;
+; Total registers                             ; 82                   ;
+;     -- Dedicated logic registers            ; 82                   ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 15                   ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; reloj:N1|reloj_pixel ;
+; Maximum fan-out                             ; 46                   ;
+; Total fan-out                               ; 715                  ;
+; Average fan-out                             ; 2.62                 ;
++---------------------------------------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name      ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; |principal                 ; 161 (0)             ; 82 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 15   ; 0            ; 0          ; |principal               ; principal   ; work         ;
+;    |generador:N4|          ; 76 (76)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |principal|generador:N4  ; generador   ; work         ;
+;    |reloj:N1|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |principal|reloj:N1      ; reloj       ; work         ;
+;    |relojLento:N2|         ; 45 (45)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |principal|relojLento:N2 ; relojLento  ; work         ;
+;    |vga:N3|                ; 39 (39)             ; 45 (45)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |principal|vga:N3        ; vga         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; generador:N4|R[0]                                   ; VCC                 ; yes                    ;
+; generador:N4|R[1]                                   ; VCC                 ; yes                    ;
+; generador:N4|R[2]                                   ; VCC                 ; yes                    ;
+; generador:N4|R[3]                                   ; VCC                 ; yes                    ;
+; generador:N4|G[0]                                   ; VCC                 ; yes                    ;
+; generador:N4|G[1]                                   ; VCC                 ; yes                    ;
+; generador:N4|G[2]                                   ; VCC                 ; yes                    ;
+; generador:N4|G[3]                                   ; VCC                 ; yes                    ;
+; generador:N4|B[0]                                   ; VCC                 ; yes                    ;
+; generador:N4|B[1]                                   ; VCC                 ; yes                    ;
+; generador:N4|B[2]                                   ; VCC                 ; yes                    ;
+; generador:N4|B[3]                                   ; VCC                 ; yes                    ;
+; Number of user-specified and inferred latches = 12  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; generador:N4|\Cdecenas:cuenta[0]       ; Stuck at GND due to stuck port data_in ;
+; generador:N4|e                         ; Stuck at GND due to stuck port data_in ;
+; vga:N3|rows[10..30]                    ; Stuck at GND due to stuck port data_in ;
+; vga:N3|columns[10..30]                 ; Stuck at GND due to stuck port data_in ;
+; generador:N4|\Ccentenas:cuenta[0..3]   ; Stuck at GND due to stuck port clock   ;
+; vga:N3|rows[9]                         ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 49 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                        ;
++----------------+---------------------------+-----------------------------------------------------------------------+
+; Register name  ; Reason for Removal        ; Registers Removed due to This Register                                ;
++----------------+---------------------------+-----------------------------------------------------------------------+
+; generador:N4|e ; Stuck at GND              ; generador:N4|\Ccentenas:cuenta[3], generador:N4|\Ccentenas:cuenta[2], ;
+;                ; due to stuck port data_in ; generador:N4|\Ccentenas:cuenta[1], generador:N4|\Ccentenas:cuenta[0]  ;
++----------------+---------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 31    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; vga:N3|rows[31]                        ; 3       ;
+; vga:N3|rows[0]                         ; 4       ;
+; vga:N3|columns[31]                     ; 4       ;
+; vga:N3|columns[0]                      ; 3       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Source assignments for Top-level Entity: |principal ;
++------------+---------+------+-----------------------+
+; Assignment ; Value   ; From ; To                    ;
++------------+---------+------+-----------------------+
+; LOCATION   ; Pin_Y1  ; -    ; Red[3]                ;
+; LOCATION   ; Pin_Y2  ; -    ; Red[2]                ;
+; LOCATION   ; Pin_v1  ; -    ; Red[1]                ;
+; LOCATION   ; Pin_AA1 ; -    ; Red[0]                ;
+; LOCATION   ; Pin_R1  ; -    ; Green[3]              ;
+; LOCATION   ; Pin_R2  ; -    ; Green[2]              ;
+; LOCATION   ; Pin_T2  ; -    ; Green[1]              ;
+; LOCATION   ; Pin_W1  ; -    ; Green[0]              ;
+; LOCATION   ; Pin_N2  ; -    ; Blue[3]               ;
+; LOCATION   ; Pin_P4  ; -    ; Blue[2]               ;
+; LOCATION   ; Pin_T1  ; -    ; Blue[1]               ;
+; LOCATION   ; Pin_P1  ; -    ; Blue[0]               ;
+; LOCATION   ; Pin_P11 ; -    ; clk                   ;
+; LOCATION   ; Pin_N3  ; -    ; hsync                 ;
+; LOCATION   ; Pin_N1  ; -    ; vsync                 ;
++------------+---------+------+-----------------------+
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:N3 ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; h_pulse        ; 96    ; Signed Integer             ;
+; h_bp           ; 48    ; Signed Integer             ;
+; h_pixels       ; 640   ; Signed Integer             ;
+; h_fp           ; 16    ; Signed Integer             ;
+; v_pulse        ; 2     ; Signed Integer             ;
+; v_bp           ; 33    ; Signed Integer             ;
+; v_pixels       ; 480   ; Signed Integer             ;
+; v_fp           ; 10    ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "generador:N4"            ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; posicionx[6..5]   ; Input ; Info     ; Stuck at VCC ;
+; posicionx[31..7]  ; Input ; Info     ; Stuck at GND ;
+; posicionx[4..3]   ; Input ; Info     ; Stuck at GND ;
+; posicionx[1..0]   ; Input ; Info     ; Stuck at GND ;
+; posicionx[2]      ; Input ; Info     ; Stuck at VCC ;
+; posicionx1[3..2]  ; Input ; Info     ; Stuck at VCC ;
+; posicionx1[31..9] ; Input ; Info     ; Stuck at GND ;
+; posicionx1[7..6]  ; Input ; Info     ; Stuck at GND ;
+; posicionx1[1..0]  ; Input ; Info     ; Stuck at GND ;
+; posicionx1[8]     ; Input ; Info     ; Stuck at VCC ;
+; posicionx1[5]     ; Input ; Info     ; Stuck at VCC ;
+; posicionx1[4]     ; Input ; Info     ; Stuck at GND ;
+; posicionx2[8..4]  ; Input ; Info     ; Stuck at VCC ;
+; posicionx2[31..9] ; Input ; Info     ; Stuck at GND ;
+; posicionx2[1..0]  ; Input ; Info     ; Stuck at GND ;
+; posicionx2[3]     ; Input ; Info     ; Stuck at GND ;
+; posicionx2[2]     ; Input ; Info     ; Stuck at VCC ;
++-------------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 15                          ;
+; cycloneiii_ff         ; 82                          ;
+;     ENA               ; 21                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 41                          ;
+; cycloneiii_lcell_comb ; 161                         ;
+;     arith             ; 45                          ;
+;         2 data inputs ; 45                          ;
+;     normal            ; 116                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 23                          ;
+;         4 data inputs ; 68                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 4.58                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri Nov 17 17:52:18 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tarea4 -c Tarea4
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file reloj.vhd
+    Info (12022): Found design unit 1: reloj-behavioral File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/reloj.vhd Line: 13
+    Info (12023): Found entity 1: reloj File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/reloj.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file relojlento.vhd
+    Info (12022): Found design unit 1: relojLento-behavioral File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/relojLento.vhd Line: 13
+    Info (12023): Found entity 1: relojLento File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/relojLento.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file vga.vhd
+    Info (12022): Found design unit 1: vga-behavioral File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/vga.vhd Line: 26
+    Info (12023): Found entity 1: vga File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/vga.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file generador.vhd
+    Info (12022): Found design unit 1: generador-behavioral File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 17
+    Info (12023): Found entity 1: generador File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file principal.vhd
+    Info (12022): Found design unit 1: principal-behavioral File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 14
+    Info (12023): Found entity 1: principal File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 7
+Info (12127): Elaborating entity "principal" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at principal.vhd(69): signal "R_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at principal.vhd(70): signal "G_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at principal.vhd(71): signal "B_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at principal.vhd(76): signal "R_r" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 76
+Warning (10492): VHDL Process Statement warning at principal.vhd(77): signal "G_r" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at principal.vhd(78): signal "B_r" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 78
+Info (12128): Elaborating entity "reloj" for hierarchy "reloj:N1" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 62
+Info (12128): Elaborating entity "relojLento" for hierarchy "relojLento:N2" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 63
+Info (12128): Elaborating entity "vga" for hierarchy "vga:N3" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 64
+Info (12128): Elaborating entity "generador" for hierarchy "generador:N4" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/principal.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at generador.vhd(41): signal "present_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at generador.vhd(44): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at generador.vhd(49): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at generador.vhd(54): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 54
+Warning (10492): VHDL Process Statement warning at generador.vhd(59): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at generador.vhd(64): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 64
+Warning (10492): VHDL Process Statement warning at generador.vhd(69): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at generador.vhd(81): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at generador.vhd(86): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at generador.vhd(97): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 97
+Warning (10492): VHDL Process Statement warning at generador.vhd(102): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 102
+Warning (10492): VHDL Process Statement warning at generador.vhd(107): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at generador.vhd(112): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at generador.vhd(117): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 117
+Warning (10492): VHDL Process Statement warning at generador.vhd(129): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 129
+Warning (10492): VHDL Process Statement warning at generador.vhd(134): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 134
+Warning (10492): VHDL Process Statement warning at generador.vhd(139): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 139
+Warning (10492): VHDL Process Statement warning at generador.vhd(144): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 144
+Warning (10492): VHDL Process Statement warning at generador.vhd(149): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at generador.vhd(161): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 161
+Warning (10492): VHDL Process Statement warning at generador.vhd(166): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at generador.vhd(171): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at generador.vhd(176): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 176
+Warning (10492): VHDL Process Statement warning at generador.vhd(188): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 188
+Warning (10492): VHDL Process Statement warning at generador.vhd(193): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 193
+Warning (10492): VHDL Process Statement warning at generador.vhd(198): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at generador.vhd(203): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 203
+Warning (10492): VHDL Process Statement warning at generador.vhd(208): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 208
+Warning (10492): VHDL Process Statement warning at generador.vhd(220): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 220
+Warning (10492): VHDL Process Statement warning at generador.vhd(225): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 225
+Warning (10492): VHDL Process Statement warning at generador.vhd(230): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 230
+Warning (10492): VHDL Process Statement warning at generador.vhd(235): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at generador.vhd(240): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 240
+Warning (10492): VHDL Process Statement warning at generador.vhd(245): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 245
+Warning (10492): VHDL Process Statement warning at generador.vhd(257): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 257
+Warning (10492): VHDL Process Statement warning at generador.vhd(262): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 262
+Warning (10492): VHDL Process Statement warning at generador.vhd(267): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 267
+Warning (10492): VHDL Process Statement warning at generador.vhd(272): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 272
+Warning (10492): VHDL Process Statement warning at generador.vhd(284): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 284
+Warning (10492): VHDL Process Statement warning at generador.vhd(289): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 289
+Warning (10492): VHDL Process Statement warning at generador.vhd(294): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at generador.vhd(299): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 299
+Warning (10492): VHDL Process Statement warning at generador.vhd(304): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 304
+Warning (10492): VHDL Process Statement warning at generador.vhd(309): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 309
+Warning (10492): VHDL Process Statement warning at generador.vhd(314): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 314
+Warning (10492): VHDL Process Statement warning at generador.vhd(326): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 326
+Warning (10492): VHDL Process Statement warning at generador.vhd(331): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 331
+Warning (10492): VHDL Process Statement warning at generador.vhd(336): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 336
+Warning (10492): VHDL Process Statement warning at generador.vhd(341): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 341
+Warning (10492): VHDL Process Statement warning at generador.vhd(346): signal "posicionx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 346
+Warning (10492): VHDL Process Statement warning at generador.vhd(360): signal "present_stateC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at generador.vhd(363): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 363
+Warning (10492): VHDL Process Statement warning at generador.vhd(368): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 368
+Warning (10492): VHDL Process Statement warning at generador.vhd(373): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 373
+Warning (10492): VHDL Process Statement warning at generador.vhd(378): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 378
+Warning (10492): VHDL Process Statement warning at generador.vhd(383): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 383
+Warning (10492): VHDL Process Statement warning at generador.vhd(388): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 388
+Warning (10492): VHDL Process Statement warning at generador.vhd(400): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 400
+Warning (10492): VHDL Process Statement warning at generador.vhd(405): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 405
+Warning (10492): VHDL Process Statement warning at generador.vhd(416): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 416
+Warning (10492): VHDL Process Statement warning at generador.vhd(421): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 421
+Warning (10492): VHDL Process Statement warning at generador.vhd(426): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 426
+Warning (10492): VHDL Process Statement warning at generador.vhd(431): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 431
+Warning (10492): VHDL Process Statement warning at generador.vhd(436): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 436
+Warning (10492): VHDL Process Statement warning at generador.vhd(448): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 448
+Warning (10492): VHDL Process Statement warning at generador.vhd(453): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 453
+Warning (10492): VHDL Process Statement warning at generador.vhd(458): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 458
+Warning (10492): VHDL Process Statement warning at generador.vhd(463): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 463
+Warning (10492): VHDL Process Statement warning at generador.vhd(468): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 468
+Warning (10492): VHDL Process Statement warning at generador.vhd(480): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 480
+Warning (10492): VHDL Process Statement warning at generador.vhd(485): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 485
+Warning (10492): VHDL Process Statement warning at generador.vhd(490): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 490
+Warning (10492): VHDL Process Statement warning at generador.vhd(495): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 495
+Warning (10492): VHDL Process Statement warning at generador.vhd(507): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 507
+Warning (10492): VHDL Process Statement warning at generador.vhd(512): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 512
+Warning (10492): VHDL Process Statement warning at generador.vhd(517): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 517
+Warning (10492): VHDL Process Statement warning at generador.vhd(522): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 522
+Warning (10492): VHDL Process Statement warning at generador.vhd(527): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 527
+Warning (10492): VHDL Process Statement warning at generador.vhd(539): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 539
+Warning (10492): VHDL Process Statement warning at generador.vhd(544): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 544
+Warning (10492): VHDL Process Statement warning at generador.vhd(549): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 549
+Warning (10492): VHDL Process Statement warning at generador.vhd(554): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 554
+Warning (10492): VHDL Process Statement warning at generador.vhd(559): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 559
+Warning (10492): VHDL Process Statement warning at generador.vhd(564): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 564
+Warning (10492): VHDL Process Statement warning at generador.vhd(576): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 576
+Warning (10492): VHDL Process Statement warning at generador.vhd(581): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 581
+Warning (10492): VHDL Process Statement warning at generador.vhd(586): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 586
+Warning (10492): VHDL Process Statement warning at generador.vhd(591): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 591
+Warning (10492): VHDL Process Statement warning at generador.vhd(603): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 603
+Warning (10492): VHDL Process Statement warning at generador.vhd(608): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 608
+Warning (10492): VHDL Process Statement warning at generador.vhd(613): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 613
+Warning (10492): VHDL Process Statement warning at generador.vhd(618): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 618
+Warning (10492): VHDL Process Statement warning at generador.vhd(623): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 623
+Warning (10492): VHDL Process Statement warning at generador.vhd(628): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 628
+Warning (10492): VHDL Process Statement warning at generador.vhd(633): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 633
+Warning (10492): VHDL Process Statement warning at generador.vhd(645): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 645
+Warning (10492): VHDL Process Statement warning at generador.vhd(650): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 650
+Warning (10492): VHDL Process Statement warning at generador.vhd(655): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 655
+Warning (10492): VHDL Process Statement warning at generador.vhd(660): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 660
+Warning (10492): VHDL Process Statement warning at generador.vhd(665): signal "posicionx1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 665
+Warning (10492): VHDL Process Statement warning at generador.vhd(679): signal "present_stateD" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 679
+Warning (10492): VHDL Process Statement warning at generador.vhd(682): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 682
+Warning (10492): VHDL Process Statement warning at generador.vhd(687): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 687
+Warning (10492): VHDL Process Statement warning at generador.vhd(692): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 692
+Warning (10492): VHDL Process Statement warning at generador.vhd(697): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 697
+Warning (10492): VHDL Process Statement warning at generador.vhd(702): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 702
+Warning (10492): VHDL Process Statement warning at generador.vhd(707): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 707
+Warning (10492): VHDL Process Statement warning at generador.vhd(719): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 719
+Warning (10492): VHDL Process Statement warning at generador.vhd(724): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 724
+Warning (10492): VHDL Process Statement warning at generador.vhd(735): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 735
+Warning (10492): VHDL Process Statement warning at generador.vhd(740): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 740
+Warning (10492): VHDL Process Statement warning at generador.vhd(745): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 745
+Warning (10492): VHDL Process Statement warning at generador.vhd(750): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 750
+Warning (10492): VHDL Process Statement warning at generador.vhd(755): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 755
+Warning (10492): VHDL Process Statement warning at generador.vhd(767): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 767
+Warning (10492): VHDL Process Statement warning at generador.vhd(772): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 772
+Warning (10492): VHDL Process Statement warning at generador.vhd(777): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 777
+Warning (10492): VHDL Process Statement warning at generador.vhd(782): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 782
+Warning (10492): VHDL Process Statement warning at generador.vhd(787): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 787
+Warning (10492): VHDL Process Statement warning at generador.vhd(799): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 799
+Warning (10492): VHDL Process Statement warning at generador.vhd(804): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 804
+Warning (10492): VHDL Process Statement warning at generador.vhd(809): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 809
+Warning (10492): VHDL Process Statement warning at generador.vhd(814): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 814
+Warning (10492): VHDL Process Statement warning at generador.vhd(826): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 826
+Warning (10492): VHDL Process Statement warning at generador.vhd(831): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 831
+Warning (10492): VHDL Process Statement warning at generador.vhd(836): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 836
+Warning (10492): VHDL Process Statement warning at generador.vhd(841): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 841
+Warning (10492): VHDL Process Statement warning at generador.vhd(846): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 846
+Warning (10492): VHDL Process Statement warning at generador.vhd(858): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 858
+Warning (10492): VHDL Process Statement warning at generador.vhd(863): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 863
+Warning (10492): VHDL Process Statement warning at generador.vhd(868): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 868
+Warning (10492): VHDL Process Statement warning at generador.vhd(873): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 873
+Warning (10492): VHDL Process Statement warning at generador.vhd(878): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 878
+Warning (10492): VHDL Process Statement warning at generador.vhd(883): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 883
+Warning (10492): VHDL Process Statement warning at generador.vhd(895): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 895
+Warning (10492): VHDL Process Statement warning at generador.vhd(900): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 900
+Warning (10492): VHDL Process Statement warning at generador.vhd(905): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 905
+Warning (10492): VHDL Process Statement warning at generador.vhd(910): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 910
+Warning (10492): VHDL Process Statement warning at generador.vhd(922): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 922
+Warning (10492): VHDL Process Statement warning at generador.vhd(927): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 927
+Warning (10492): VHDL Process Statement warning at generador.vhd(932): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 932
+Warning (10492): VHDL Process Statement warning at generador.vhd(937): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 937
+Warning (10492): VHDL Process Statement warning at generador.vhd(942): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 942
+Warning (10492): VHDL Process Statement warning at generador.vhd(947): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 947
+Warning (10492): VHDL Process Statement warning at generador.vhd(952): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 952
+Warning (10492): VHDL Process Statement warning at generador.vhd(964): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 964
+Warning (10492): VHDL Process Statement warning at generador.vhd(969): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 969
+Warning (10492): VHDL Process Statement warning at generador.vhd(974): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 974
+Warning (10492): VHDL Process Statement warning at generador.vhd(979): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 979
+Warning (10492): VHDL Process Statement warning at generador.vhd(984): signal "posicionx2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 984
+Warning (10631): VHDL Process Statement warning at generador.vhd(38): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Warning (10631): VHDL Process Statement warning at generador.vhd(38): inferring latch(es) for signal or variable "G", which holds its previous value in one or more paths through the process File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Warning (10631): VHDL Process Statement warning at generador.vhd(38): inferring latch(es) for signal or variable "B", which holds its previous value in one or more paths through the process File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at generador.vhd(1068): signal "n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 1068
+Warning (10492): VHDL Process Statement warning at generador.vhd(1082): signal "e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 1082
+Info (10041): Inferred latch for "B[0]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "B[1]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "B[2]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "B[3]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "G[0]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "G[1]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "G[2]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "G[3]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "R[0]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "R[1]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "R[2]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (10041): Inferred latch for "R[3]" at generador.vhd(38) File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "generador:N4|R[3]" merged with LATCH primitive "generador:N4|R[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|R[2]" merged with LATCH primitive "generador:N4|R[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|R[1]" merged with LATCH primitive "generador:N4|R[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|G[3]" merged with LATCH primitive "generador:N4|G[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|G[2]" merged with LATCH primitive "generador:N4|G[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|G[1]" merged with LATCH primitive "generador:N4|G[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|B[3]" merged with LATCH primitive "generador:N4|B[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|B[2]" merged with LATCH primitive "generador:N4|B[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+    Info (13026): Duplicate LATCH primitive "generador:N4|B[1]" merged with LATCH primitive "generador:N4|B[0]" File: C:/Users/carlo/OneDrive/Escritorio/2024-1/VLSI/Tarea4/generador.vhd Line: 38
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 195 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 180 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 162 warnings
+    Info: Peak virtual memory: 4800 megabytes
+    Info: Processing ended: Fri Nov 17 17:52:32 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:27
+
+

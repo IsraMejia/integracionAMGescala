@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.069
+TNS   : -69.745
+
+Type  : Slow 1200mV 85C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -2.043
+TNS   : -75.695
+
+Type  : Slow 1200mV 85C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -0.257
+TNS   : -0.812
+
+Type  : Slow 1200mV 85C Model Setup 'generador:N4|n'
+Slack : -0.146
+TNS   : -0.146
+
+Type  : Slow 1200mV 85C Model Hold 'generador:N4|n'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.403
+TNS   : -63.135
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.403
+TNS   : -4.209
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.751
+TNS   : -61.662
+
+Type  : Slow 1200mV 0C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -1.812
+TNS   : -65.884
+
+Type  : Slow 1200mV 0C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -0.144
+TNS   : -0.388
+
+Type  : Slow 1200mV 0C Model Setup 'generador:N4|n'
+Slack : -0.048
+TNS   : -0.048
+
+Type  : Slow 1200mV 0C Model Hold 'generador:N4|n'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.591
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.403
+TNS   : -63.135
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.403
+TNS   : -4.209
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.323
+TNS   : -16.462
+
+Type  : Fast 1200mV 0C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -0.266
+TNS   : -6.163
+
+Type  : Fast 1200mV 0C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.456
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'generador:N4|n'
+Slack : 0.510
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'generador:N4|n'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -33.083
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.000
+TNS   : -45.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.000
+TNS   : -3.000
+
+------------------------------------------------------------

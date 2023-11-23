@@ -1,0 +1,221 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'vga:N3|columns[0]'
+Slack : -7.259
+TNS   : -20.979
+
+Type  : Slow 1200mV 85C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -4.210
+TNS   : -140.255
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.054
+TNS   : -66.731
+
+Type  : Slow 1200mV 85C Model Setup 'generador:N4|e'
+Slack : -0.318
+TNS   : -0.667
+
+Type  : Slow 1200mV 85C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -0.233
+TNS   : -0.876
+
+Type  : Slow 1200mV 85C Model Setup 'generador:N4|n'
+Slack : -0.222
+TNS   : -0.607
+
+Type  : Slow 1200mV 85C Model Hold 'vga:N3|columns[0]'
+Slack : -1.107
+TNS   : -1.796
+
+Type  : Slow 1200mV 85C Model Hold 'generador:N4|e'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'generador:N4|n'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.646
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.403
+TNS   : -60.329
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'generador:N4|e'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga:N3|columns[0]'
+Slack : -1.347
+TNS   : -23.170
+
+Type  : Slow 1200mV 0C Model Setup 'vga:N3|columns[0]'
+Slack : -6.856
+TNS   : -19.835
+
+Type  : Slow 1200mV 0C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -3.754
+TNS   : -125.205
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.686
+TNS   : -58.339
+
+Type  : Slow 1200mV 0C Model Setup 'generador:N4|e'
+Slack : -0.203
+TNS   : -0.398
+
+Type  : Slow 1200mV 0C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -0.123
+TNS   : -0.448
+
+Type  : Slow 1200mV 0C Model Setup 'generador:N4|n'
+Slack : -0.116
+TNS   : -0.289
+
+Type  : Slow 1200mV 0C Model Hold 'vga:N3|columns[0]'
+Slack : -0.916
+TNS   : -1.525
+
+Type  : Slow 1200mV 0C Model Hold 'generador:N4|e'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'generador:N4|n'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.588
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.597
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -43.687
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.403
+TNS   : -60.329
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.403
+TNS   : -7.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'generador:N4|e'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga:N3|columns[0]'
+Slack : -1.332
+TNS   : -20.752
+
+Type  : Fast 1200mV 0C Model Setup 'vga:N3|columns[0]'
+Slack : -2.444
+TNS   : -6.991
+
+Type  : Fast 1200mV 0C Model Setup 'reloj:N1|reloj_pixel'
+Slack : -1.447
+TNS   : -39.155
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.232
+TNS   : -14.147
+
+Type  : Fast 1200mV 0C Model Setup 'generador:N4|e'
+Slack : 0.423
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.465
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'generador:N4|n'
+Slack : 0.477
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vga:N3|columns[0]'
+Slack : -0.838
+TNS   : -1.691
+
+Type  : Fast 1200mV 0C Model Hold 'relojLento:N2|\divisor:cuenta[22]'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'generador:N4|e'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'generador:N4|n'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.248
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'reloj:N1|reloj_pixel'
+Slack : 0.250
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -32.953
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj:N1|reloj_pixel'
+Slack : -1.000
+TNS   : -43.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'relojLento:N2|\divisor:cuenta[22]'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'generador:N4|e'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'generador:N4|n'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga:N3|columns[0]'
+Slack : -0.420
+TNS   : -3.997
+
+------------------------------------------------------------

@@ -1,0 +1,357 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity generador is
+	port ( row: in integer;
+			column: in integer;
+			contador: in std_logic_vector(3 downto 0);
+			posicion: in integer;
+			R,G,B: out std_logic_vector(3 downto 0) );
+end entity generador;
+
+
+architecture behavioral of reloj is
+
+	subtype state is std_logic_vector (3 downto 0);
+	signal present_state, next_state: state;
+	constant state0: state:= "0000";
+	constant state1: state:= "0001";
+	constant state2: state:= "0010";
+	constant state3: state:= "0011";
+	constant state4: state:= "0100";
+	constant state5: state:= "0101";
+	constant state6: state:= "0110";
+	constant state7: state:= "0111";
+	constant state8: state:= "1000";
+	constant state9: state:= "1001";
+
+
+begin
+	
+	generador_imagen: process(display_ena, row, column, e_presente)
+	begin
+		if(display_ena = '1') then
+	case e_presente is
+		when cero=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion and column<posicion+10)) then -- E cian
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when uno=>
+		if ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		when dos=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion and column<posicion+10)) then -- E cian
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when tres=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when cuatro=>
+		if ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when cinco=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when seis=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion and column<posicion+10)) then -- E cian
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when siete=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when ocho=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 280 and row <290) and
+		(column>posicion+10 and column<posicion+40)) then -- D blanco
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 250 and row <280) and
+		(column>posicion and column<posicion+10)) then -- E cian
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		else -- fondo
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '0');
+		end if;
+		
+		when nueve=>
+		if ((row > 200 and row <210) and
+		(column>posicion+10 and column<posicion+40)) then -- A azul
+			red <= (others => '0');
+			green <= (others => '0');
+			blue <= (others => '1');
+		elsif ((row > 210 and row <240) and
+		(column>posicion+40 and column<posicion+50)) then -- B verde
+			red <= (others => '0');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 250 and row <280) and
+		(column>posicion+40 and column<posicion+50)) then -- C rojo
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '0');
+		elsif ((row > 210 and row <240) and
+		(column>posicion and column<posicion+10)) then -- F amarillo
+			red <= (others => '1');
+			green <= (others => '1');
+			blue <= (others => '0');
+		elsif ((row > 240 and row <250) and
+		(column>posicion+10 and column<posicion+40)) then -- G violeta
+			red <= (others => '1');
+			green <= (others => '0');
+			blue <= (others => '1');
+		end if;
+		end case;
+		else
+			red<= (others => '0');
+			green <= (others => '0');
+			blue<= (others => '0');
+		end if;
+	end process generador_imagen;
+	
+		state:= contador
+	
+end behavioral;

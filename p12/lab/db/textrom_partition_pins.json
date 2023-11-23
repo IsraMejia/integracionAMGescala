@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "R1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "R1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hsync1",
+					"strict" : false
+				},
+				{
+					"name" : "vsync1",
+					"strict" : false
+				},
+				{
+					"name" : "clk1",
+					"strict" : false
+				},
+				{
+					"name" : "reset1",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
