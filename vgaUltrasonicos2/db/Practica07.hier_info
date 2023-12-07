@@ -18,6 +18,7 @@ Dcm1[3] << sonic:ultra1.Dcm[3]
 Dcm1[4] << sonic:ultra1.Dcm[4]
 Dcm1[5] << sonic:ultra1.Dcm[5]
 Dcm1[6] << sonic:ultra1.Dcm[6]
+sonicplayer1 << sonic:ultra1.sonicplayer
 sensor_eco2 => sonic:ultra2.sensor_eco
 led2 <= sonic:ultra2.led
 sensor_disp2 <= sonic:ultra2.sensor_disp
@@ -35,9 +36,11 @@ Dcm2[3] << sonic:ultra2.Dcm[3]
 Dcm2[4] << sonic:ultra2.Dcm[4]
 Dcm2[5] << sonic:ultra2.Dcm[5]
 Dcm2[6] << sonic:ultra2.Dcm[6]
+sonicplayer2 << sonic:ultra2.sonicplayer
 
 
 |sonicos|sonic:ultra1
+clk => sonicplayer~reg0.CLK
 clk => led~reg0.CLK
 clk => eco_nsinc.CLK
 clk => eco_sinc.CLK
@@ -110,9 +113,11 @@ Dcm[3] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[4] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[5] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[6] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
+sonicplayer <= sonicplayer~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sonicos|sonic:ultra2
+clk => sonicplayer~reg0.CLK
 clk => led~reg0.CLK
 clk => eco_nsinc.CLK
 clk => eco_sinc.CLK
@@ -185,5 +190,6 @@ Dcm[3] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[4] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[5] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
 Dcm[6] <= Dcm.DB_MAX_OUTPUT_PORT_TYPE
+sonicplayer <= sonicplayer~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
