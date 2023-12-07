@@ -1,0 +1,125 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Hsync",
+					"strict" : false
+				},
+				{
+					"name" : "Vsync",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_marcador_j2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "R[1]",
+					"strict" : false
+				},
+				{
+					"name" : "R[2]",
+					"strict" : false
+				},
+				{
+					"name" : "R[3]",
+					"strict" : false
+				},
+				{
+					"name" : "G[1]",
+					"strict" : false
+				},
+				{
+					"name" : "G[2]",
+					"strict" : false
+				},
+				{
+					"name" : "G[3]",
+					"strict" : false
+				},
+				{
+					"name" : "B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "encendido",
+					"strict" : false
+				},
+				{
+					"name" : "palancasjugadores[1]",
+					"strict" : false
+				},
+				{
+					"name" : "palancasjugadores[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "start_game",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

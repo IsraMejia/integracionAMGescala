@@ -51,8 +51,9 @@ BEGIN
 
 	Trigger : PROCESS (clk) BEGIN
 		IF rising_edge(clk) THEN
-			IF espera = '0' THEN
-				IF cuenta = 500 THEN
+			
+		IF espera = '0' THEN
+				IF cuenta = 500 THEN --Por cada 500 pulssos de reloj se revisa el sensor ultrasonico
 					sensor_disp <= '0';
 					espera <= '1';
 					cuenta <= (OTHERS => '0');
@@ -60,14 +61,19 @@ BEGIN
 					sensor_disp <= '1';
 					cuenta <= cuenta + 1;
 				END IF;
+
+			--Calculo de la distancia	
 			ELSIF eco_pasado = '0' AND eco_sinc = '1' THEN
 				cuenta <= (OTHERS => '0');
 				centimetros <= (OTHERS => '0');
 				centimetros_unid <= (OTHERS => '0');
 				centimetros_dece <= (OTHERS => '0');
+
+			--Si se se mide la distancia del objeto que se encuentre en 4 bits
 			ELSIF eco_pasado = '1' AND eco_sinc = '0' THEN
 				sal_unid <= centimetros_unid;
 				sal_dece <= centimetros_dece;
+
 			ELSIF cuenta = 2900 - 1 THEN
 				IF centimetros_unid = 9 THEN
 					centimetros_unid <= (OTHERS => '0');
