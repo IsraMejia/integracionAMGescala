@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica07
-Thu Dec 07 00:41:26 2023
+Thu Dec 07 15:27:18 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -45,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Dec 07 00:41:26 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 07 15:27:18 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica07                                  ;
 ; Top-level Entity Name              ; sonicos                                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 100                                         ;
-;     Total combinational functions  ; 89                                          ;
-;     Dedicated logic registers      ; 55                                          ;
-; Total registers                    ; 55                                          ;
-; Total pins                         ; 19                                          ;
+; Total logic elements               ; 197                                         ;
+;     Total combinational functions  ; 175                                         ;
+;     Dedicated logic registers      ; 110                                         ;
+; Total registers                    ; 110                                         ;
+; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -167,13 +167,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; sonicos.vhd                      ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; sonic.vhd                        ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonic.vhd   ;         ;
+; sonicos.vhd                      ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -181,40 +182,42 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 100       ;
+; Estimated Total logic elements              ; 197       ;
 ;                                             ;           ;
-; Total combinational functions               ; 89        ;
+; Total combinational functions               ; 175       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 43        ;
-;     -- 3 input functions                    ; 10        ;
-;     -- <=2 input functions                  ; 36        ;
+;     -- 4 input functions                    ; 81        ;
+;     -- 3 input functions                    ; 20        ;
+;     -- <=2 input functions                  ; 74        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 58        ;
-;     -- arithmetic mode                      ; 31        ;
+;     -- normal mode                          ; 113       ;
+;     -- arithmetic mode                      ; 62        ;
 ;                                             ;           ;
-; Total registers                             ; 55        ;
-;     -- Dedicated logic registers            ; 55        ;
+; Total registers                             ; 110       ;
+;     -- Dedicated logic registers            ; 110       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 19        ;
+; I/O pins                                    ; 35        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 55        ;
-; Total fan-out                               ; 499       ;
-; Average fan-out                             ; 2.74      ;
+; Maximum fan-out                             ; 110       ;
+; Total fan-out                               ; 979       ;
+; Average fan-out                             ; 2.76      ;
 +---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |sonicos                   ; 89 (89)             ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |sonicos            ; sonicos     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name   ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
+; |sonicos                   ; 175 (0)             ; 110 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 35   ; 0            ; 0          ; |sonicos              ; sonicos     ; work         ;
+;    |sonic:ultra1|          ; 87 (87)             ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra1 ; sonic       ; work         ;
+;    |sonic:ultra2|          ; 88 (88)             ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra2 ; sonic       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -223,28 +226,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 55    ;
-; Number of registers using Synchronous Clear  ; 33    ;
+; Total registers                              ; 110   ;
+; Number of registers using Synchronous Clear  ; 66    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 49    ;
+; Number of registers using Clock Enable       ; 98    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|centimetros[5]      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|centimetros_dece[3] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|centimetros_unid[1] ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|cuenta[9]           ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|Ucm                 ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|Dcm                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra1|centimetros[11]     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra1|centimetros_dece[1] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra2|centimetros[1]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra2|centimetros_dece[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra1|centimetros_unid[0] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra2|centimetros_unid[3] ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra1|cuenta[15]          ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra2|cuenta[0]           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra1|Ucm[6]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra1|Dcm[2]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra2|Ucm[6]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra2|Dcm[6]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +---------------------------------------------------+
@@ -252,25 +261,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------+---------+------+---------------------+
 ; Assignment ; Value   ; From ; To                  ;
 +------------+---------+------+---------------------+
-; LOCATION   ; Pin_C17 ; -    ; Ucm[6]              ;
-; LOCATION   ; Pin_D17 ; -    ; Ucm[5]              ;
-; LOCATION   ; Pin_E16 ; -    ; Ucm[4]              ;
-; LOCATION   ; Pin_C16 ; -    ; Ucm[3]              ;
-; LOCATION   ; Pin_C15 ; -    ; Ucm[2]              ;
-; LOCATION   ; Pin_E15 ; -    ; Ucm[1]              ;
-; LOCATION   ; Pin_C14 ; -    ; Ucm[0]              ;
-; LOCATION   ; Pin_B17 ; -    ; Dcm[6]              ;
-; LOCATION   ; Pin_A18 ; -    ; Dcm[5]              ;
-; LOCATION   ; Pin_A17 ; -    ; Dcm[4]              ;
-; LOCATION   ; Pin_B16 ; -    ; Dcm[3]              ;
-; LOCATION   ; Pin_E18 ; -    ; Dcm[2]              ;
-; LOCATION   ; Pin_D18 ; -    ; Dcm[1]              ;
-; LOCATION   ; Pin_C18 ; -    ; Dcm[0]              ;
+; LOCATION   ; Pin_F20 ; -    ; Ucm1[6]             ;
+; LOCATION   ; Pin_F19 ; -    ; Ucm1[5]             ;
+; LOCATION   ; Pin_H19 ; -    ; Ucm1[4]             ;
+; LOCATION   ; Pin_J18 ; -    ; Ucm1[3]             ;
+; LOCATION   ; Pin_E19 ; -    ; Ucm1[2]             ;
+; LOCATION   ; Pin_E20 ; -    ; Ucm1[1]             ;
+; LOCATION   ; Pin_F18 ; -    ; Ucm1[0]             ;
+; LOCATION   ; Pin_N20 ; -    ; Dcm1[6]             ;
+; LOCATION   ; Pin_N19 ; -    ; Dcm1[5]             ;
+; LOCATION   ; Pin_M20 ; -    ; Dcm1[4]             ;
+; LOCATION   ; Pin_N18 ; -    ; Dcm1[3]             ;
+; LOCATION   ; Pin_L18 ; -    ; Dcm1[2]             ;
+; LOCATION   ; Pin_K20 ; -    ; Dcm1[1]             ;
+; LOCATION   ; Pin_J20 ; -    ; Dcm1[0]             ;
+; LOCATION   ; Pin_C17 ; -    ; Ucm2[6]             ;
+; LOCATION   ; Pin_D17 ; -    ; Ucm2[5]             ;
+; LOCATION   ; Pin_E16 ; -    ; Ucm2[4]             ;
+; LOCATION   ; Pin_C16 ; -    ; Ucm2[3]             ;
+; LOCATION   ; Pin_C15 ; -    ; Ucm2[2]             ;
+; LOCATION   ; Pin_E15 ; -    ; Ucm2[1]             ;
+; LOCATION   ; Pin_C14 ; -    ; Ucm2[0]             ;
+; LOCATION   ; Pin_B17 ; -    ; Dcm2[6]             ;
+; LOCATION   ; Pin_A18 ; -    ; Dcm2[5]             ;
+; LOCATION   ; Pin_A17 ; -    ; Dcm2[4]             ;
+; LOCATION   ; Pin_B16 ; -    ; Dcm2[3]             ;
+; LOCATION   ; Pin_E18 ; -    ; Dcm2[2]             ;
+; LOCATION   ; Pin_D18 ; -    ; Dcm2[1]             ;
+; LOCATION   ; Pin_C18 ; -    ; Dcm2[0]             ;
 ; LOCATION   ; Pin_P11 ; -    ; clk                 ;
-; LOCATION   ; Pin_A8  ; -    ; led                 ;
-; LOCATION   ; Pin_W6  ; -    ; sensor_disp         ;
-; LOCATION   ; Pin_V5  ; -    ; sensor_eco          ;
-; LOCATION   ; Pin_W10 ; -    ; control             ;
+; LOCATION   ; Pin_V5  ; -    ; sensor_eco1         ;
+; LOCATION   ; Pin_B11 ; -    ; led1                ;
+; LOCATION   ; Pin_W6  ; -    ; sensor_disp1        ;
+; LOCATION   ; Pin_AA2 ; -    ; sensor_eco2         ;
+; LOCATION   ; Pin_A8  ; -    ; led2                ;
+; LOCATION   ; Pin_AB2 ; -    ; sensor_disp2        ;
 +------------+---------+------+---------------------+
 
 
@@ -279,23 +304,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 55                          ;
-;     ENA               ; 16                          ;
-;     ENA SCLR          ; 33                          ;
-;     plain             ; 6                           ;
-; cycloneiii_lcell_comb ; 90                          ;
-;     arith             ; 31                          ;
-;         2 data inputs ; 31                          ;
-;     normal            ; 59                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 43                          ;
+; boundary_port         ; 35                          ;
+; cycloneiii_ff         ; 110                         ;
+;     ENA               ; 32                          ;
+;     ENA SCLR          ; 66                          ;
+;     plain             ; 12                          ;
+; cycloneiii_lcell_comb ; 175                         ;
+;     arith             ; 62                          ;
+;         2 data inputs ; 62                          ;
+;     normal            ; 113                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 81                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.52                        ;
+; Average LUT depth     ; 2.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -304,7 +328,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -314,29 +338,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 07 00:41:10 2023
+    Info: Processing started: Thu Dec 07 15:26:56 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica07 -c Practica07
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file sonic.vhd
+    Info (12022): Found design unit 1: sonic-Behavioral File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonic.vhd Line: 17
+    Info (12023): Found entity 1: sonic File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonic.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file sonicos.vhd
-    Info (12022): Found design unit 1: sonicos-Behavioral File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd Line: 17
-    Info (12023): Found entity 1: sonicos File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd Line: 7
+    Info (12022): Found design unit 1: sonicos-Behavioral File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 21
+    Info (12023): Found entity 1: sonicos File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 7
 Info (12127): Elaborating entity "sonicos" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at sonicos.vhd(12): used implicit default value for signal "control" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd Line: 12
-Warning (10036): Verilog HDL or VHDL warning at sonicos.vhd(53): object "mover" assigned a value but never read File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd Line: 53
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "control" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos/sonicos.vhd Line: 12
+Info (12128): Elaborating entity "sonic" for hierarchy "sonic:ultra1" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 54
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 119 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 100 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+Info (21057): Implemented 232 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 197 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4781 megabytes
-    Info: Processing ended: Thu Dec 07 00:41:26 2023
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Processing ended: Thu Dec 07 15:27:18 2023
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:37
 
 

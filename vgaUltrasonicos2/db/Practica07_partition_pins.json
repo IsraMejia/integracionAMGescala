@@ -4,67 +4,131 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "led",
+					"name" : "led1",
 					"strict" : false
 				},
 				{
-					"name" : "sensor_disp",
+					"name" : "sensor_disp1",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[0]",
+					"name" : "Ucm1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[1]",
+					"name" : "Ucm1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[2]",
+					"name" : "Ucm1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[3]",
+					"name" : "Ucm1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[4]",
+					"name" : "Ucm1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[5]",
+					"name" : "Ucm1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Ucm[6]",
+					"name" : "Ucm1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[0]",
+					"name" : "Dcm1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[1]",
+					"name" : "Dcm1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[2]",
+					"name" : "Dcm1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[3]",
+					"name" : "Dcm1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[4]",
+					"name" : "Dcm1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[5]",
+					"name" : "Dcm1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Dcm[6]",
+					"name" : "Dcm1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_disp2",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[6]",
 					"strict" : false
 				},
 				{
@@ -72,7 +136,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "sensor_eco",
+					"name" : "sensor_eco1",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco2",
 					"strict" : false
 				}
 			]
