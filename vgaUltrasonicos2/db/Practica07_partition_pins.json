@@ -1,0 +1,81 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_disp",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

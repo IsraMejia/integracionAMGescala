@@ -18,11 +18,18 @@ ARCHITECTURE Behavioral OF sonicos IS
 	--Asignacion de Pines
 	ATTRIBUTE chip_pin : STRING;
 	ATTRIBUTE chip_pin OF clk : SIGNAL IS "P11"; 
-	ATTRIBUTE chip_pin OF led : SIGNAL IS "A8";
-	ATTRIBUTE chip_pin OF sensor_disp : SIGNAL IS "W6";
-	ATTRIBUTE chip_pin OF sensor_eco : SIGNAL IS "V5";   
-	ATTRIBUTE chip_pin OF Ucm : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
-	ATTRIBUTE chip_pin OF Dcm : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
+	ATTRIBUTE chip_pin OF led1 : SIGNAL IS "A8";
+	ATTRIBUTE chip_pin OF sensor_disp1 : SIGNAL IS "W6";
+	ATTRIBUTE chip_pin OF sensor_eco1 : SIGNAL IS "V5";   
+	ATTRIBUTE chip_pin OF Ucm1 : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
+	ATTRIBUTE chip_pin OF Dcm1 : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
+
+	
+	ATTRIBUTE chip_pin OF led2 : SIGNAL IS "A8";
+	ATTRIBUTE chip_pin OF sensor_disp2 : SIGNAL IS "W6";
+	ATTRIBUTE chip_pin OF sensor_eco2 : SIGNAL IS "V5";   
+	ATTRIBUTE chip_pin OF Ucm2 : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
+	ATTRIBUTE chip_pin OF Dcm2 : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
 	
 
 	SIGNAL cuenta : STD_LOGIC_VECTOR(16 DOWNTO 0) := (OTHERS => '0');

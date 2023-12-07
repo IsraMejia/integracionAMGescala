@@ -14,18 +14,8 @@ ENTITY sonicos IS
 END sonicos;
 
 ARCHITECTURE Behavioral OF sonicos IS
-
-	--Asignacion de Pines
-	ATTRIBUTE chip_pin : STRING;
-	ATTRIBUTE chip_pin OF clk : SIGNAL IS "P11"; 
-	ATTRIBUTE chip_pin OF led : SIGNAL IS "A8";
-	ATTRIBUTE chip_pin OF sensor_disp : SIGNAL IS "W6";
-	ATTRIBUTE chip_pin OF sensor_eco : SIGNAL IS "V5";   
-	ATTRIBUTE chip_pin OF Ucm : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14";
-	ATTRIBUTE chip_pin OF Dcm : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
-	
-
-	SIGNAL cuenta : STD_LOGIC_VECTOR(16 DOWNTO 0) := (OTHERS => '0');
+ 
+    SIGNAL cuenta : STD_LOGIC_VECTOR(16 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL contador_s : INTEGER RANGE 0 TO 125000000 := 0;
 	
 	--Maneja la distancia mas cercana antes del STOP
@@ -147,7 +137,7 @@ BEGIN
 		END IF;
 	END PROCESS; 
 	
-	activarS : PROCESS (sal_unid, sal_dece, clk)
+	Salidas : PROCESS (sal_unid, sal_dece, clk)
 	BEGIN 
 		IF rising_edge(clk) THEN
 			IF (sal_unid = X"4" AND (sal_dece >= X"2" AND sal_dece <= X"6")) THEN
