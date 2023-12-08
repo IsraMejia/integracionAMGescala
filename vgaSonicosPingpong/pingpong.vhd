@@ -56,12 +56,12 @@ entity PINGPONG is
 		R, G, B 		 : out std_logic_vector(3 downto 0);
  
 		--Para los sensores Ultrasonicos de cada jugador
-		sensor_eco1 : buffer STD_LOGIC; 
+		sensor_eco1 : IN STD_LOGIC; 
 		led1, sensor_disp1 : OUT STD_LOGIC;
 		Ucm1, Dcm1 : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
 		sonicplayer1: OUT STD_LOGIC;
 		
-		sensor_eco2 : buffer STD_LOGIC; 
+		sensor_eco2 : IN STD_LOGIC; 
 		led2, sensor_disp2 : OUT STD_LOGIC;
 		Ucm2, Dcm2 : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
 		sonicplayer2: out STD_LOGIC
@@ -177,7 +177,7 @@ architecture PINGPONG_bhv of PINGPONG is
 	component sonic IS
 	PORT ( 
 		clk :  IN STD_LOGIC; 
-		sensor_eco : buffer  STD_LOGIC; 
+		sensor_eco : IN  STD_LOGIC; 
 		led, sensor_disp : OUT  STD_LOGIC;
 		Ucm, Dcm : buffer  STD_LOGIC_VECTOR (6 DOWNTO 0);
 		sonicplayer: out STD_LOGIC

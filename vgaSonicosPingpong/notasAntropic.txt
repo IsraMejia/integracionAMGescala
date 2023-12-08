@@ -167,13 +167,17 @@ El codigo del archivo "sonic.vhd"
             END IF;
         END PROCESS;
 
+        
+        
+        
+
     END Behavioral;
 
-
 --
 
-El codigo del archivo "pinpong.vhd"
+El codigo del archivo "pinpong.vhd" 
 --
+
     --Este archivo, es el top en cuanto a jerarquia del proyecto, 
     --se encarga de crear e instanciar los componentes de todas las entidades 
     --involucradas en la creacion del juego, y la interaccion necesaria entre cada una de ellas 
@@ -408,7 +412,10 @@ El codigo del archivo "pinpong.vhd"
                 marcador_j2			 : buffer integer;
                 
                 --puertos de colores
-                R,G,B			 : out std_logic_vector(3 downto 0)
+                R,G,B			 : out std_logic_vector(3 downto 0);
+                
+                sonicplayer1: in STD_LOGIC; 
+                sonicplayer2: in STD_LOGIC 
                 
             );
         end component imprime_pantalla;
@@ -518,8 +525,8 @@ El codigo del archivo "pinpong.vhd"
                 R		    => R,
                 G			=> G,
                 B			=> B,
-                sonicplayer1 => sonicplayer1_internal,
-                sonicplayer2 => sonicplayer2_internal 
+                sonicplayer1 => sonicplayer1_internal, 
+                sonicplayer2 => sonicplayer2_internal
             )
         ;
                     
@@ -545,8 +552,6 @@ El codigo del archivo "pinpong.vhd"
 
                         
     end PINGPONG_bhv;
-
-
 
 --
 
@@ -605,15 +610,18 @@ El codigo del archivo "imprime_pantalla.vhd"
             habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
             palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
-            sonicplayer1: in STD_LOGIC;
-            sonicplayer2: in STD_LOGIC;
-
+            
             start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
             marcador_j1			 : buffer integer;
             marcador_j2			 : buffer integer;
             
             --puertos de colores
-            R,G,B			 : out std_logic_vector(3 downto 0));
+            R,G,B			 : out std_logic_vector(3 downto 0);
+
+            sonicplayer1: in STD_LOGIC; 
+            sonicplayer2: in STD_LOGIC 
+        
+            );
             
     end entity imprime_pantalla;
 
@@ -639,6 +647,10 @@ El codigo del archivo "imprime_pantalla.vhd"
         signal Coord_x_pelota		 : integer range 0 to Fhv;
         signal Coord_y_pelota		 : integer range 0 to Fvv;
         signal Direccion_pelota 	 : integer range 0 to 5;
+
+        -- Agregar declaración de señales
+        --signal sonicplayer1_internal : std_logic;  
+        --signal sonicplayer2_internal : std_logic;
         
         --Maquina de estados del videojuego de pingpong 
         type tipo_estados is (S0, S1);
@@ -1034,8 +1046,15 @@ El codigo del archivo "imprime_pantalla.vhd"
 --
 
 
-Dime que puede estar mal en el codigo, porque hasta el momento quartus me lanza errores.
-No te puedo decir que errores me lanza quartus, porque quiero probar tu habilidad de resolucion de problemas de programacion.
-Generame un nuevo codigo con las correcciones pertinentes, explicame el porque ahora si va a funcionar  con las modificaoines que haras
+
+Actualmente no lanza ningun error, pero no hace nada tampoco.
+Ayudame a solucionar el problema, si la logica para interactuar los sensores ultrasonicos con el archivo
+"imprime_pantalla.vhd" es incorrecto, o si la definicion de sus puertos del propio archivo sonic lo es.
+Sospecho mucho de ese archivo en el port:
+sensor_eco : buffer STD_LOGIC;
+
+creo que el buffer hace que no funcione correctamente. 
+Pero quiero que analises todas las posibilidades del porque no esta funcionando
+Esta es una pruba contra OpenIA para ver que chat bot es mejor, confio en ti Claude 
 
 
