@@ -12,17 +12,17 @@ clk1 => r_reg[2].CLK
 clk1 => vga_sync:N2.clk
 clk1 => font_test_gen:N3.clk
 reset1 => vga_sync:N2.reset
-R1[0] << r_reg[0].DB_MAX_OUTPUT_PORT_TYPE
-R1[1] << r_reg[1].DB_MAX_OUTPUT_PORT_TYPE
-R1[2] << r_reg[2].DB_MAX_OUTPUT_PORT_TYPE
-G1[0] << g_reg[0].DB_MAX_OUTPUT_PORT_TYPE
-G1[1] << g_reg[1].DB_MAX_OUTPUT_PORT_TYPE
-G1[2] << g_reg[2].DB_MAX_OUTPUT_PORT_TYPE
-B1[0] << b_reg[0].DB_MAX_OUTPUT_PORT_TYPE
-B1[1] << b_reg[1].DB_MAX_OUTPUT_PORT_TYPE
-B1[2] << b_reg[2].DB_MAX_OUTPUT_PORT_TYPE
-hsync1 << vga_sync:N2.hsync
-vsync1 << vga_sync:N2.vsync
+R1[0] <= r_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+R1[1] <= r_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+R1[2] <= r_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+G1[0] <= g_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+G1[1] <= g_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+G1[2] <= g_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+B1[0] <= b_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+B1[1] <= b_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+B1[2] <= b_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+hsync1 <= vga_sync:N2.hsync
+vsync1 <= vga_sync:N2.vsync
 
 
 |principal|font_rom:N1
