@@ -54,17 +54,17 @@ entity PINGPONG is
 		
 		--Vectores RGB para los colores al momento de dibujar la interfaz del juego en el monitor VGA
 		R, G, B 		 : out std_logic_vector(3 downto 0);
-
+ 
 		--Para los sensores Ultrasonicos de cada jugador
-		sensor_eco1 : IN STD_LOGIC; 
+		sensor_eco1 : buffer STD_LOGIC; 
 		led1, sensor_disp1 : OUT STD_LOGIC;
 		Ucm1, Dcm1 : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
-		sonicplayer1: buffer STD_LOGIC;
+		sonicplayer1: OUT STD_LOGIC;
 		
-		sensor_eco2 : IN STD_LOGIC; 
+		sensor_eco2 : buffer STD_LOGIC; 
 		led2, sensor_disp2 : OUT STD_LOGIC;
 		Ucm2, Dcm2 : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
-		sonicplayer2: buffer STD_LOGIC
+		sonicplayer2: out STD_LOGIC
 	);
 
 end  PINGPONG;
@@ -116,7 +116,8 @@ architecture PINGPONG_bhv of PINGPONG is
 		ATTRIBUTE chip_pin OF sensor_disp2 : SIGNAL IS "AB2";
 		ATTRIBUTE chip_pin OF sensor_eco2 : SIGNAL IS "AA2"; 
 
-
+	 
+	
 	--Componente que genera los relojes que se ocupan para el juego
 	component divisor_frec is		
 		generic( 
@@ -171,10 +172,10 @@ architecture PINGPONG_bhv of PINGPONG is
 	component sonic IS
 	PORT ( 
 		clk :  IN STD_LOGIC; 
-		sensor_eco : IN  STD_LOGIC; 
+		sensor_eco : buffer  STD_LOGIC; 
 		led, sensor_disp : OUT  STD_LOGIC;
 		Ucm, Dcm : buffer  STD_LOGIC_VECTOR (6 DOWNTO 0);
-		sonicplayer: buffer STD_LOGIC
+		sonicplayer: out STD_LOGIC
 	); 
 	END component sonic; 
 
@@ -321,7 +322,7 @@ begin
 		)		
 		port map(	
 			reloj_pixeles	=> reloj_pixeles,
-			reloj_raquetas	=> reloj_raquetas,
+			reloj_raquetas	=> reloj_raquetas, 
 			reloj_pelota	=> reloj_pelota,
 			encendido	=> encendido,
 			Hactive		=> Hactive,
@@ -330,13 +331,14 @@ begin
 			Vsync		=> Vsync,
 			habilitador		=> habilitador,
 			palancasjugadores=> palancasjugadores,
-			
 			start_game	=> start_game,
 			marcador_j1		=> marcador_j1,
 			marcador_j2		=> marcador_j2, 
 			R		    => R,
 			G			=> G,
-			B			=> B
+			B			=> B,
+			sonicplayer1 => sonicplayer1,
+			sonicplayer2 => sonicplayer2 
 		)
 	;
 				

@@ -7,11 +7,11 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 ENTITY sonic IS
 PORT ( 
     clk : IN STD_LOGIC; 
-    sensor_eco : IN STD_LOGIC;
+    sensor_eco : buffer STD_LOGIC;
     led : OUT STD_LOGIC;
     sensor_disp : OUT STD_LOGIC;
     Ucm, Dcm : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
-	sonicplayer: buffer STD_LOGIC
+	sonicplayer: out STD_LOGIC
 );
 END sonic;
 

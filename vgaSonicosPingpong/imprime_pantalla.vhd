@@ -50,8 +50,8 @@ entity imprime_pantalla is
 		habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
 		palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
-		sonicplayer1: buffer STD_LOGIC;
-		sonicplayer2: buffer STD_LOGIC;
+		sonicplayer1: in STD_LOGIC;
+		sonicplayer2: in STD_LOGIC;
 
 		start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
 		marcador_j1			 : buffer integer;

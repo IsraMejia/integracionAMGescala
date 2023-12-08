@@ -14,3 +14,36 @@ En que parte de cada archivo me recomiendas poner la señal ya sea en la seccion
 o como un puerto generico, en un componente, en la instancia del componente o señal como tal.
 en que momento tiene que ser IN, OUT, BUFFER, etc.
 Quiero que me des todas tus recomendaciones y el porque de cada una
+
+
+
+Hice todos los cambios que me comentas y en el archivo "pingpong.vhd" en la siguiente seccion:
+--
+	--Mapeando puertos para los ultrasonicos de los jufadores
+	ultra2 :sonic
+		port map(
+			clk => clk,
+			sensor_eco   => sensor_eco2,
+			led 		 => led2, 
+			sensor_disp  => sensor_disp2,
+			Ucm 		 => Ucm2,
+			Dcm 		 => Dcm2,
+			sonicplayer => sonicplayer2
+		)
+	;
+--
+
+Me lanza el siguiente error:
+ 
+Error (10577): VHDL error at pingpong.vhd(305): actual port "sonicplayer2" of mode "in" cannot be associated with formal port "sonicplayer" of mode "out"
+Error (10599): VHDL error at pingpong.vhd(305): can't update value of interface object "sonicplayer2" of mode IN
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
+	Error: Peak virtual memory: 4773 megabytes
+	Error: Processing ended: Thu Dec 07 22:02:09 2023
+	Error: Elapsed time: 00:00:22
+	Error: Total CPU time (on all processors): 00:00:36
+Error (293001): Quartus Prime Full Compilation was unsuccessful. 4 errors, 1 warning
+
+
+
+
