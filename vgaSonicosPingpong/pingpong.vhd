@@ -87,6 +87,11 @@ architecture PINGPONG_bhv of PINGPONG is
 	signal marcador_j1  : integer;
 	signal marcador_j2  : integer;
 
+	signal sonicplayer1_internal: STD_LOGIC := '0';  -- Inicialización con valor por defecto
+	signal sonicplayer2_internal: STD_LOGIC := '0';  -- Inicialización con valor por defecto
+
+
+
 		--Asignacion de Pines
 		ATTRIBUTE chip_pin : STRING;
 		attribute chip_pin of clk	       : signal is "N14"; 
@@ -227,7 +232,10 @@ architecture PINGPONG_bhv of PINGPONG is
 			marcador_j2			 : buffer integer;
 			
 			--puertos de colores
-			R,G,B			 : out std_logic_vector(3 downto 0)
+			R,G,B			 : out std_logic_vector(3 downto 0);
+			
+			sonicplayer1: in STD_LOGIC; 
+        	sonicplayer2: in STD_LOGIC 
 			
 		);
 	end component imprime_pantalla;
@@ -337,8 +345,8 @@ begin
 			R		    => R,
 			G			=> G,
 			B			=> B,
-			sonicplayer1 => sonicplayer1,
-			sonicplayer2 => sonicplayer2 
+			sonicplayer1 => sonicplayer1_internal, 
+        	sonicplayer2 => sonicplayer2_internal
 		)
 	;
 				

@@ -50,15 +50,18 @@ entity imprime_pantalla is
 		habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
 		palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
-		sonicplayer1: in STD_LOGIC;
-		sonicplayer2: in STD_LOGIC;
-
+		
 		start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
 		marcador_j1			 : buffer integer;
 		marcador_j2			 : buffer integer;
 		
 		--puertos de colores
-		R,G,B			 : out std_logic_vector(3 downto 0));
+		R,G,B			 : out std_logic_vector(3 downto 0);
+
+		sonicplayer1: in STD_LOGIC; 
+        sonicplayer2: in STD_LOGIC 
+	
+		);
 		
 end entity imprime_pantalla;
 
@@ -84,6 +87,10 @@ architecture imprime_pantalla_bhv of imprime_pantalla is
 	signal Coord_x_pelota		 : integer range 0 to Fhv;
 	signal Coord_y_pelota		 : integer range 0 to Fvv;
 	signal Direccion_pelota 	 : integer range 0 to 5;
+
+	-- Agregar declaración de señales
+	--signal sonicplayer1_internal : std_logic;  
+	--signal sonicplayer2_internal : std_logic;
 	
 	--Maquina de estados del videojuego de pingpong 
 	type tipo_estados is (S0, S1);

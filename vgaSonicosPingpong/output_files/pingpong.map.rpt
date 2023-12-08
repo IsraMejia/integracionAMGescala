@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pingpong
-Thu Dec 07 22:17:01 2023
+Fri Dec 08 01:07:02 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,25 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for Top-level Entity: |pingpong
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |pingpong
+ 15. Parameter Settings for User Entity Instance: divisor_frec:inst_div_f
+ 16. Parameter Settings for User Entity Instance: controlador_vga:ins_controlador_vga
+ 17. Parameter Settings for User Entity Instance: imprime_pantalla:ins_imprime_pantalla
+ 18. Parameter Settings for User Entity Instance: divisor_frec:ins_reloj_jugadores
+ 19. Parameter Settings for User Entity Instance: divisor_frec:ins_reloj_pelota
+ 20. Port Connectivity Checks: "imprime_pantalla:ins_imprime_pantalla"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -37,22 +55,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Thu Dec 07 22:17:01 2023           ;
+; Analysis & Synthesis Status        ; Successful - Fri Dec 08 01:07:02 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
-; Top-level Entity Name              ; pingpong                                    ;
+; Top-level Entity Name              ; PINGPONG                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 664                                         ;
+;     Total combinational functions  ; 663                                         ;
+;     Dedicated logic registers      ; 213                                         ;
+; Total registers                    ; 213                                         ;
+; Total pins                         ; 71                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -151,11 +169,408 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; sonic.vhd                        ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/sonic.vhd            ;         ;
+; controlador_vga.vhd              ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/controlador_vga.vhd  ;         ;
+; marcador_dss.vhd                 ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/marcador_dss.vhd     ;         ;
+; imprime_pantalla.vhd             ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd ;         ;
+; divisor_frec.vhd                 ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/divisor_frec.vhd     ;         ;
+; pingpong.vhd                     ; yes             ; User VHDL File  ; C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd         ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 664             ;
+;                                             ;                 ;
+; Total combinational functions               ; 663             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 158             ;
+;     -- 3 input functions                    ; 153             ;
+;     -- <=2 input functions                  ; 352             ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 269             ;
+;     -- arithmetic mode                      ; 394             ;
+;                                             ;                 ;
+; Total registers                             ; 213             ;
+;     -- Dedicated logic registers            ; 213             ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 71              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; encendido~input ;
+; Maximum fan-out                             ; 138             ;
+; Total fan-out                               ; 2630            ;
+; Average fan-out                             ; 2.58            ;
++---------------------------------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                 ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                             ; Entity Name      ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+------------------+--------------+
+; |PINGPONG                                  ; 663 (0)             ; 213 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 71   ; 0            ; 0          ; |PINGPONG                                       ; PINGPONG         ; work         ;
+;    |controlador_vga:ins_controlador_vga|   ; 44 (44)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|controlador_vga:ins_controlador_vga   ; controlador_vga  ; work         ;
+;    |divisor_frec:ins_reloj_jugadores|      ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:ins_reloj_jugadores      ; divisor_frec     ; work         ;
+;    |divisor_frec:ins_reloj_pelota|         ; 34 (34)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:ins_reloj_pelota         ; divisor_frec     ; work         ;
+;    |divisor_frec:inst_div_f|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:inst_div_f               ; divisor_frec     ; work         ;
+;    |imprime_pantalla:ins_imprime_pantalla| ; 460 (460)           ; 118 (118)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla ; imprime_pantalla ; work         ;
+;    |marcador_dss:ins_marcador|             ; 46 (46)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|marcador_dss:ins_marcador             ; marcador_dss     ; work         ;
+;    |sonic:ultra1|                          ; 50 (50)             ; 35 (35)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|sonic:ultra1                          ; sonic            ; work         ;
+;    |sonic:ultra2|                          ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|sonic:ultra2                          ; sonic            ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                         ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                    ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+; imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[0,2,3,6..9] ; Stuck at GND due to stuck port data_in                                ;
+; imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta2[0,4,5,7,8]  ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|sonicplayer                                           ; Stuck at VCC due to stuck port data_in                                ;
+; sonic:ultra2|eco_nsinc                                             ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra1|sonicplayer                                           ; Stuck at VCC due to stuck port data_in                                ;
+; sonic:ultra1|eco_nsinc                                             ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|eco_sinc                                              ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra1|eco_sinc                                              ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|eco_pasado                                            ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra1|eco_pasado                                            ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|centimetros_dece[0..3]                                ; Lost fanout                                                           ;
+; sonic:ultra2|centimetros_unid[0..3]                                ; Lost fanout                                                           ;
+; sonic:ultra1|centimetros_dece[0..3]                                ; Lost fanout                                                           ;
+; sonic:ultra1|centimetros_unid[0..3]                                ; Lost fanout                                                           ;
+; controlador_vga:ins_controlador_vga|Vactive                        ; Stuck at VCC due to stuck port data_in                                ;
+; divisor_frec:inst_div_f|ContadorAscendente                         ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|sal_dece[0,1,3]                                       ; Merged with sonic:ultra2|sal_unid[0]                                  ;
+; sonic:ultra2|sal_unid[1,3]                                         ; Merged with sonic:ultra2|sal_unid[0]                                  ;
+; sonic:ultra2|sal_dece[2]                                           ; Merged with sonic:ultra2|sal_unid[0]                                  ;
+; sonic:ultra2|sal_unid[2]                                           ; Merged with sonic:ultra2|sal_unid[0]                                  ;
+; sonic:ultra1|sal_unid[2,3]                                         ; Merged with sonic:ultra1|sal_unid[0]                                  ;
+; sonic:ultra1|sal_dece[0..3]                                        ; Merged with sonic:ultra1|sal_unid[0]                                  ;
+; sonic:ultra1|sal_unid[1]                                           ; Merged with sonic:ultra1|sal_unid[0]                                  ;
+; imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[4,5]        ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[1] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta2[1..3,6,9]   ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[1] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[9]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[9] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[8]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[8] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[7]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[7] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[6]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[6] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[5]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[5] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[4]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[4] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[3]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[3] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[2]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[2] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[1]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[1] ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta2[0]          ; Merged with imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[0] ;
+; sonic:ultra2|sal_unid[0]                                           ; Merged with sonic:ultra1|sal_unid[0]                                  ;
+; sonic:ultra2|cuenta[16]                                            ; Merged with sonic:ultra1|cuenta[16]                                   ;
+; sonic:ultra2|cuenta[15]                                            ; Merged with sonic:ultra1|cuenta[15]                                   ;
+; sonic:ultra2|cuenta[14]                                            ; Merged with sonic:ultra1|cuenta[14]                                   ;
+; sonic:ultra2|cuenta[13]                                            ; Merged with sonic:ultra1|cuenta[13]                                   ;
+; sonic:ultra2|cuenta[12]                                            ; Merged with sonic:ultra1|cuenta[12]                                   ;
+; sonic:ultra2|cuenta[11]                                            ; Merged with sonic:ultra1|cuenta[11]                                   ;
+; sonic:ultra2|cuenta[10]                                            ; Merged with sonic:ultra1|cuenta[10]                                   ;
+; sonic:ultra2|cuenta[9]                                             ; Merged with sonic:ultra1|cuenta[9]                                    ;
+; sonic:ultra2|cuenta[8]                                             ; Merged with sonic:ultra1|cuenta[8]                                    ;
+; sonic:ultra2|cuenta[7]                                             ; Merged with sonic:ultra1|cuenta[7]                                    ;
+; sonic:ultra2|cuenta[6]                                             ; Merged with sonic:ultra1|cuenta[6]                                    ;
+; sonic:ultra2|cuenta[5]                                             ; Merged with sonic:ultra1|cuenta[5]                                    ;
+; sonic:ultra2|cuenta[4]                                             ; Merged with sonic:ultra1|cuenta[4]                                    ;
+; sonic:ultra2|cuenta[3]                                             ; Merged with sonic:ultra1|cuenta[3]                                    ;
+; sonic:ultra2|cuenta[2]                                             ; Merged with sonic:ultra1|cuenta[2]                                    ;
+; sonic:ultra2|cuenta[1]                                             ; Merged with sonic:ultra1|cuenta[1]                                    ;
+; sonic:ultra2|cuenta[0]                                             ; Merged with sonic:ultra1|cuenta[0]                                    ;
+; sonic:ultra2|espera                                                ; Merged with sonic:ultra1|espera                                       ;
+; sonic:ultra2|centimetros[15]                                       ; Merged with sonic:ultra1|centimetros[15]                              ;
+; sonic:ultra2|centimetros[14]                                       ; Merged with sonic:ultra1|centimetros[14]                              ;
+; sonic:ultra2|centimetros[13]                                       ; Merged with sonic:ultra1|centimetros[13]                              ;
+; sonic:ultra2|centimetros[12]                                       ; Merged with sonic:ultra1|centimetros[12]                              ;
+; sonic:ultra2|centimetros[11]                                       ; Merged with sonic:ultra1|centimetros[11]                              ;
+; sonic:ultra2|centimetros[10]                                       ; Merged with sonic:ultra1|centimetros[10]                              ;
+; sonic:ultra2|centimetros[9]                                        ; Merged with sonic:ultra1|centimetros[9]                               ;
+; sonic:ultra2|centimetros[8]                                        ; Merged with sonic:ultra1|centimetros[8]                               ;
+; sonic:ultra2|centimetros[7]                                        ; Merged with sonic:ultra1|centimetros[7]                               ;
+; sonic:ultra2|centimetros[6]                                        ; Merged with sonic:ultra1|centimetros[6]                               ;
+; sonic:ultra2|centimetros[5]                                        ; Merged with sonic:ultra1|centimetros[5]                               ;
+; sonic:ultra2|centimetros[4]                                        ; Merged with sonic:ultra1|centimetros[4]                               ;
+; sonic:ultra2|centimetros[3]                                        ; Merged with sonic:ultra1|centimetros[3]                               ;
+; sonic:ultra2|centimetros[2]                                        ; Merged with sonic:ultra1|centimetros[2]                               ;
+; sonic:ultra2|centimetros[1]                                        ; Merged with sonic:ultra1|centimetros[1]                               ;
+; sonic:ultra2|centimetros[0]                                        ; Merged with sonic:ultra1|centimetros[0]                               ;
+; sonic:ultra1|sal_unid[0]                                           ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra1|led                                                   ; Stuck at GND due to stuck port data_in                                ;
+; sonic:ultra2|led                                                   ; Stuck at GND due to stuck port data_in                                ;
+; divisor_frec:ins_reloj_jugadores|ContadorAscendente[0]             ; Merged with divisor_frec:ins_reloj_pelota|ContadorAscendente[0]       ;
+; divisor_frec:ins_reloj_jugadores|ContadorAscendente[1]             ; Merged with divisor_frec:ins_reloj_pelota|ContadorAscendente[1]       ;
+; imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[1]          ; Stuck at GND due to stuck port data_in                                ;
+; Total Number of Removed Registers = 110                            ;                                                                       ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                              ;
++------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name          ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; sonic:ultra1|eco_nsinc ; Stuck at GND              ; sonic:ultra1|eco_sinc, sonic:ultra1|sal_unid[0], sonic:ultra1|led, sonic:ultra2|led ;
+;                        ; due to stuck port data_in ;                                                                                     ;
+; sonic:ultra2|eco_nsinc ; Stuck at GND              ; sonic:ultra2|eco_sinc                                                               ;
+;                        ; due to stuck port data_in ;                                                                                     ;
++------------------------+---------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 213   ;
+; Number of registers using Synchronous Clear  ; 81    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 174   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 102   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Inverted Register Statistics                                        ;
++-----------------------------------------------------------+---------+
+; Inverted Register                                         ; Fan out ;
++-----------------------------------------------------------+---------+
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[7] ; 8       ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[6] ; 8       ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[5] ; 8       ;
+; imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[4] ; 8       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[8]   ; 9       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[6]   ; 9       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[7]   ; 9       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[6]   ; 9       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[5]   ; 9       ;
+; imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[4]   ; 9       ;
+; Total number of inverted registers = 10                   ;         ;
++-----------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|marcador_j2[13]   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|marcador_j1[29]   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[0] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[9] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[5] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[8] ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; No         ; |PINGPONG|imprime_pantalla:ins_imprime_pantalla|Add9              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Source assignments for Top-level Entity: |pingpong ;
++------------+---------+------+----------------------+
+; Assignment ; Value   ; From ; To                   ;
++------------+---------+------+----------------------+
+; LOCATION   ; Pin_C10 ; -    ; palancasjugadores[1] ;
+; LOCATION   ; Pin_F15 ; -    ; palancasjugadores[0] ;
+; LOCATION   ; Pin_F20 ; -    ; seg_marcador_j1[6]   ;
+; LOCATION   ; Pin_F19 ; -    ; seg_marcador_j1[5]   ;
+; LOCATION   ; Pin_H19 ; -    ; seg_marcador_j1[4]   ;
+; LOCATION   ; Pin_J18 ; -    ; seg_marcador_j1[3]   ;
+; LOCATION   ; Pin_E19 ; -    ; seg_marcador_j1[2]   ;
+; LOCATION   ; Pin_E20 ; -    ; seg_marcador_j1[1]   ;
+; LOCATION   ; Pin_F18 ; -    ; seg_marcador_j1[0]   ;
+; LOCATION   ; Pin_B17 ; -    ; seg_marcador_j2[6]   ;
+; LOCATION   ; Pin_A18 ; -    ; seg_marcador_j2[5]   ;
+; LOCATION   ; Pin_A17 ; -    ; seg_marcador_j2[4]   ;
+; LOCATION   ; Pin_B16 ; -    ; seg_marcador_j2[3]   ;
+; LOCATION   ; Pin_E18 ; -    ; seg_marcador_j2[2]   ;
+; LOCATION   ; Pin_D18 ; -    ; seg_marcador_j2[1]   ;
+; LOCATION   ; Pin_C18 ; -    ; seg_marcador_j2[0]   ;
+; LOCATION   ; Pin_AA1 ; -    ; R[3]                 ;
+; LOCATION   ; Pin_V1  ; -    ; R[2]                 ;
+; LOCATION   ; Pin_Y2  ; -    ; R[1]                 ;
+; LOCATION   ; Pin_Y1  ; -    ; R[0]                 ;
+; LOCATION   ; Pin_W1  ; -    ; G[3]                 ;
+; LOCATION   ; Pin_T2  ; -    ; G[2]                 ;
+; LOCATION   ; Pin_R2  ; -    ; G[1]                 ;
+; LOCATION   ; Pin_R1  ; -    ; G[0]                 ;
+; LOCATION   ; Pin_P1  ; -    ; B[3]                 ;
+; LOCATION   ; Pin_T1  ; -    ; B[2]                 ;
+; LOCATION   ; Pin_P4  ; -    ; B[1]                 ;
+; LOCATION   ; Pin_N2  ; -    ; B[0]                 ;
+; LOCATION   ; Pin_N14 ; -    ; clk                  ;
+; LOCATION   ; Pin_A12 ; -    ; encendido            ;
+; LOCATION   ; Pin_N3  ; -    ; Hsync                ;
+; LOCATION   ; Pin_n1  ; -    ; Vsync                ;
+; LOCATION   ; Pin_B8  ; -    ; start_game           ;
+; LOCATION   ; Pin_E17 ; -    ; separador1_marcador  ;
+; LOCATION   ; Pin_B22 ; -    ; separador2_marcador  ;
+; LOCATION   ; Pin_V5  ; -    ; sensor_eco1          ;
+; LOCATION   ; Pin_B11 ; -    ; led1                 ;
+; LOCATION   ; Pin_W6  ; -    ; sensor_disp1         ;
+; LOCATION   ; Pin_AA2 ; -    ; sensor_eco2          ;
+; LOCATION   ; Pin_A8  ; -    ; led2                 ;
+; LOCATION   ; Pin_AB2 ; -    ; sensor_disp2         ;
++------------+---------+------+----------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |pingpong ;
++-------------------------+--------+---------------------------------------+
+; Parameter Name          ; Value  ; Type                                  ;
++-------------------------+--------+---------------------------------------+
+; divisor                 ; 2      ; Signed Integer                        ;
+; divisor_raqueta         ; 200000 ; Signed Integer                        ;
+; divisor_pelota          ; 415000 ; Signed Integer                        ;
+; Psh                     ; 96     ; Signed Integer                        ;
+; Ihv                     ; 144    ; Signed Integer                        ;
+; Fhv                     ; 784    ; Signed Integer                        ;
+; TotalHorizontal         ; 800    ; Signed Integer                        ;
+; Psv                     ; 2      ; Signed Integer                        ;
+; Ivv                     ; 35     ; Signed Integer                        ;
+; Fvv                     ; 515    ; Signed Integer                        ;
+; TotalVertical           ; 525    ; Signed Integer                        ;
+; MedidaVerticalRaqueta   ; 95     ; Signed Integer                        ;
+; MedidaHorizontalRaqueta ; 15     ; Signed Integer                        ;
++-------------------------+--------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_frec:inst_div_f ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; divisor        ; 2     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlador_vga:ins_controlador_vga ;
++-----------------+-------+--------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                   ;
++-----------------+-------+--------------------------------------------------------+
+; psh             ; 96    ; Signed Integer                                         ;
+; ihv             ; 144   ; Signed Integer                                         ;
+; fhv             ; 784   ; Signed Integer                                         ;
+; totalhorizontal ; 800   ; Signed Integer                                         ;
+; psv             ; 2     ; Signed Integer                                         ;
+; ivv             ; 35    ; Signed Integer                                         ;
+; fvv             ; 515   ; Signed Integer                                         ;
+; totalvertical   ; 525   ; Signed Integer                                         ;
++-----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: imprime_pantalla:ins_imprime_pantalla ;
++-------------------------+-------+--------------------------------------------------+
+; Parameter Name          ; Value ; Type                                             ;
++-------------------------+-------+--------------------------------------------------+
+; psh                     ; 96    ; Signed Integer                                   ;
+; ihv                     ; 144   ; Signed Integer                                   ;
+; fhv                     ; 784   ; Signed Integer                                   ;
+; totalhorizontal         ; 800   ; Signed Integer                                   ;
+; psv                     ; 2     ; Signed Integer                                   ;
+; ivv                     ; 35    ; Signed Integer                                   ;
+; fvv                     ; 515   ; Signed Integer                                   ;
+; totalvertical           ; 525   ; Signed Integer                                   ;
+; medidaverticalraqueta   ; 95    ; Signed Integer                                   ;
+; medidahorizontalraqueta ; 15    ; Signed Integer                                   ;
+; medidapelota            ; 10    ; Signed Integer                                   ;
++-------------------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_frec:ins_reloj_jugadores ;
++----------------+--------+-----------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                ;
++----------------+--------+-----------------------------------------------------+
+; divisor        ; 200000 ; Signed Integer                                      ;
++----------------+--------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor_frec:ins_reloj_pelota ;
++----------------+--------+--------------------------------------------------+
+; Parameter Name ; Value  ; Type                                             ;
++----------------+--------+--------------------------------------------------+
+; divisor        ; 415000 ; Signed Integer                                   ;
++----------------+--------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "imprime_pantalla:ins_imprime_pantalla" ;
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; sonicplayer1 ; Input ; Info     ; Stuck at GND                    ;
+; sonicplayer2 ; Input ; Info     ; Stuck at GND                    ;
++--------------+-------+----------+---------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 71                          ;
+; cycloneiii_ff         ; 213                         ;
+;     CLR               ; 91                          ;
+;     ENA               ; 19                          ;
+;     ENA CLR           ; 19                          ;
+;     ENA CLR SCLR      ; 64                          ;
+;     SCLR              ; 17                          ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 670                         ;
+;     arith             ; 394                         ;
+;         2 data inputs ; 269                         ;
+;         3 data inputs ; 125                         ;
+;     normal            ; 276                         ;
+;         0 data inputs ; 14                          ;
+;         1 data inputs ; 26                          ;
+;         2 data inputs ; 50                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 158                         ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 4.92                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -164,7 +579,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 07 22:16:42 2023
+    Info: Processing started: Fri Dec 08 01:06:43 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pingpong -c pingpong
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -178,7 +593,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file marcado
     Info (12022): Found design unit 1: marcador_dss-marcador_dss_bhv File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/marcador_dss.vhd Line: 22
     Info (12023): Found entity 1: marcador_dss File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/marcador_dss.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file imprime_pantalla.vhd
-    Info (12022): Found design unit 1: imprime_pantalla-imprime_pantalla_bhv File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 66
+    Info (12022): Found design unit 1: imprime_pantalla-imprime_pantalla_bhv File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 69
     Info (12023): Found entity 1: imprime_pantalla File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file divisor_frec.vhd
     Info (12022): Found design unit 1: divisor_frec-divisor_frec_bhv File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/divisor_frec.vhd Line: 19
@@ -186,11 +601,97 @@ Info (12021): Found 2 design units, including 1 entities, in source file divisor
 Info (12021): Found 2 design units, including 1 entities, in source file pingpong.vhd
     Info (12022): Found design unit 1: PINGPONG-PINGPONG_bhv File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 74
     Info (12023): Found entity 1: PINGPONG File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 8
-Error (10349): VHDL Association List error at pingpong.vhd(340): formal "sonicplayer1" does not exist File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 340
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4773 megabytes
-    Error: Processing ended: Thu Dec 07 22:17:01 2023
-    Error: Elapsed time: 00:00:19
-    Error: Total CPU time (on all processors): 00:00:35
+Info (12127): Elaborating entity "pingpong" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at pingpong.vhd(90): used explicit default value for signal "sonicplayer1_internal" because signal was never assigned a value File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 90
+Warning (10540): VHDL Signal Declaration warning at pingpong.vhd(91): used explicit default value for signal "sonicplayer2_internal" because signal was never assigned a value File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 91
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:inst_div_f" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 264
+Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:ins_controlador_vga" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 270
+Info (12128): Elaborating entity "sonic" for hierarchy "sonic:ultra1" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 293
+Warning (10030): Net "sensor_eco" at sonic.vhd(10) has no driver or initial value, using a default initial value '0' File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/sonic.vhd Line: 10
+Info (12128): Elaborating entity "imprime_pantalla" for hierarchy "imprime_pantalla:ins_imprime_pantalla" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 318
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(107): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(123): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 123
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(453): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 453
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(454): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 454
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(455): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 455
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(456): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 456
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:ins_reloj_jugadores" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 355
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:ins_reloj_pelota" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 361
+Info (12128): Elaborating entity "marcador_dss" for hierarchy "marcador_dss:ins_marcador" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 367
+Info (13000): Registers with preset signals will power-up high File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[1]" is converted into an equivalent circuit using register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[1]~_emulated" and latch "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[1]~1" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Warning (13310): Register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[0]" is converted into an equivalent circuit using register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[0]~_emulated" and latch "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[0]~5" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Warning (13310): Register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[2]" is converted into an equivalent circuit using register "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[2]~_emulated" and latch "imprime_pantalla:ins_imprime_pantalla|Direccion_pelota[2]~9" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "separador1_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 49
+    Warning (13410): Pin "separador2_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 50
+    Warning (13410): Pin "R[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "G[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "B[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "B[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "sensor_eco1" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 59
+    Warning (13410): Pin "led1" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 60
+    Warning (13410): Pin "Ucm1[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[2]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[3]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[4]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[5]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Ucm1[6]" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[2]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[3]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[4]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[5]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "Dcm1[6]" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 61
+    Warning (13410): Pin "sonicplayer1" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 62
+    Warning (13410): Pin "sensor_eco2" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 64
+    Warning (13410): Pin "led2" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 65
+    Warning (13410): Pin "Ucm2[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[2]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[3]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[4]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[5]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Ucm2[6]" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[2]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[3]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[4]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[5]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "Dcm2[6]" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 66
+    Warning (13410): Pin "sonicplayer2" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 67
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|coord_y_raqueta1[4] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|coord_x_raqueta1[1] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 146
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[8] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_x_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+    Critical Warning (18010): Register imprime_pantalla:ins_imprime_pantalla|Coord_y_pelota[4] will power up to High File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "palancasjugadores[0]" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 45
+    Warning (15610): No output dependent on input pin "palancasjugadores[1]" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/pingpong.vhd Line: 45
+Info (21057): Implemented 749 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 66 output pins
+    Info (21061): Implemented 678 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 70 warnings
+    Info: Peak virtual memory: 4785 megabytes
+    Info: Processing ended: Fri Dec 08 01:07:02 2023
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:36
 
 
