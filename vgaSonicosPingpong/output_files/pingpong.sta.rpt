@@ -1,5 +1,5 @@
 Timing Analyzer report for pingpong
-Fri Dec 08 01:40:49 2023
+Fri Dec 08 03:19:45 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -94,12 +94,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.15        ;
+; Average used               ; 1.18        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  14.8%      ;
+;     Processor 2            ;  18.5%      ;
 +----------------------------+-------------+
 
 
@@ -122,28 +122,28 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                ; Note ;
 +------------+-----------------+-------------------------------------------+------+
-; 53.98 MHz  ; 53.98 MHz       ; encendido                                 ;      ;
-; 113.61 MHz ; 113.61 MHz      ; divisor_frec:ins_reloj_pelota|temporal    ;      ;
-; 165.76 MHz ; 165.76 MHz      ; divisor_frec:inst_div_f|temporal          ;      ;
-; 176.09 MHz ; 176.09 MHz      ; clk                                       ;      ;
-; 243.07 MHz ; 243.07 MHz      ; controlador_vga:ins_controlador_vga|Hsync ;      ;
-; 335.01 MHz ; 335.01 MHz      ; divisor_frec:ins_reloj_jugadores|temporal ;      ;
+; 61.66 MHz  ; 61.66 MHz       ; encendido                                 ;      ;
+; 91.3 MHz   ; 91.3 MHz        ; divisor_frec:ins_reloj_pelota|temporal    ;      ;
+; 160.46 MHz ; 160.46 MHz      ; divisor_frec:inst_div_f|temporal          ;      ;
+; 184.09 MHz ; 184.09 MHz      ; clk                                       ;      ;
+; 238.83 MHz ; 238.83 MHz      ; controlador_vga:ins_controlador_vga|Hsync ;      ;
+; 283.85 MHz ; 283.85 MHz      ; divisor_frec:ins_reloj_jugadores|temporal ;      ;
 +------------+-----------------+-------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+--------------------------------------------------------------------+
-; Slow 1200mV 85C Model Setup Summary                                ;
-+-------------------------------------------+--------+---------------+
-; Clock                                     ; Slack  ; End Point TNS ;
-+-------------------------------------------+--------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; -9.998 ; -195.205      ;
-; encendido                                 ; -8.961 ; -26.201       ;
-; divisor_frec:inst_div_f|temporal          ; -5.033 ; -304.724      ;
-; clk                                       ; -4.679 ; -371.778      ;
-; controlador_vga:ins_controlador_vga|Hsync ; -3.114 ; -28.598       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.985 ; -17.580       ;
-+-------------------------------------------+--------+---------------+
++---------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                                 ;
++-------------------------------------------+---------+---------------+
+; Clock                                     ; Slack   ; End Point TNS ;
++-------------------------------------------+---------+---------------+
+; divisor_frec:ins_reloj_pelota|temporal    ; -11.655 ; -204.893      ;
+; encendido                                 ; -7.609  ; -22.155       ;
+; divisor_frec:inst_div_f|temporal          ; -5.232  ; -316.468      ;
+; clk                                       ; -4.432  ; -378.632      ;
+; controlador_vga:ins_controlador_vga|Hsync ; -3.187  ; -30.126       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -2.523  ; -44.722       ;
++-------------------------------------------+---------+---------------+
 
 
 +-------------------------------------------------------------------+
@@ -152,11 +152,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                                     ; Slack ; End Point TNS ;
 +-------------------------------------------+-------+---------------+
 ; clk                                       ; 0.322 ; 0.000         ;
-; controlador_vga:ins_controlador_vga|Hsync ; 0.348 ; 0.000         ;
-; divisor_frec:inst_div_f|temporal          ; 0.348 ; 0.000         ;
-; divisor_frec:ins_reloj_pelota|temporal    ; 0.602 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 0.680 ; 0.000         ;
-; encendido                                 ; 1.932 ; 0.000         ;
+; controlador_vga:ins_controlador_vga|Hsync ; 0.347 ; 0.000         ;
+; divisor_frec:inst_div_f|temporal          ; 0.347 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 0.611 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 0.763 ; 0.000         ;
+; encendido                                 ; 1.712 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -165,11 +165,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; divisor_frec:inst_div_f|temporal          ; -5.040 ; -198.851      ;
-; divisor_frec:ins_reloj_pelota|temporal    ; -2.894 ; -56.462       ;
-; clk                                       ; -2.566 ; -90.932       ;
-; controlador_vga:ins_controlador_vga|Hsync ; -2.379 ; -43.464       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -2.219 ; -21.966       ;
+; divisor_frec:ins_reloj_pelota|temporal    ; -3.526 ; -66.921       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -2.339 ; -42.845       ;
+; clk                                       ; -2.031 ; -72.266       ;
+; divisor_frec:inst_div_f|temporal          ; -1.916 ; -145.684      ;
+; controlador_vga:ins_controlador_vga|Hsync ; -1.746 ; -34.770       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -178,11 +178,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+-------+---------------+
 ; Clock                                     ; Slack ; End Point TNS ;
 +-------------------------------------------+-------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; 1.196 ; 0.000         ;
-; divisor_frec:inst_div_f|temporal          ; 1.432 ; 0.000         ;
-; controlador_vga:ins_controlador_vga|Hsync ; 1.831 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 1.980 ; 0.000         ;
-; clk                                       ; 2.276 ; 0.000         ;
+; divisor_frec:inst_div_f|temporal          ; 0.951 ; 0.000         ;
+; controlador_vga:ins_controlador_vga|Hsync ; 1.540 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 1.889 ; 0.000         ;
+; clk                                       ; 1.983 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 2.181 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -191,12 +191,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; clk                                       ; -3.000 ; -207.838      ;
+; clk                                       ; -3.000 ; -210.644      ;
 ; encendido                                 ; -3.000 ; -3.000        ;
 ; divisor_frec:inst_div_f|temporal          ; -1.403 ; -122.061      ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; -1.403 ; -32.269       ;
 ; controlador_vga:ins_controlador_vga|Hsync ; -1.403 ; -29.463       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.403 ; -14.030       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -1.403 ; -28.060       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -212,28 +212,28 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------+-----------------+-------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                ; Note ;
 +------------+-----------------+-------------------------------------------+------+
-; 58.42 MHz  ; 58.42 MHz       ; encendido                                 ;      ;
-; 123.89 MHz ; 123.89 MHz      ; divisor_frec:ins_reloj_pelota|temporal    ;      ;
-; 179.79 MHz ; 179.79 MHz      ; divisor_frec:inst_div_f|temporal          ;      ;
-; 190.69 MHz ; 190.69 MHz      ; clk                                       ;      ;
-; 266.95 MHz ; 266.95 MHz      ; controlador_vga:ins_controlador_vga|Hsync ;      ;
-; 367.24 MHz ; 367.24 MHz      ; divisor_frec:ins_reloj_jugadores|temporal ;      ;
+; 65.82 MHz  ; 65.82 MHz       ; encendido                                 ;      ;
+; 99.01 MHz  ; 99.01 MHz       ; divisor_frec:ins_reloj_pelota|temporal    ;      ;
+; 173.55 MHz ; 173.55 MHz      ; divisor_frec:inst_div_f|temporal          ;      ;
+; 197.28 MHz ; 197.28 MHz      ; clk                                       ;      ;
+; 259.67 MHz ; 259.67 MHz      ; controlador_vga:ins_controlador_vga|Hsync ;      ;
+; 313.28 MHz ; 313.28 MHz      ; divisor_frec:ins_reloj_jugadores|temporal ;      ;
 +------------+-----------------+-------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+--------------------------------------------------------------------+
-; Slow 1200mV 0C Model Setup Summary                                 ;
-+-------------------------------------------+--------+---------------+
-; Clock                                     ; Slack  ; End Point TNS ;
-+-------------------------------------------+--------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; -9.093 ; -177.412      ;
-; encendido                                 ; -8.105 ; -23.887       ;
-; divisor_frec:inst_div_f|temporal          ; -4.562 ; -273.072      ;
-; clk                                       ; -4.244 ; -331.296      ;
-; controlador_vga:ins_controlador_vga|Hsync ; -2.746 ; -24.135       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.723 ; -15.033       ;
-+-------------------------------------------+--------+---------------+
++---------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                                  ;
++-------------------------------------------+---------+---------------+
+; Clock                                     ; Slack   ; End Point TNS ;
++-------------------------------------------+---------+---------------+
+; divisor_frec:ins_reloj_pelota|temporal    ; -10.826 ; -189.631      ;
+; encendido                                 ; -7.097  ; -20.661       ;
+; divisor_frec:inst_div_f|temporal          ; -4.762  ; -284.227      ;
+; clk                                       ; -4.069  ; -338.987      ;
+; controlador_vga:ins_controlador_vga|Hsync ; -2.851  ; -25.746       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -2.192  ; -38.992       ;
++-------------------------------------------+---------+---------------+
 
 
 +-------------------------------------------------------------------+
@@ -244,9 +244,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; clk                                       ; 0.289 ; 0.000         ;
 ; divisor_frec:inst_div_f|temporal          ; 0.311 ; 0.000         ;
 ; controlador_vga:ins_controlador_vga|Hsync ; 0.312 ; 0.000         ;
-; divisor_frec:ins_reloj_pelota|temporal    ; 0.563 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 0.626 ; 0.000         ;
-; encendido                                 ; 1.726 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 0.570 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 0.706 ; 0.000         ;
+; encendido                                 ; 1.459 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -255,11 +255,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; divisor_frec:inst_div_f|temporal          ; -4.548 ; -176.942      ;
-; divisor_frec:ins_reloj_pelota|temporal    ; -2.652 ; -51.624       ;
-; clk                                       ; -2.280 ; -80.744       ;
-; controlador_vga:ins_controlador_vga|Hsync ; -2.106 ; -38.784       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.961 ; -19.410       ;
+; divisor_frec:ins_reloj_pelota|temporal    ; -3.233 ; -61.384       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -2.060 ; -37.647       ;
+; clk                                       ; -1.768 ; -62.758       ;
+; divisor_frec:inst_div_f|temporal          ; -1.694 ; -127.665      ;
+; controlador_vga:ins_controlador_vga|Hsync ; -1.547 ; -30.410       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -268,11 +268,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+-------+---------------+
 ; Clock                                     ; Slack ; End Point TNS ;
 +-------------------------------------------+-------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; 1.042 ; 0.000         ;
-; divisor_frec:inst_div_f|temporal          ; 1.285 ; 0.000         ;
-; controlador_vga:ins_controlador_vga|Hsync ; 1.730 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 1.936 ; 0.000         ;
-; clk                                       ; 2.242 ; 0.000         ;
+; divisor_frec:inst_div_f|temporal          ; 0.934 ; 0.000         ;
+; controlador_vga:ins_controlador_vga|Hsync ; 1.469 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 1.875 ; 0.000         ;
+; clk                                       ; 1.964 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 1.976 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -281,12 +281,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; clk                                       ; -3.000 ; -207.838      ;
+; clk                                       ; -3.000 ; -210.644      ;
 ; encendido                                 ; -3.000 ; -3.000        ;
 ; divisor_frec:inst_div_f|temporal          ; -1.403 ; -122.061      ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; -1.403 ; -32.269       ;
 ; controlador_vga:ins_controlador_vga|Hsync ; -1.403 ; -29.463       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.403 ; -14.030       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -1.403 ; -28.060       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -302,12 +302,12 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; -3.743 ; -71.807       ;
-; encendido                                 ; -3.665 ; -10.621       ;
-; divisor_frec:inst_div_f|temporal          ; -1.679 ; -83.388       ;
-; clk                                       ; -1.625 ; -79.712       ;
-; controlador_vga:ins_controlador_vga|Hsync ; -1.021 ; -2.976        ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -0.290 ; -1.554        ;
+; divisor_frec:ins_reloj_pelota|temporal    ; -4.695 ; -81.519       ;
+; encendido                                 ; -3.131 ; -9.049        ;
+; divisor_frec:inst_div_f|temporal          ; -1.686 ; -84.081       ;
+; clk                                       ; -1.494 ; -81.761       ;
+; controlador_vga:ins_controlador_vga|Hsync ; -0.671 ; -3.034        ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -0.494 ; -7.359        ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -319,9 +319,9 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; clk                                       ; 0.140 ; 0.000         ;
 ; controlador_vga:ins_controlador_vga|Hsync ; 0.152 ; 0.000         ;
 ; divisor_frec:inst_div_f|temporal          ; 0.152 ; 0.000         ;
-; divisor_frec:ins_reloj_pelota|temporal    ; 0.238 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 0.267 ; 0.000         ;
-; encendido                                 ; 0.761 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 0.242 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 0.312 ; 0.000         ;
+; encendido                                 ; 0.733 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -330,11 +330,11 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; divisor_frec:inst_div_f|temporal          ; -2.457 ; -93.205       ;
-; divisor_frec:ins_reloj_pelota|temporal    ; -1.238 ; -24.152       ;
-; clk                                       ; -1.213 ; -42.953       ;
-; controlador_vga:ins_controlador_vga|Hsync ; -1.141 ; -18.490       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.060 ; -10.508       ;
+; divisor_frec:ins_reloj_pelota|temporal    ; -1.529 ; -29.070       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -1.089 ; -19.807       ;
+; clk                                       ; -0.886 ; -31.082       ;
+; divisor_frec:inst_div_f|temporal          ; -0.871 ; -64.546       ;
+; controlador_vga:ins_controlador_vga|Hsync ; -0.756 ; -13.340       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -343,11 +343,11 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-------------------------------------------+-------+---------------+
 ; Clock                                     ; Slack ; End Point TNS ;
 +-------------------------------------------+-------+---------------+
-; divisor_frec:ins_reloj_pelota|temporal    ; 0.550 ; 0.000         ;
-; divisor_frec:inst_div_f|temporal          ; 0.562 ; 0.000         ;
-; controlador_vga:ins_controlador_vga|Hsync ; 0.609 ; 0.000         ;
-; divisor_frec:ins_reloj_jugadores|temporal ; 0.684 ; 0.000         ;
-; clk                                       ; 0.733 ; 0.000         ;
+; divisor_frec:inst_div_f|temporal          ; 0.339 ; 0.000         ;
+; controlador_vga:ins_controlador_vga|Hsync ; 0.467 ; 0.000         ;
+; clk                                       ; 0.535 ; 0.000         ;
+; divisor_frec:ins_reloj_jugadores|temporal ; 0.583 ; 0.000         ;
+; divisor_frec:ins_reloj_pelota|temporal    ; 0.956 ; 0.000         ;
 +-------------------------------------------+-------+---------------+
 
 
@@ -356,12 +356,12 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-------------------------------------------+--------+---------------+
 ; Clock                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------+--------+---------------+
-; clk                                       ; -3.000 ; -153.864      ;
+; clk                                       ; -3.000 ; -156.247      ;
 ; encendido                                 ; -3.000 ; -3.000        ;
 ; divisor_frec:inst_div_f|temporal          ; -1.000 ; -87.000       ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; -1.000 ; -23.000       ;
 ; controlador_vga:ins_controlador_vga|Hsync ; -1.000 ; -21.000       ;
-; divisor_frec:ins_reloj_jugadores|temporal ; -1.000 ; -10.000       ;
+; divisor_frec:ins_reloj_jugadores|temporal ; -1.000 ; -20.000       ;
 +-------------------------------------------+--------+---------------+
 
 
@@ -377,20 +377,20 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                      ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                           ; -9.998   ; 0.140 ; -5.040   ; 0.550   ; -3.000              ;
-;  clk                                       ; -4.679   ; 0.140 ; -2.566   ; 0.733   ; -3.000              ;
-;  controlador_vga:ins_controlador_vga|Hsync ; -3.114   ; 0.152 ; -2.379   ; 0.609   ; -1.403              ;
-;  divisor_frec:ins_reloj_jugadores|temporal ; -1.985   ; 0.267 ; -2.219   ; 0.684   ; -1.403              ;
-;  divisor_frec:ins_reloj_pelota|temporal    ; -9.998   ; 0.238 ; -2.894   ; 0.550   ; -1.403              ;
-;  divisor_frec:inst_div_f|temporal          ; -5.033   ; 0.152 ; -5.040   ; 0.562   ; -1.403              ;
-;  encendido                                 ; -8.961   ; 0.761 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS                            ; -944.086 ; 0.0   ; -411.675 ; 0.0     ; -408.661            ;
-;  clk                                       ; -371.778 ; 0.000 ; -90.932  ; 0.000   ; -207.838            ;
-;  controlador_vga:ins_controlador_vga|Hsync ; -28.598  ; 0.000 ; -43.464  ; 0.000   ; -29.463             ;
-;  divisor_frec:ins_reloj_jugadores|temporal ; -17.580  ; 0.000 ; -21.966  ; 0.000   ; -14.030             ;
-;  divisor_frec:ins_reloj_pelota|temporal    ; -195.205 ; 0.000 ; -56.462  ; 0.000   ; -32.269             ;
-;  divisor_frec:inst_div_f|temporal          ; -304.724 ; 0.000 ; -198.851 ; 0.000   ; -122.061            ;
-;  encendido                                 ; -26.201  ; 0.000 ; N/A      ; N/A     ; -3.000              ;
+; Worst-case Slack                           ; -11.655  ; 0.140 ; -3.526   ; 0.339   ; -3.000              ;
+;  clk                                       ; -4.432   ; 0.140 ; -2.031   ; 0.535   ; -3.000              ;
+;  controlador_vga:ins_controlador_vga|Hsync ; -3.187   ; 0.152 ; -1.746   ; 0.467   ; -1.403              ;
+;  divisor_frec:ins_reloj_jugadores|temporal ; -2.523   ; 0.312 ; -2.339   ; 0.583   ; -1.403              ;
+;  divisor_frec:ins_reloj_pelota|temporal    ; -11.655  ; 0.242 ; -3.526   ; 0.956   ; -1.403              ;
+;  divisor_frec:inst_div_f|temporal          ; -5.232   ; 0.152 ; -1.916   ; 0.339   ; -1.403              ;
+;  encendido                                 ; -7.609   ; 0.733 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS                            ; -996.996 ; 0.0   ; -362.486 ; 0.0     ; -425.497            ;
+;  clk                                       ; -378.632 ; 0.000 ; -72.266  ; 0.000   ; -210.644            ;
+;  controlador_vga:ins_controlador_vga|Hsync ; -30.126  ; 0.000 ; -34.770  ; 0.000   ; -29.463             ;
+;  divisor_frec:ins_reloj_jugadores|temporal ; -44.722  ; 0.000 ; -42.845  ; 0.000   ; -28.060             ;
+;  divisor_frec:ins_reloj_pelota|temporal    ; -204.893 ; 0.000 ; -66.921  ; 0.000   ; -32.269             ;
+;  divisor_frec:inst_div_f|temporal          ; -316.468 ; 0.000 ; -145.684 ; 0.000   ; -122.061            ;
+;  encendido                                 ; -22.155  ; 0.000 ; N/A      ; N/A     ; -3.000              ;
 +--------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -526,38 +526,38 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; B[3]                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; led1                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; sensor_disp1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0773 V           ; 0.156 V                              ; 0.166 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0773 V          ; 0.156 V                             ; 0.166 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Ucm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.33 V              ; -0.00603 V          ; 0.237 V                              ; 0.191 V                              ; 3.94e-09 s                  ; 3.71e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.33 V             ; -0.00603 V         ; 0.237 V                             ; 0.191 V                             ; 3.94e-09 s                 ; 3.71e-09 s                 ; No                        ; Yes                       ;
+; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; sonicplayer1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; led2                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; sensor_disp2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0773 V           ; 0.156 V                              ; 0.166 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0773 V          ; 0.156 V                             ; 0.166 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Ucm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0783 V           ; 0.157 V                              ; 0.167 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0783 V          ; 0.157 V                             ; 0.167 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0773 V           ; 0.156 V                              ; 0.166 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0773 V          ; 0.156 V                             ; 0.166 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0783 V           ; 0.157 V                              ; 0.167 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0783 V          ; 0.157 V                             ; 0.167 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; Dcm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.33 V              ; -0.00603 V          ; 0.237 V                              ; 0.191 V                              ; 3.94e-09 s                  ; 3.71e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.33 V             ; -0.00603 V         ; 0.237 V                             ; 0.191 V                             ; 3.94e-09 s                 ; 3.71e-09 s                 ; No                        ; Yes                       ;
-; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0783 V           ; 0.157 V                              ; 0.167 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0783 V          ; 0.157 V                             ; 0.167 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.26e-09 V                   ; 2.4 V               ; -0.0773 V           ; 0.156 V                              ; 0.166 V                              ; 4.55e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.26e-09 V                  ; 2.4 V              ; -0.0773 V          ; 0.156 V                             ; 0.166 V                             ; 4.55e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
-; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_TDO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.39e-08 V                   ; 2.39 V              ; -0.0409 V           ; 0.21 V                               ; 0.121 V                              ; 4.7e-10 s                   ; 5.93e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.39e-08 V                  ; 2.39 V             ; -0.0409 V          ; 0.21 V                              ; 0.121 V                             ; 4.7e-10 s                  ; 5.93e-10 s                 ; No                        ; Yes                       ;
 +---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
@@ -599,38 +599,38 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; B[3]                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; led1                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; sensor_disp1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0449 V           ; 0.201 V                              ; 0.093 V                              ; 4.89e-10 s                  ; 5.81e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0449 V          ; 0.201 V                             ; 0.093 V                             ; 4.89e-10 s                 ; 5.81e-10 s                 ; Yes                       ; No                        ;
-; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Ucm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.33 V              ; -0.00314 V          ; 0.21 V                               ; 0.115 V                              ; 4.79e-09 s                  ; 4.41e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.33 V             ; -0.00314 V         ; 0.21 V                              ; 0.115 V                             ; 4.79e-09 s                 ; 4.41e-09 s                 ; No                        ; Yes                       ;
+; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; Dcm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Dcm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Dcm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Dcm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; Dcm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; sonicplayer1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; led2                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; sensor_disp2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0449 V           ; 0.201 V                              ; 0.093 V                              ; 4.89e-10 s                  ; 5.81e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0449 V          ; 0.201 V                             ; 0.093 V                             ; 4.89e-10 s                 ; 5.81e-10 s                 ; Yes                       ; No                        ;
+; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; Ucm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0459 V           ; 0.201 V                              ; 0.093 V                              ; 4.9e-10 s                   ; 5.83e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0459 V          ; 0.201 V                             ; 0.093 V                             ; 4.9e-10 s                  ; 5.83e-10 s                 ; Yes                       ; No                        ;
-; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0449 V           ; 0.201 V                              ; 0.093 V                              ; 4.89e-10 s                  ; 5.81e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0449 V          ; 0.201 V                             ; 0.093 V                             ; 4.89e-10 s                 ; 5.81e-10 s                 ; Yes                       ; No                        ;
-; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0459 V           ; 0.201 V                              ; 0.093 V                              ; 4.9e-10 s                   ; 5.83e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0459 V          ; 0.201 V                             ; 0.093 V                             ; 4.9e-10 s                  ; 5.83e-10 s                 ; Yes                       ; No                        ;
+; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; Dcm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; Dcm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.33 V              ; -0.00314 V          ; 0.21 V                               ; 0.115 V                              ; 4.79e-09 s                  ; 4.41e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.33 V             ; -0.00314 V         ; 0.21 V                              ; 0.115 V                             ; 4.79e-09 s                 ; 4.41e-09 s                 ; No                        ; Yes                       ;
-; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
-; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0459 V           ; 0.201 V                              ; 0.093 V                              ; 4.9e-10 s                   ; 5.83e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0459 V          ; 0.201 V                             ; 0.093 V                             ; 4.9e-10 s                  ; 5.83e-10 s                 ; Yes                       ; No                        ;
-; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0449 V           ; 0.201 V                              ; 0.093 V                              ; 4.89e-10 s                  ; 5.81e-10 s                  ; Yes                        ; No                         ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0449 V          ; 0.201 V                             ; 0.093 V                             ; 4.89e-10 s                 ; 5.81e-10 s                 ; Yes                       ; No                        ;
-; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
+; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; ~ALTERA_TDO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.97e-06 V                   ; 2.36 V              ; -0.0173 V           ; 0.144 V                              ; 0.094 V                              ; 6.44e-10 s                  ; 7.2e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.97e-06 V                  ; 2.36 V             ; -0.0173 V          ; 0.144 V                             ; 0.094 V                             ; 6.44e-10 s                 ; 7.2e-10 s                  ; No                        ; Yes                       ;
 +---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
@@ -672,38 +672,38 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; B[3]                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; led1                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; sensor_disp1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.77 V              ; -0.0486 V           ; 0.285 V                              ; 0.06 V                               ; 2.8e-10 s                   ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.77 V             ; -0.0486 V          ; 0.285 V                             ; 0.06 V                              ; 2.8e-10 s                  ; 3.04e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Ucm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.64 V              ; -0.00888 V          ; 0.249 V                              ; 0.203 V                              ; 3.12e-09 s                  ; 3.02e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.64 V             ; -0.00888 V         ; 0.249 V                             ; 0.203 V                             ; 3.12e-09 s                 ; 3.02e-09 s                 ; No                        ; Yes                       ;
+; Ucm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm1[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm1[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm1[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; sonicplayer1        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; led2                ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; sensor_disp2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.77 V              ; -0.0486 V           ; 0.285 V                              ; 0.06 V                               ; 2.8e-10 s                   ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.77 V             ; -0.0486 V          ; 0.285 V                             ; 0.06 V                              ; 2.8e-10 s                  ; 3.04e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Ucm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.77 V              ; -0.0485 V           ; 0.289 V                              ; 0.058 V                              ; 2.81e-10 s                  ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.77 V             ; -0.0485 V          ; 0.289 V                             ; 0.058 V                             ; 2.81e-10 s                 ; 3.04e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.77 V              ; -0.0486 V           ; 0.285 V                              ; 0.06 V                               ; 2.8e-10 s                   ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.77 V             ; -0.0486 V          ; 0.285 V                             ; 0.06 V                              ; 2.8e-10 s                  ; 3.04e-10 s                 ; No                        ; Yes                       ;
-; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.77 V              ; -0.0485 V           ; 0.289 V                              ; 0.058 V                              ; 2.81e-10 s                  ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.77 V             ; -0.0485 V          ; 0.289 V                             ; 0.058 V                             ; 2.81e-10 s                 ; 3.04e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Ucm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm2[0]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; Dcm2[1]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.64 V              ; -0.00888 V          ; 0.249 V                              ; 0.203 V                              ; 3.12e-09 s                  ; 3.02e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.64 V             ; -0.00888 V         ; 0.249 V                             ; 0.203 V                             ; 3.12e-09 s                 ; 3.02e-09 s                 ; No                        ; Yes                       ;
-; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.77 V              ; -0.0485 V           ; 0.289 V                              ; 0.058 V                              ; 2.81e-10 s                  ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.77 V             ; -0.0485 V          ; 0.289 V                             ; 0.058 V                             ; 2.81e-10 s                 ; 3.04e-10 s                 ; No                        ; Yes                       ;
-; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.77 V              ; -0.0486 V           ; 0.285 V                              ; 0.06 V                               ; 2.8e-10 s                   ; 3.04e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.77 V             ; -0.0486 V          ; 0.285 V                             ; 0.06 V                              ; 2.8e-10 s                  ; 3.04e-10 s                 ; No                        ; Yes                       ;
-; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[2]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[3]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[4]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[5]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; Dcm2[6]             ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; sonicplayer2        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; ~ALTERA_TDO~        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.68e-07 V                   ; 2.73 V              ; -0.0395 V           ; 0.361 V                              ; 0.109 V                              ; 3.1e-10 s                   ; 4.41e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.68e-07 V                  ; 2.73 V             ; -0.0395 V          ; 0.361 V                             ; 0.109 V                             ; 3.1e-10 s                  ; 4.41e-10 s                 ; No                        ; Yes                       ;
 +---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
@@ -713,17 +713,18 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +-------------------------------------------+-------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                ; To Clock                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------+-------------------------------------------+----------+----------+----------+----------+
-; clk                                       ; clk                                       ; 4022     ; 0        ; 0        ; 0        ;
+; clk                                       ; clk                                       ; 4000     ; 0        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_jugadores|temporal ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; controlador_vga:ins_controlador_vga|Hsync ; 431      ; 0        ; 0        ; 0        ;
 ; encendido                                 ; controlador_vga:ins_controlador_vga|Hsync ; 1        ; 1        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_jugadores|temporal ; 115      ; 0        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_pelota|temporal    ; 3120     ; 0        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:ins_reloj_pelota|temporal    ; 4162     ; 0        ; 0        ; 0        ;
-; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 948      ; 0        ; 0        ; 0        ;
-; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 1899     ; 948      ; 0        ; 0        ;
+; clk                                       ; divisor_frec:ins_reloj_jugadores|temporal ; 22       ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_jugadores|temporal ; 380      ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_pelota|temporal    ; 13010    ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:ins_reloj_pelota|temporal    ; 11792    ; 0        ; 0        ; 0        ;
+; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 1434     ; 0        ; 0        ; 0        ;
+; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 2871     ; 1434     ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; divisor_frec:inst_div_f|temporal          ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:inst_div_f|temporal          ; 1744     ; 0        ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; divisor_frec:inst_div_f|temporal          ; 6723     ; 0        ; 0        ; 0        ;
@@ -740,17 +741,18 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------------------+-------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                ; To Clock                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------+-------------------------------------------+----------+----------+----------+----------+
-; clk                                       ; clk                                       ; 4022     ; 0        ; 0        ; 0        ;
+; clk                                       ; clk                                       ; 4000     ; 0        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_jugadores|temporal ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; clk                                       ; 1        ; 1        ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; controlador_vga:ins_controlador_vga|Hsync ; 431      ; 0        ; 0        ; 0        ;
 ; encendido                                 ; controlador_vga:ins_controlador_vga|Hsync ; 1        ; 1        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_jugadores|temporal ; 115      ; 0        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_pelota|temporal    ; 3120     ; 0        ; 0        ; 0        ;
-; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:ins_reloj_pelota|temporal    ; 4162     ; 0        ; 0        ; 0        ;
-; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 948      ; 0        ; 0        ; 0        ;
-; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 1899     ; 948      ; 0        ; 0        ;
+; clk                                       ; divisor_frec:ins_reloj_jugadores|temporal ; 22       ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_jugadores|temporal ; 380      ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_jugadores|temporal ; divisor_frec:ins_reloj_pelota|temporal    ; 13010    ; 0        ; 0        ; 0        ;
+; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:ins_reloj_pelota|temporal    ; 11792    ; 0        ; 0        ; 0        ;
+; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 1434     ; 0        ; 0        ; 0        ;
+; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 2871     ; 1434     ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; divisor_frec:inst_div_f|temporal          ; 1        ; 1        ; 0        ; 0        ;
 ; divisor_frec:ins_reloj_pelota|temporal    ; divisor_frec:inst_div_f|temporal          ; 1744     ; 0        ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; divisor_frec:inst_div_f|temporal          ; 6723     ; 0        ; 0        ; 0        ;
@@ -770,7 +772,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; encendido                                 ; clk                                       ; 36       ; 36       ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; controlador_vga:ins_controlador_vga|Hsync ; 10       ; 0        ; 0        ; 0        ;
 ; encendido                                 ; controlador_vga:ins_controlador_vga|Hsync ; 20       ; 20       ; 0        ; 0        ;
-; encendido                                 ; divisor_frec:ins_reloj_jugadores|temporal ; 10       ; 10       ; 0        ; 0        ;
+; encendido                                 ; divisor_frec:ins_reloj_jugadores|temporal ; 20       ; 20       ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 23       ; 0        ; 0        ; 0        ;
 ; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 23       ; 23       ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; divisor_frec:inst_div_f|temporal          ; 10       ; 10       ; 0        ; 0        ;
@@ -787,7 +789,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; encendido                                 ; clk                                       ; 36       ; 36       ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; controlador_vga:ins_controlador_vga|Hsync ; 10       ; 0        ; 0        ; 0        ;
 ; encendido                                 ; controlador_vga:ins_controlador_vga|Hsync ; 20       ; 20       ; 0        ; 0        ;
-; encendido                                 ; divisor_frec:ins_reloj_jugadores|temporal ; 10       ; 10       ; 0        ; 0        ;
+; encendido                                 ; divisor_frec:ins_reloj_jugadores|temporal ; 20       ; 20       ; 0        ; 0        ;
 ; divisor_frec:inst_div_f|temporal          ; divisor_frec:ins_reloj_pelota|temporal    ; 23       ; 0        ; 0        ; 0        ;
 ; encendido                                 ; divisor_frec:ins_reloj_pelota|temporal    ; 23       ; 23       ; 0        ; 0        ;
 ; controlador_vga:ins_controlador_vga|Hsync ; divisor_frec:inst_div_f|temporal          ; 10       ; 10       ; 0        ; 0        ;
@@ -818,7 +820,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Unconstrained Input Ports       ; 3     ; 3    ;
 ; Unconstrained Input Port Paths  ; 3     ; 3    ;
 ; Unconstrained Output Ports      ; 56    ; 56   ;
-; Unconstrained Output Port Paths ; 920   ; 920  ;
+; Unconstrained Output Port Paths ; 990   ; 990  ;
 +---------------------------------+-------+------+
 
 
@@ -992,7 +994,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Dec 08 01:40:43 2023
+    Info: Processing started: Fri Dec 08 03:19:38 2023
 Info: Command: quartus_sta pingpong -c pingpong
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1009,74 +1011,74 @@ Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name encendido encendido
     Info (332105): create_clock -period 1.000 -name divisor_frec:ins_reloj_jugadores|temporal divisor_frec:ins_reloj_jugadores|temporal
     Info (332105): create_clock -period 1.000 -name controlador_vga:ins_controlador_vga|Hsync controlador_vga:ins_controlador_vga|Hsync
-Warning (332125): Found combinational loop of 18 nodes File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 209
+Warning (332125): Found combinational loop of 18 nodes File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/imprime_pantalla.vhd Line: 206
     Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[0]~6|combout"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~27|datab"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~27|combout"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[1]~2|datab"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[1]~2|combout"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~27|datac"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~49|datab"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~49|combout"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[0]~6|datab"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~52|datac"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~52|combout"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~77|datac"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~77|combout"
     Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[2]~10|datab"
     Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[2]~10|combout"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~49|datad"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~52|datad"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~27|datad"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~49|datac"
-    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~52|datab"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~66|datac"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~66|combout"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[1]~2|datac"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[1]~2|combout"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~66|datab"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~77|datad"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~71|datad"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~71|combout"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota[0]~6|dataa"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~77|dataa"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~71|dataa"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~71|datac"
+    Warning (332126): Node "ins_imprime_pantalla|Direccion_pelota~66|datad"
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -9.998
+Info (332146): Worst-case setup slack is -11.655
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.998            -195.205 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -8.961             -26.201 encendido 
-    Info (332119):    -5.033            -304.724 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -4.679            -371.778 clk 
-    Info (332119):    -3.114             -28.598 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.985             -17.580 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):   -11.655            -204.893 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -7.609             -22.155 encendido 
+    Info (332119):    -5.232            -316.468 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -4.432            -378.632 clk 
+    Info (332119):    -3.187             -30.126 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):    -2.523             -44.722 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332146): Worst-case hold slack is 0.322
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.322               0.000 clk 
-    Info (332119):     0.348               0.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):     0.348               0.000 divisor_frec:inst_div_f|temporal 
-    Info (332119):     0.602               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     0.680               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     1.932               0.000 encendido 
-Info (332146): Worst-case recovery slack is -5.040
+    Info (332119):     0.347               0.000 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):     0.347               0.000 divisor_frec:inst_div_f|temporal 
+    Info (332119):     0.611               0.000 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):     0.763               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     1.712               0.000 encendido 
+Info (332146): Worst-case recovery slack is -3.526
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.040            -198.851 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -2.894             -56.462 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -2.566             -90.932 clk 
-    Info (332119):    -2.379             -43.464 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -2.219             -21.966 divisor_frec:ins_reloj_jugadores|temporal 
-Info (332146): Worst-case removal slack is 1.196
+    Info (332119):    -3.526             -66.921 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -2.339             -42.845 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -2.031             -72.266 clk 
+    Info (332119):    -1.916            -145.684 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -1.746             -34.770 controlador_vga:ins_controlador_vga|Hsync 
+Info (332146): Worst-case removal slack is 0.951
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.196               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     1.432               0.000 divisor_frec:inst_div_f|temporal 
-    Info (332119):     1.831               0.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):     1.980               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     2.276               0.000 clk 
+    Info (332119):     0.951               0.000 divisor_frec:inst_div_f|temporal 
+    Info (332119):     1.540               0.000 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):     1.889               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     1.983               0.000 clk 
+    Info (332119):     2.181               0.000 divisor_frec:ins_reloj_pelota|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -207.838 clk 
+    Info (332119):    -3.000            -210.644 clk 
     Info (332119):    -3.000              -3.000 encendido 
     Info (332119):    -1.403            -122.061 divisor_frec:inst_div_f|temporal 
     Info (332119):    -1.403             -32.269 divisor_frec:ins_reloj_pelota|temporal 
     Info (332119):    -1.403             -29.463 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.403             -14.030 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -1.403             -28.060 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1200mV 0C Model
@@ -1084,105 +1086,105 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -9.093
+Info (332146): Worst-case setup slack is -10.826
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.093            -177.412 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -8.105             -23.887 encendido 
-    Info (332119):    -4.562            -273.072 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -4.244            -331.296 clk 
-    Info (332119):    -2.746             -24.135 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.723             -15.033 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):   -10.826            -189.631 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -7.097             -20.661 encendido 
+    Info (332119):    -4.762            -284.227 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -4.069            -338.987 clk 
+    Info (332119):    -2.851             -25.746 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):    -2.192             -38.992 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332146): Worst-case hold slack is 0.289
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.289               0.000 clk 
     Info (332119):     0.311               0.000 divisor_frec:inst_div_f|temporal 
     Info (332119):     0.312               0.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):     0.563               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     0.626               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     1.726               0.000 encendido 
-Info (332146): Worst-case recovery slack is -4.548
+    Info (332119):     0.570               0.000 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):     0.706               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     1.459               0.000 encendido 
+Info (332146): Worst-case recovery slack is -3.233
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.548            -176.942 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -2.652             -51.624 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -2.280             -80.744 clk 
-    Info (332119):    -2.106             -38.784 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.961             -19.410 divisor_frec:ins_reloj_jugadores|temporal 
-Info (332146): Worst-case removal slack is 1.042
+    Info (332119):    -3.233             -61.384 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -2.060             -37.647 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -1.768             -62.758 clk 
+    Info (332119):    -1.694            -127.665 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -1.547             -30.410 controlador_vga:ins_controlador_vga|Hsync 
+Info (332146): Worst-case removal slack is 0.934
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.042               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     1.285               0.000 divisor_frec:inst_div_f|temporal 
-    Info (332119):     1.730               0.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):     1.936               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     2.242               0.000 clk 
+    Info (332119):     0.934               0.000 divisor_frec:inst_div_f|temporal 
+    Info (332119):     1.469               0.000 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):     1.875               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     1.964               0.000 clk 
+    Info (332119):     1.976               0.000 divisor_frec:ins_reloj_pelota|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -207.838 clk 
+    Info (332119):    -3.000            -210.644 clk 
     Info (332119):    -3.000              -3.000 encendido 
     Info (332119):    -1.403            -122.061 divisor_frec:inst_div_f|temporal 
     Info (332119):    -1.403             -32.269 divisor_frec:ins_reloj_pelota|temporal 
     Info (332119):    -1.403             -29.463 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.403             -14.030 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -1.403             -28.060 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.743
+Info (332146): Worst-case setup slack is -4.695
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.743             -71.807 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -3.665             -10.621 encendido 
-    Info (332119):    -1.679             -83.388 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -1.625             -79.712 clk 
-    Info (332119):    -1.021              -2.976 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -0.290              -1.554 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -4.695             -81.519 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -3.131              -9.049 encendido 
+    Info (332119):    -1.686             -84.081 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -1.494             -81.761 clk 
+    Info (332119):    -0.671              -3.034 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):    -0.494              -7.359 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332146): Worst-case hold slack is 0.140
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.140               0.000 clk 
     Info (332119):     0.152               0.000 controlador_vga:ins_controlador_vga|Hsync 
     Info (332119):     0.152               0.000 divisor_frec:inst_div_f|temporal 
-    Info (332119):     0.238               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     0.267               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     0.761               0.000 encendido 
-Info (332146): Worst-case recovery slack is -2.457
+    Info (332119):     0.242               0.000 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):     0.312               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     0.733               0.000 encendido 
+Info (332146): Worst-case recovery slack is -1.529
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.457             -93.205 divisor_frec:inst_div_f|temporal 
-    Info (332119):    -1.238             -24.152 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):    -1.213             -42.953 clk 
-    Info (332119):    -1.141             -18.490 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.060             -10.508 divisor_frec:ins_reloj_jugadores|temporal 
-Info (332146): Worst-case removal slack is 0.550
+    Info (332119):    -1.529             -29.070 divisor_frec:ins_reloj_pelota|temporal 
+    Info (332119):    -1.089             -19.807 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -0.886             -31.082 clk 
+    Info (332119):    -0.871             -64.546 divisor_frec:inst_div_f|temporal 
+    Info (332119):    -0.756             -13.340 controlador_vga:ins_controlador_vga|Hsync 
+Info (332146): Worst-case removal slack is 0.339
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.550               0.000 divisor_frec:ins_reloj_pelota|temporal 
-    Info (332119):     0.562               0.000 divisor_frec:inst_div_f|temporal 
-    Info (332119):     0.609               0.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):     0.684               0.000 divisor_frec:ins_reloj_jugadores|temporal 
-    Info (332119):     0.733               0.000 clk 
+    Info (332119):     0.339               0.000 divisor_frec:inst_div_f|temporal 
+    Info (332119):     0.467               0.000 controlador_vga:ins_controlador_vga|Hsync 
+    Info (332119):     0.535               0.000 clk 
+    Info (332119):     0.583               0.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):     0.956               0.000 divisor_frec:ins_reloj_pelota|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -153.864 clk 
+    Info (332119):    -3.000            -156.247 clk 
     Info (332119):    -3.000              -3.000 encendido 
     Info (332119):    -1.000             -87.000 divisor_frec:inst_div_f|temporal 
     Info (332119):    -1.000             -23.000 divisor_frec:ins_reloj_pelota|temporal 
     Info (332119):    -1.000             -21.000 controlador_vga:ins_controlador_vga|Hsync 
-    Info (332119):    -1.000             -10.000 divisor_frec:ins_reloj_jugadores|temporal 
+    Info (332119):    -1.000             -20.000 divisor_frec:ins_reloj_jugadores|temporal 
 Info (332114): Report Metastability: Found 2 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4813 megabytes
-    Info: Processing ended: Fri Dec 08 01:40:49 2023
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4814 megabytes
+    Info: Processing ended: Fri Dec 08 03:19:45 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:07
 
 

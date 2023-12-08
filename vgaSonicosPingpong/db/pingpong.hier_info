@@ -59,7 +59,7 @@ Dcm1[3] << sonic:ultra1.Dcm[3]
 Dcm1[4] << sonic:ultra1.Dcm[4]
 Dcm1[5] << sonic:ultra1.Dcm[5]
 Dcm1[6] << sonic:ultra1.Dcm[6]
-sonicplayer1 <= sonic:ultra1.sonicplayer
+sonicplayer1 <= sonicplayer1.DB_MAX_OUTPUT_PORT_TYPE
 sensor_eco2 => sonic:ultra2.sensor_eco
 led2 <= sonic:ultra2.led
 sensor_disp2 <= sonic:ultra2.sensor_disp
@@ -77,7 +77,7 @@ Dcm2[3] << sonic:ultra2.Dcm[3]
 Dcm2[4] << sonic:ultra2.Dcm[4]
 Dcm2[5] << sonic:ultra2.Dcm[5]
 Dcm2[6] << sonic:ultra2.Dcm[6]
-sonicplayer2 <= sonic:ultra2.sonicplayer
+sonicplayer2 <= comb.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |pingpong|divisor_frec:inst_div_f

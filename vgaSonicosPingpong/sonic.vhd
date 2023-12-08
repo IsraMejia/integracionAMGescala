@@ -10,7 +10,7 @@ PORT (
     sensor_eco : IN STD_LOGIC;
     led : OUT STD_LOGIC;
     sensor_disp : OUT STD_LOGIC;
-    Ucm, Dcm : buffer STD_LOGIC_VECTOR (6 DOWNTO 0);
+    Ucm, Dcm : buffer STD_LOGIC_VECTOR (6 DOWNTO 0); 
 	sonicplayer: out STD_LOGIC
 );
 END sonic;
@@ -144,12 +144,15 @@ BEGIN
 	BEGIN 
 		IF rising_edge(clk) THEN
 			--IF (sal_unid = X"4" AND (sal_dece >= X"2" AND sal_dece <= X"6")) THEN
-			IF (sal_unid = X"4" AND sal_dece > X"1" ) THEN --24 pa arriba es 1
+			IF (sal_unid > X"0" AND sal_dece > X"1" ) THEN --20 pa arriba es 1
 				led <= '1'; 
 				sonicplayer <= '1';
+			elsif (sal_unid = X"0" AND sal_dece > X"2" )  then --30,40 etc es 1 
+				led <= '1'; 
+				sonicplayer <= '1';				
 			ELSE
 				led <= '0'; 
-				sonicplayer <= '1';
+				sonicplayer <= '0';
 			END IF;
 		END IF;
 	END PROCESS;

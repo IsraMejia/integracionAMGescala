@@ -59,7 +59,7 @@ entity imprime_pantalla is
 		R,G,B			 : out std_logic_vector(3 downto 0);
 
 		sonicplayer1: in STD_LOGIC; 
-        sonicplayer2: in STD_LOGIC 
+        sonicplayer2: in STD_LOGIC   
 	
 		);
 		
@@ -87,10 +87,7 @@ architecture imprime_pantalla_bhv of imprime_pantalla is
 	signal Coord_x_pelota		 : integer range 0 to Fhv;
 	signal Coord_y_pelota		 : integer range 0 to Fvv;
 	signal Direccion_pelota 	 : integer range 0 to 5;
-
-	-- Agregar declaración de señales
-	--signal sonicplayer1_internal : std_logic;  
-	--signal sonicplayer2_internal : std_logic;
+ 
 	
 	--Maquina de estados del videojuego de pingpong 
 	type tipo_estados is (S0, S1);

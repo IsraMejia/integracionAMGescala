@@ -87,8 +87,8 @@ architecture PINGPONG_bhv of PINGPONG is
 	signal marcador_j1  : integer;
 	signal marcador_j2  : integer;
 
-	signal sonicplayer1_internal: STD_LOGIC := '0';  -- Inicialización con valor por defecto
-	signal sonicplayer2_internal: STD_LOGIC := '0';  -- Inicialización con valor por defecto
+	signal sonicplayer1_internal: STD_LOGIC ;-- := '0';  -- Inicialización con valor por defecto
+	signal sonicplayer2_internal: STD_LOGIC ;-- := '0';  -- Inicialización con valor por defecto
 
 
 
@@ -279,7 +279,7 @@ begin
 			TotalVertical => TotalVertical
 		)						
 		port map(
-			reloj_pixeles 	=> reloj_pixeles,
+			reloj_pixeles 	=> reloj_pixeles, 
 			encendido	=> encendido,
 			Hsync		=> Hsync,
 			Vsync		=> Vsync,
@@ -289,16 +289,16 @@ begin
 		)
 	;
 		
-	--Mapeando puertos para los ultrasonicos de los jufadores
+	--Mapeando puertos para los ultrasonicos de los jugadores
 	ultra1 :sonic
 	port map(
 		clk 		=> clk,
 		sensor_eco  => sensor_eco1,
 		led 		=> led1, 
 		sensor_disp => sensor_disp1,
-		Ucm		    => Ucm1,
+		Ucm		    => Ucm1, 
 		Dcm 		=> Dcm1,
-		sonicplayer => sonicplayer1
+		sonicplayer => sonicplayer1_internal 
 	)
 	;
 
@@ -310,7 +310,7 @@ begin
 			sensor_disp  => sensor_disp2,
 			Ucm 		 => Ucm2,
 			Dcm 		 => Dcm2,
-			sonicplayer => sonicplayer2
+			sonicplayer => sonicplayer2_internal
 		)
 	;
 	
