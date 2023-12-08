@@ -1,0 +1,16 @@
+si tengo la señal en el componente "sonic" que se llama la señal "sonicplayer1" 
+que es el resultado de que haya una distancia en un rango, 
+que quiero que sea usada en el componente "imprimir pantalla". 
+Que tipo de señal tiene que ser "sonicplayer" al momento de escribirla en 
+el archivo "sonic", asi como en el archivo principal "pingpong" , 
+asi como en el archivo "imprimepantalla"
+
+Tengo un archivo principal que se llama "pinpong.vhd", el cual maneja la señal que 
+genera el archivo "sonic.vhd", el nombre de la señal es "sonicplayer1", esta señal
+puede ser un 1 o un 0 , y se va a usar en el archivo "imprime_pantalla.vhd"
+para que interactue con la interfaz que genera y mueva arriba o abajo la raqueta del 
+jugador 1 del juego de pingpong que es el programa entero.
+En que parte de cada archivo me recomiendas poner la señal ya sea en la seccion de puertos
+o como un puerto generico, en un componente, en la instancia del componente o señal como tal.
+en que momento tiene que ser IN, OUT, BUFFER, etc.
+Quiero que me des todas tus recomendaciones y el porque de cada una

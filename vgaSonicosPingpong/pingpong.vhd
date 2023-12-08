@@ -168,7 +168,15 @@ architecture PINGPONG_bhv of PINGPONG is
 		);
 	end component controlador_vga;
 
-
+	component sonic IS
+	PORT ( 
+		clk :  IN STD_LOGIC; 
+		sensor_eco : IN  STD_LOGIC; 
+		led, sensor_disp : OUT  STD_LOGIC;
+		Ucm, Dcm : buffer  STD_LOGIC_VECTOR (6 DOWNTO 0);
+		sonicplayer: buffer STD_LOGIC
+	); 
+	END component sonic; 
 
 	
 	component imprime_pantalla is	
@@ -244,13 +252,13 @@ architecture PINGPONG_bhv of PINGPONG is
 begin
 
 	----Mapeando puertos para el divisor de frecuencias que nos de el reloj de control de pixeles
-	U0: divisor_frec	 
+	inst_div_f: divisor_frec	 
 		generic map (divisor => divisor)
 		port map(reloj_entrada => clk,  encendido => encendido,   reloj_salida => reloj_pixeles)
 	;
 	
 	--Mapeando puertos para Sincronizar la imagen del monitor VGA pixel a pixel
-	u1: controlador_vga	
+	ins_controlador_vga: controlador_vga	
 		generic map(
 			Psh => Psh,
 			Ihv => Ihv,
@@ -271,10 +279,34 @@ begin
 			habilitador 		=> habilitador
 		)
 	;
-					
+		
+	--Mapeando puertos para los ultrasonicos de los jufadores
+	ultra1 :sonic
+	port map(
+		clk 		=> clk,
+		sensor_eco  => sensor_eco1,
+		led 		=> led1, 
+		sensor_disp => sensor_disp1,
+		Ucm		    => Ucm1,
+		Dcm 		=> Dcm1,
+		sonicplayer => sonicplayer1
+	)
+	;
 
+	ultra2 :sonic
+		port map(
+			clk => clk,
+			sensor_eco   => sensor_eco2,
+			led 		 => led2, 
+			sensor_disp  => sensor_disp2,
+			Ucm 		 => Ucm2,
+			Dcm 		 => Dcm2,
+			sonicplayer => sonicplayer2
+		)
+	;
+	
 	--Mapeando puertos para poder Dibujar en pantalla el videojuego
-	u2: imprime_pantalla	
+	ins_imprime_pantalla: imprime_pantalla	
 		generic map(
 			Psh => Psh,
 			Ihv => Ihv,
@@ -298,9 +330,10 @@ begin
 			Vsync		=> Vsync,
 			habilitador		=> habilitador,
 			palancasjugadores=> palancasjugadores,
+			
 			start_game	=> start_game,
 			marcador_j1		=> marcador_j1,
-			marcador_j2		=> marcador_j2,
+			marcador_j2		=> marcador_j2, 
 			R		    => R,
 			G			=> G,
 			B			=> B
@@ -309,19 +342,19 @@ begin
 				
 	
 	--Mapeando puertos para el reloj de los jugadores
-	u3: divisor_frec 
+	ins_reloj_jugadores: divisor_frec 
 		generic map (divisor => divisor_raqueta )
 		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_raquetas)
 	;
 	
 	----Mapeando puertos para el reloj de la pelota
-	u5: divisor_frec
+	ins_reloj_pelota: divisor_frec
 		generic map (divisor => divisor_pelota)
 		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_pelota)
 	;
 	
 	----Mapeando puertos para mostrar en pantalla los marcadores
-	u4: marcador_dss
+	ins_marcador: marcador_dss
 		port map(marcador_j1 => marcador_j1, marcador_j2 => marcador_j2, seg_marcador_j1 => seg_marcador_j1, separador1_marcador => separador1_marcador, separador2_marcador => separador2_marcador, seg_marcador_j2 => seg_marcador_j2 )
 	;
 	

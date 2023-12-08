@@ -100,15 +100,135 @@
 					"strict" : false
 				},
 				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_disp1",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_disp2",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Ucm2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dcm2[6]",
+					"strict" : false
+				},
+				{
 					"name" : "encendido",
-					"strict" : false
-				},
-				{
-					"name" : "palancasjugadores[1]",
-					"strict" : false
-				},
-				{
-					"name" : "palancasjugadores[0]",
 					"strict" : false
 				},
 				{
@@ -117,6 +237,14 @@
 				},
 				{
 					"name" : "start_game",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco1",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco2",
 					"strict" : false
 				}
 			]
