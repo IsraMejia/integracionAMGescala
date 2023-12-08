@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
  
 entity PINGPONG is  
-	generic( 
+	generic(
 	
 		divisor:integer := 2; --divisor de frecuencia por defecto
 		
@@ -53,7 +53,7 @@ entity PINGPONG is
 		--cambiar a std_logic
 		
 		--Vectores RGB para los colores al momento de dibujar la interfaz del juego en el monitor VGA
-		R, G, B 		 : out std_logic_vector(3 downto 0);
+		R, G, B 		 : out std_logic_vector(3 downto 0)
 
 		--Para los sensores Ultrasonicos de cada jugador
 		sensor_eco1 : IN STD_LOGIC; 
@@ -89,10 +89,13 @@ architecture PINGPONG_bhv of PINGPONG is
 
 		--Asignacion de Pines
 		ATTRIBUTE chip_pin : STRING;
-		attribute chip_pin of clk	       : signal is "N14"; 
-		attribute chip_pin of encendido	       : signal is "A12";		
+		attribute chip_pin of clk	       : signal is "N14";
+		attribute chip_pin of reset	       : signal is "F15";
+		
+		attribute chip_pin of direction_switch : signal is "C10,C11,C12,A12";
 		attribute chip_pin of start_game       : signal is "B8";
-				
+		
+		
 		attribute chip_pin of Hsync	       : signal is "N3";
 		attribute chip_pin of Vsync	       : signal is "n1";
 		
@@ -100,21 +103,23 @@ architecture PINGPONG_bhv of PINGPONG is
 		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
 		attribute chip_pin of B		       : signal is "P1, T1, P4, N2";
 		
-		ATTRIBUTE chip_pin OF seg_marcador_j1 : SIGNAL IS "F20,F19,H19,J18,E19,E20,F18";
+		attribute chip_pin of seg1	       : signal is "F20,F19,H19,J18,E19,E20,F18";
+		attribute chip_pin of seg2	       : signal is "B17,A18,A17,B16,E18,D18,C18";
 		attribute chip_pin of separador1_marcador : signal is "E17";
 		attribute chip_pin of separador2_marcador : signal is "B22";
-		ATTRIBUTE chip_pin OF seg_marcador_j2 : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
-
-		ATTRIBUTE chip_pin OF palancasjugadores : SIGNAL IS "C10,F15";
 		
 		--Para los sensores Ultrasonicos
 		ATTRIBUTE chip_pin OF led1 : SIGNAL IS "B11";
 		ATTRIBUTE chip_pin OF sensor_disp1 : SIGNAL IS "W6";
-		ATTRIBUTE chip_pin OF sensor_eco1 : SIGNAL IS "V5";       
+		ATTRIBUTE chip_pin OF sensor_eco1 : SIGNAL IS "V5";      
+		ATTRIBUTE chip_pin OF Ucm1 : SIGNAL IS "F20,F19,H19,J18,E19,E20,F18";
+		ATTRIBUTE chip_pin OF Dcm1 : SIGNAL IS "N20,N19,M20,N18,L18,K20,J20";
 				
 		ATTRIBUTE chip_pin OF led2 : SIGNAL IS "A8";
 		ATTRIBUTE chip_pin OF sensor_disp2 : SIGNAL IS "AB2";
-		ATTRIBUTE chip_pin OF sensor_eco2 : SIGNAL IS "AA2"; 
+		ATTRIBUTE chip_pin OF sensor_eco2 : SIGNAL IS "AA2";
+		ATTRIBUTE chip_pin OF Ucm2 : SIGNAL IS "C17,D17,E16,C16,C15,E15,C14"; 
+		ATTRIBUTE chip_pin OF Dcm2 : SIGNAL IS "B17,A18,A17,B16,E18,D18,C18";
 
 
 	--Componente que genera los relojes que se ocupan para el juego

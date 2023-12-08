@@ -40,6 +40,42 @@ B[0] <= imprime_pantalla:u2.B[0]
 B[1] <= imprime_pantalla:u2.B[1]
 B[2] <= imprime_pantalla:u2.B[2]
 B[3] <= imprime_pantalla:u2.B[3]
+sensor_eco1 => ~NO_FANOUT~
+led1 <= led1.DB_MAX_OUTPUT_PORT_TYPE
+sensor_disp1 <= sensor_disp1.DB_MAX_OUTPUT_PORT_TYPE
+Ucm1[0] << <GND>
+Ucm1[1] << <GND>
+Ucm1[2] << <GND>
+Ucm1[3] << <GND>
+Ucm1[4] << <GND>
+Ucm1[5] << <GND>
+Ucm1[6] << <GND>
+Dcm1[0] << <GND>
+Dcm1[1] << <GND>
+Dcm1[2] << <GND>
+Dcm1[3] << <GND>
+Dcm1[4] << <GND>
+Dcm1[5] << <GND>
+Dcm1[6] << <GND>
+sonicplayer1 << <GND>
+sensor_eco2 => ~NO_FANOUT~
+led2 <= led2.DB_MAX_OUTPUT_PORT_TYPE
+sensor_disp2 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+Ucm2[0] << <GND>
+Ucm2[1] << <GND>
+Ucm2[2] << <GND>
+Ucm2[3] << <GND>
+Ucm2[4] << <GND>
+Ucm2[5] << <GND>
+Ucm2[6] << <GND>
+Dcm2[0] << <GND>
+Dcm2[1] << <GND>
+Dcm2[2] << <GND>
+Dcm2[3] << <GND>
+Dcm2[4] << <GND>
+Dcm2[5] << <GND>
+Dcm2[6] << <GND>
+sonicplayer2 << <GND>
 
 
 |pingpong|divisor_frec:U0

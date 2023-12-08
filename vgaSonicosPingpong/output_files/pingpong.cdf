@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/output_files/") File("pingpong.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaSonicosPingpong/output_files/") File("pingpong.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
