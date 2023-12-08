@@ -68,6 +68,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "sonicplayer1",
+					"strict" : false
+				},
+				{
 					"name" : "led2",
 					"strict" : false
 				},
@@ -129,6 +133,10 @@
 				},
 				{
 					"name" : "Dcm2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sonicplayer2",
 					"strict" : false
 				},
 				{

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica07
-Thu Dec 07 16:27:16 2023
+Fri Dec 08 02:07:51 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,13 +13,12 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Source assignments for Top-level Entity: |sonicos
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Source assignments for Top-level Entity: |sonicos
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,15 +45,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Dec 07 16:27:16 2023       ;
+; Analysis & Synthesis Status        ; Successful - Fri Dec 08 02:07:51 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica07                                  ;
 ; Top-level Entity Name              ; sonicos                                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 193                                         ;
-;     Total combinational functions  ; 171                                         ;
-;     Dedicated logic registers      ; 110                                         ;
-; Total registers                    ; 110                                         ;
+; Total logic elements               ; 199                                         ;
+;     Total combinational functions  ; 177                                         ;
+;     Dedicated logic registers      ; 112                                         ;
+; Total registers                    ; 112                                         ;
 ; Total pins                         ; 37                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -183,20 +182,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 193       ;
+; Estimated Total logic elements              ; 199       ;
 ;                                             ;           ;
-; Total combinational functions               ; 171       ;
+; Total combinational functions               ; 177       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 85        ;
-;     -- 3 input functions                    ; 14        ;
+;     -- 4 input functions                    ; 89        ;
+;     -- 3 input functions                    ; 16        ;
 ;     -- <=2 input functions                  ; 72        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 109       ;
+;     -- normal mode                          ; 115       ;
 ;     -- arithmetic mode                      ; 62        ;
 ;                                             ;           ;
-; Total registers                             ; 110       ;
-;     -- Dedicated logic registers            ; 110       ;
+; Total registers                             ; 112       ;
+;     -- Dedicated logic registers            ; 112       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 37        ;
@@ -204,9 +203,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 110       ;
-; Total fan-out                               ; 975       ;
-; Average fan-out                             ; 2.75      ;
+; Maximum fan-out                             ; 112       ;
+; Total fan-out                               ; 1003      ;
+; Average fan-out                             ; 2.76      ;
 +---------------------------------------------+-----------+
 
 
@@ -215,22 +214,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name   ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
-; |sonicos                   ; 171 (0)             ; 110 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 37   ; 0            ; 0          ; |sonicos              ; sonicos     ; work         ;
-;    |sonic:ultra1|          ; 85 (85)             ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra1 ; sonic       ; work         ;
-;    |sonic:ultra2|          ; 86 (86)             ; 55 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra2 ; sonic       ; work         ;
+; |sonicos                   ; 177 (0)             ; 112 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 37   ; 0            ; 0          ; |sonicos              ; sonicos     ; work         ;
+;    |sonic:ultra1|          ; 89 (89)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra1 ; sonic       ; work         ;
+;    |sonic:ultra2|          ; 88 (88)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |sonicos|sonic:ultra2 ; sonic       ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; sonic:ultra2|sonicplayer              ; Stuck at VCC due to stuck port data_in ;
-; sonic:ultra1|sonicplayer              ; Stuck at VCC due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -238,7 +226,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 110   ;
+; Total registers                              ; 112   ;
 ; Number of registers using Synchronous Clear  ; 66    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -253,16 +241,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra1|centimetros[11]     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra1|centimetros_dece[1] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra2|centimetros[1]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra1|centimetros[9]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra1|centimetros_dece[2] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sonicos|sonic:ultra2|centimetros[4]      ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra2|centimetros_dece[3] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra1|centimetros_unid[0] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sonicos|sonic:ultra2|centimetros_unid[3] ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra1|cuenta[15]          ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra2|cuenta[0]           ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra1|cuenta[16]          ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |sonicos|sonic:ultra2|cuenta[9]           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra1|Ucm[6]              ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra1|Dcm[2]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra1|Dcm[6]              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra2|Ucm[6]              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sonicos|sonic:ultra2|Dcm[6]              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
@@ -317,22 +305,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 37                          ;
-; cycloneiii_ff         ; 110                         ;
+; cycloneiii_ff         ; 112                         ;
 ;     ENA               ; 32                          ;
 ;     ENA SCLR          ; 66                          ;
-;     plain             ; 12                          ;
-; cycloneiii_lcell_comb ; 172                         ;
+;     plain             ; 14                          ;
+; cycloneiii_lcell_comb ; 177                         ;
 ;     arith             ; 62                          ;
 ;         2 data inputs ; 62                          ;
-;     normal            ; 110                         ;
-;         0 data inputs ; 1                           ;
+;     normal            ; 115                         ;
 ;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 6                           ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 85                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 89                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.55                        ;
+; Average LUT depth     ; 2.57                        ;
 +-----------------------+-----------------------------+
 
 
@@ -351,7 +338,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 07 16:26:55 2023
+    Info: Processing started: Fri Dec 08 02:07:30 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica07 -c Practica07
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -363,20 +350,17 @@ Info (12021): Found 2 design units, including 1 entities, in source file sonicos
     Info (12023): Found entity 1: sonicos File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 7
 Info (12127): Elaborating entity "sonicos" for the top level hierarchy
 Info (12128): Elaborating entity "sonic" for hierarchy "sonic:ultra1" File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 57
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sonicplayer1" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 14
-    Warning (13410): Pin "sonicplayer2" is stuck at VCC File: C:/Users/IsraCode/Documents/FI/2024-1/VLSI/vgaUltrasonicos2/sonicos.vhd Line: 19
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 230 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 238 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 193 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4785 megabytes
-    Info: Processing ended: Thu Dec 07 16:27:16 2023
+    Info (21061): Implemented 201 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4773 megabytes
+    Info: Processing ended: Fri Dec 08 02:07:51 2023
     Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Total CPU time (on all processors): 00:00:39
 
 

@@ -2,8 +2,8 @@
 clk => sonic:ultra1.clk
 clk => sonic:ultra2.clk
 sensor_eco1 => sonic:ultra1.sensor_eco
-led1 <= sonic:ultra1.led
-sensor_disp1 <= sonic:ultra1.sensor_disp
+led1 << sonic:ultra1.led
+sensor_disp1 << sonic:ultra1.sensor_disp
 Ucm1[0] << sonic:ultra1.Ucm[0]
 Ucm1[1] << sonic:ultra1.Ucm[1]
 Ucm1[2] << sonic:ultra1.Ucm[2]
@@ -20,8 +20,8 @@ Dcm1[5] << sonic:ultra1.Dcm[5]
 Dcm1[6] << sonic:ultra1.Dcm[6]
 sonicplayer1 << sonic:ultra1.sonicplayer
 sensor_eco2 => sonic:ultra2.sensor_eco
-led2 <= sonic:ultra2.led
-sensor_disp2 <= sonic:ultra2.sensor_disp
+led2 << sonic:ultra2.led
+sensor_disp2 << sonic:ultra2.sensor_disp
 Ucm2[0] << sonic:ultra2.Ucm[0]
 Ucm2[1] << sonic:ultra2.Ucm[1]
 Ucm2[2] << sonic:ultra2.Ucm[2]

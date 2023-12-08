@@ -144,12 +144,15 @@ BEGIN
 	BEGIN 
 		IF rising_edge(clk) THEN
 			--IF (sal_unid = X"4" AND (sal_dece >= X"2" AND sal_dece <= X"6")) THEN
-			IF (sal_unid = X"4" AND sal_dece > X"1" ) THEN --24 pa arriba es 1
+			IF (sal_unid > X"0" AND sal_dece > X"1" ) THEN --24 pa arriba es 1
 				led <= '1'; 
 				sonicplayer <= '1';
+			ELSIF (sal_unid = X"0" AND sal_dece = X"3") THEN --es igual a 34 lo deja pasar
+				led <= '1'; 
+				sonicplayer <= '0';
 			ELSE
 				led <= '0'; 
-				sonicplayer <= '1';
+				sonicplayer <= '0';
 			END IF;
 		END IF;
 	END PROCESS;
