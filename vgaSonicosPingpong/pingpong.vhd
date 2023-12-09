@@ -365,10 +365,12 @@ begin
 	
 	----Mapeando puertos para mostrar en pantalla los marcadores
 	ins_marcador: marcador_dss
-		port map(marcador_j1 => marcador_j1, marcador_j2 => marcador_j2, seg_marcador_j1 => seg_marcador_j1, separador1_marcador => separador1_marcador, separador2_marcador => separador2_marcador, seg_marcador_j2 => seg_marcador_j2 )
+		port map(
+			marcador_j1 => marcador_j1, marcador_j2 => marcador_j2, 
+			seg_marcador_j1 => seg_marcador_j1, separador1_marcador => separador1_marcador, 
+			separador2_marcador => separador2_marcador, seg_marcador_j2 => seg_marcador_j2 
+		)
 	;
-	
-
-
 					
 end PINGPONG_bhv;
+

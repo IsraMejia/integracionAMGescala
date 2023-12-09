@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica12
-Fri Dec 08 04:48:38 2023
+Fri Dec 08 10:08:03 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Dec 08 04:48:38 2023       ;
+; Analysis & Synthesis Status        ; Successful - Fri Dec 08 10:08:03 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Practica12                                  ;
 ; Top-level Entity Name              ; principal                                   ;
@@ -305,7 +305,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Dec 08 04:48:16 2023
+    Info: Processing started: Fri Dec 08 10:07:42 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica12 -c Practica12
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -402,9 +402,9 @@ Info (21057): Implemented 78 device resources after synthesis - the final resour
     Info (21059): Implemented 11 output pins
     Info (21061): Implemented 65 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Fri Dec 08 04:48:38 2023
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Peak virtual memory: 4785 megabytes
+    Info: Processing ended: Fri Dec 08 10:08:03 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:36
 
 

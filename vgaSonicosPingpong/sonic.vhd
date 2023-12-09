@@ -37,7 +37,6 @@ ARCHITECTURE Behavioral OF sonic IS
  
 
 BEGIN
-
 	Trigger : PROCESS (clk) BEGIN
 		IF rising_edge(clk) THEN
 			
@@ -157,8 +156,5 @@ BEGIN
 		END IF;
 	END PROCESS;
 
-	
-	
-	
-
 END Behavioral;
+

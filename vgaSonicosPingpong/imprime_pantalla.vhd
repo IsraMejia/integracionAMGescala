@@ -61,7 +61,7 @@ entity imprime_pantalla is
 		sonicplayer1: in STD_LOGIC; 
         sonicplayer2: in STD_LOGIC   
 	
-		);
+	);
 		
 end entity imprime_pantalla;
 
@@ -136,9 +136,7 @@ begin
 
 
 	
-	
-	--Proceso de los movimientos de las raquetas del juego
-	--process(reloj_raquetas, encendido, palancasjugadores) begin	
+	 
 	process(reloj_raquetas, encendido, sonicplayer1, sonicplayer2 ) begin	
 		if(encendido = '0') then
 			--Si esta apagado, movemos las raquetas a las posiciones iniciales del juego
@@ -154,16 +152,14 @@ begin
 				coord_x_raqueta1 <= 50;
 				coord_x_raqueta2 <= 590;
 				
-				--MovimientoRaqueta Jugador1 	(pin c11)			
-				--if(palancasjugadores(0) = '0') then
+				 
 				if(sonicplayer1 = '0') then
 					if( coord_y_raqueta1  = Fvv - Ivv - MedidaVerticalRaqueta +30) then --525-35=490  / -7=7cm
 						coord_y_raqueta1 <= Fvv - Ivv - MedidaVerticalRaqueta +30; -- si llega el jugador 1 al fin vertical, ahi pare
 					else coord_y_raqueta1 <= coord_y_raqueta1 + 1;
 						--caso contrario siga bajando
 					end if;
-				end if;				
-				--if(palancasjugadores(0) = '1') then 
+				end if;				 
 				if(sonicplayer1 = '1') then 
 					if( coord_y_raqueta1  = MedidaVerticalRaqueta +15 ) then -- -25 = 1falta
 						coord_y_raqueta1 <= MedidaVerticalRaqueta +15 ; -- si llega el jugador 1 al incio vertical, ahi pare
@@ -172,10 +168,7 @@ begin
 					end if;
 				end if;
 				
-
-				
-				--MovimientoRaqueta Jugador2 (pin c10)	
-				--if(palancasjugadores(1) = '0') then
+ 
 				if(sonicplayer2 = '0') then
 					if( coord_y_raqueta2  = Fvv - Ivv - MedidaVerticalRaqueta + 30) then --525-35=490
 						coord_y_raqueta2 <= Fvv - Ivv - MedidaVerticalRaqueta + 30;-- si llega el jugador 2 al fin vertical, ahi pare
@@ -407,6 +400,8 @@ begin
 			end case;
 		end if;
 	end process;
+	
+
 	
 	--Proceso que pausa o reanuda el juego
 	process(Estado) begin
